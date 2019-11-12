@@ -1,41 +1,3 @@
-<<<<<<< HEAD
-title: momoci99
-author: momoci99
-email: momoci99@gmail.com
-description: > # this means to ignore newlines until "show_exerpts:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-show_excerpts: true # set to true to show excerpts on the homepage
-baseurl: /texture
-
-# Minima date format
-# refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
-sass:
-  sass_dir: _sass
-
-permalink: /posts/:title/
-texture:
-  title: momoci99
-  tagline: Developer
-  date_format: "%b %-d, %Y"
-  style: black
-  showNav: false
-  showPicker: true
-
-  # generate social links in footer
-  social_links:
-    twitter: 
-    github:  https://github.com/momoci99
-    linkedIn: 
-    rss: rss
- 
-
-# If you want to link only specific pages in your header, uncomment
-# this and add the path to the pages in order as they should show up
-#header_pages:
-# - about.md
-=======
 # Welcome to Jekyll!
 #
 # This config file is meant for settings that affect your whole blog, values
@@ -59,7 +21,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: ""
 github_username:  momoci99
->>>>>>> parent of d89c69b... change theme
+
 
 # Build settings
 markdown: kramdown
