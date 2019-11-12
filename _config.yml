@@ -1,4 +1,4 @@
-title: Texture Theme
+title: momoci99
 author: momoci99
 email: momoci99@gmail.com
 description: > # this means to ignore newlines until "show_exerpts:"
@@ -15,8 +15,8 @@ sass:
 
 permalink: /posts/:title/
 texture:
-  title: Adam Denisov
-  tagline: Developer. Designer
+  title: momoci99
+  tagline: Developer
   date_format: "%b %-d, %Y"
   style: black
   showNav: false
@@ -24,9 +24,9 @@ texture:
 
   # generate social links in footer
   social_links:
-    twitter: thelehhman
-    github:  thelehhman
-    linkedIn: in/thelehhman
+    twitter: 
+    github:  https://github.com/momoci99
+    linkedIn: 
     rss: rss
  
 
