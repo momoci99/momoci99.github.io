@@ -1,8 +1,6 @@
 ---
-layout: post
+layout: single
 title:  "4월 회고"
-date:   2019-04-28 23:46:00 +0900
-categories: MonthReview
 ---
 
 
