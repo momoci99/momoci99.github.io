@@ -164,7 +164,7 @@ NoSQL 기반의 MongoDB는 평소에 이름만 알았지 실제 프로그램 개
 
 도메인과 인스턴스를 연결하기 위해서는 [route 53](https://aws.amazon.com/ko/route53/)에서 연결하려는 인스턴스와 도메인간의 쿼리를 생성하면 된다.
 
-![route53](https://github.com/momoci99/momoci99.github.io/blob/master/assets/img/dev_review_songi_stock/route53.PNG?raw=true)
+![route53](https://github.com/momoci99/momoci99.github.io/blob/master/assets/img/dev_review_songi_stock/route53.png?raw=true)
 
 
 
