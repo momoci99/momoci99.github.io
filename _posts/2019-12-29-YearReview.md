@@ -65,5 +65,5 @@ tag :
 
 - 프론트 엔드 개발자로 취업(1월 내)
 - 신규경험 : TypeScript, React Native, Vue.js
-- 숙련 : React, CSS, SCSS, 웹 관련 전반적인 지식
+- 숙련 : javacript(es6), React, CSS, SCSS, 웹 관련 전반적인 지식
 
