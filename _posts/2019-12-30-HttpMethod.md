@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "HTTP reqeust method 정리"
+title:  "HTTP reqeust method 정리(작성중)"
 tag : 
     - Http
     - GET
@@ -85,10 +85,102 @@ GET에 대해 좀더 기술하자면 GET은 body가 없는 구조이지만 임�
 
 | 항목                         | 유무|
 |------------------------------|-----|
-| Request has body             | YES  |
+| Request has body             | Yes  |
 | Successful response has body | Yes |
 | Safe                         | `NO` |
 | Idempotent                   | `NO` |
 | Cacheable                    | 새 정보가 포함되었을 때만 |
 | Allowed in HTML forms        | Yes |
 
+- `POST` 메서드는 데이터를 서버로 보내는 방법 중 하나이다. request의 body 타입은 Content-Type 헤더에 따라 결정된다. 예를 들어
+
+> application/x-www-for 
+    
+    POST / HTTP/1.1
+    Host: foo.com
+    Content-Type: application/x-www-form-urlencoded
+    Content-Length: 13
+
+    say=Hi&to=Mom
+
+POST 요청이 위와 같을때(Content-Type: application/x-www-form-urlencoded) html form 을 통해 POST 요청을 한것을 알수 있고 body의 데이터가 `key`=`value` 형태를 가지고 있는것을 알수있다.
+
+> multipart/form-data
+
+    POST /test.html HTTP/1.1 
+    Host: example.org 
+    Content-Type: multipart/form-data;boundary="boundary" 
+
+    --boundary 
+    Content-Disposition: form-data; name="field1" 
+
+    value1 
+    --boundary 
+    Content-Disposition: form-data; name="field2"; filename="example.txt" 
+
+    value2
+
+이번에는 Content-Type: multipart/form-data; 이다. body의 데이터가 `key`:`value` 형태인것을 알수있다.
+
+이 Content-Type에 따라 body 데이터 형식이 달라지니 유의해야하고 서버에서 처리할때도 유의하는것이 좋다.
+
+- 동작의 유사성으로 `PUT`과 비슷하나 `멱등성`에서 차이가 있다. PUT은 몇번을 호출하던 같은 결과를 가지고 오지만 POST는 호출할때마다 그 결과가 달라진다. 
+
+- POST request는 보통 HTML form 을 통해 서버에 데이터를 전송하고 서버상에 변경사항을 만든다. 예를들어 HTML form에 입력한 데이터는 서버에 전송되고 해당 데이터가 서버에서 적절히 처리되고 변경된다. 
+
+*예제코드*
+
+```html
+<form action="/my-handling-form-page" method="post">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" />
+    </div>
+    <div>
+        <label for="mail">E-mail:</label>
+        <input type="email" id="mail" />
+    </div>
+    <div>
+        <label for="msg">Message:</label>
+        <textarea id="msg"></textarea>
+    </div>
+    
+    <div class="button">
+        <button type="submit">Send your message</button>
+    </div>
+</form>
+
+```
+
+- POST는 body에 파라미터가 저장된다 따라서 GET과는 달리 파라미터가 URL에 노출되는 일이 없다. 이는 GET과 POST의 주요 차이점 중 하나이다. 여기서 궁금증이 하나가 떠오르는데 POST request에 GET 처럼 URL에 파라미터를 추가해서 보내는 방식은 어떠한가 대한것이다.
+
+물론 이에 대해 stackoverflow에 질문이 올라와있다. [HTTP POST with URL query parameters — good idea or not? [closed]
+](https://stackoverflow.com/questions/611906/http-post-with-url-query-parameters-good-idea-or-not) 의견이 매우매우 분분하지만 결국 다 하는소리가 `가능은 한데 하지마라` 가 주된 의견이다.
+
+이 글에서 나온 의견들을 찬찬히 살펴보면 GET과 POST는 왜 구분되어서 사용되어야 하는지, 두 request method의 차이점까지 드러난다. 
+
+- 서버에서 두가지 방식이 혼용된 요청을 받았을때 그걸 적절히 처리한다는 보장이 없다.
+- 프로그래머에게 혼란을 주게 된다.
+- GET은 멱등성이 있고 POST는 멱등성이 없다. 이 두가지 방식을 혼용하면 멱등성이 명확하지 않아 혼란만 준다.
+
+정리하면 GET과 POST는 구분되어 사용되어야한다. 이렇게 정리할 수 있겠다.
+
+- POST 방식은 request body에 데이터가 전달되는데 이때 body의 한도는 얼마인가? 라는 의문이 또 든다. 또 구글링해본 결과, GET의 URI 제약이 표준에 없는것처럼 마찬가지로 제한이 없고 브라우저 및 서버에 따라 결정된다.
+
+[Can HTTP POST be limitless?](https://stackoverflow.com/questions/2880722/can-http-post-be-limitless/55998160#55998160)
+
+한번 읽어보면 좋을것같다.
+
+
+
+## PUT
+
+## DELETE
+
+## CONNECT
+
+## OPTIONS
+
+## TRACE
+
+## PATCH
