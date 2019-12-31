@@ -1,10 +1,8 @@
 ---
 layout: single
-title:  "HTTP reqeust method 정리(작성중)"
+title:  "HTTP reqeust method 정리"
 tag : 
-    - Http
-    - GET
-    - POST
+    - HTTP
 ---
 
 # HTTP request method
@@ -175,12 +173,161 @@ POST 요청이 위와 같을때(Content-Type: application/x-www-form-urlencoded)
 
 ## PUT
 
+| 항목                         | 유무|
+|------------------------------|-----|
+| Request has body             | Yes  |
+| Successful response has body | `NO` |
+| Safe                         | `NO` |
+| Idempotent                   | Yes |
+| Cacheable                    | `NO` |
+| Allowed in HTML forms        | `NO` |
+
+
+HTTP PUT 방식은 새로운 자료를 만들거나 목표로 하는 기존의 자료를 요청 페이로드를 통해 교체함. 
+
+언뜻 보기에는 POST와 유사해보이나 멱등성, 캐쉬가능유무, HTML form 허가 유무에서 차이를 드러낸다. 이 내용은 좀더 아래 문단에서 정리하겠다.
+
+PUT에는 아래와같은 응답 규칙이 존재한다.
+
+- 서버에 자료가 없는 상태에서 PUT 요청이 성공적으로 해당 자료를 생성했을경우
+> 반드시 201(Created) 응답을 보내야함.
+
+- 만약 서버에 대표되는 자료가 있는 것을 목표로 하고 요청에 포함된 자료에 준하여 성공적으로 대표되는 자료가 수정한 경우
+> 반드시 200(OK) or 204(No Content)를 응답으로 보내야함.
+
+
+### POST vs PUT
+
+POST 와 PUT은 얼핏보기에 하는일이 정말 비슷해보인다. request에 담긴 페이로드를 가지고 서버의 상태를 변화시키는점이 매우 유사하기때문이다. 하지만 멱등성을 가지고 본다면 확연히 다른점을 알수있다.
+
+POST의 경우 **멱등성**이 없다. 동일한 POST request 요청을 보내면 동일한 결과를 가지고 온다는것을 장담할수 없다. 서버에서 특별한 처리를 하지 않는 이상은 말이다. 
+
+PUT의 경우 **멱등성**이 있다. PUT 요청을 보낸다면, 데이터의 존재유무에 따라 생성, 혹은 업데이트를 결정한다. 그 이후 동일한 데이터를 가지고 PUT요청을 계속 보낸다면 서버에 기존 데이터가 있는한, 계속 업데이트를 할것이다.
+
+나또한 과거에 POST 요청과 PUT 요청을 나누지 않고 POST로 퉁(?)쳐서 처리하곤 했으나 이는 바람직하지 않으므로 구분지어야 한다.
+
+아래 링크는 REST API관점으로 본 POST와 PUT에 관한 질문이지만 POST vs PUT에 관한 열띤 토론과 의견이 있으니 한번 참고해보자.
+[put-vs-post-in-rest](https://stackoverflow.com/questions/630453/put-vs-post-in-rest)
+
+
 ## DELETE
+
+| 항목                         | 유무|
+|------------------------------|-----|
+| Request has body             | `NO`  |
+| Successful response has body | `NO` |
+| Safe                         | `NO` |
+| Idempotent                   | Yes |
+| Cacheable                    | `NO` |
+| Allowed in HTML forms        | `NO` |
+
+DELETE 요청 메소드는 특정 리소스를 삭제한다. 
+
+DELETE 요청 또한 처리결과에 따라 아래의 응답 코드를 반환한다.
+
+- 요청이 정상적으로 받아들여졌고 곧 삭제될것이지만 아직 확실히 삭제되지는 않은 상태.
+> 202(Accepted)를 반환함.
+
+- 요청이 정상적으로 받아들여졌고 실제로 삭제까지 완료된 상태이며 별도의 응답이 필요없는 상태. (response가 비어있음)
+> 204(No Content)를 반환함
+
+- 요청이 정상적으로 받아들여졌고 실제로 삭제까지 완료된 상태이며 이에 대한 응답이 반환된 상태 (response에 메시지 전달됨)
+> 200(OK) 반환됨
+
+
+
+
+## PATCH
+
+| 항목                         | 유무|
+|------------------------------|-----|
+| Request has body             | Yes  |
+| Successful response has body | Yes |
+| Safe                         | `NO` |
+| Idempotent                   | `NO` |
+| Cacheable                    | `NO` |
+| Allowed in HTML forms        | `NO` |
+
+HTTP PATCH 메소드는 리소스의 부분적인 수정을 할 때에 사용된다. PUT 메소드가 떠오를 수 있는데 PUT은 멱등성을 가지고 있지만 PATCH는 멱등성이 없다.(다만 서버에서 멱등성을 가지게 할 수도 있다.)
+
+
 
 ## CONNECT
 
+| 항목                         | 유무|
+|------------------------------|-----|
+| Request has body             | `NO`  |
+| Successful response has body | Yes |
+| Safe                         | `NO` |
+| Idempotent                   | `NO` |
+| Cacheable                    | `NO` |
+| Allowed in HTML forms        | `NO` |
+
+CONNECT 요청은 요청한 리소스에 대해 양방향 연결을 시작하는 메소드 이다. 라고 되어 있는데 MDN의 설명이 나에게는 좀 부족하여 좀더 찾아본 결과 위키피디아의  [HTTP tunnel](https://en.wikipedia.org/wiki/HTTP_tunnel) 항목에서 찾을 수 있었다.
+
+HTTP CONNECT 요청은 두 컴퓨터간에 네트워크 터널링을 만들때 사용되는데 클라이언트가 프록시 서버에게 서버와 TCP 커넥션을 맺으라고 요구할때 사용된다.
+
+- 참고자료2 [When should one use CONNECT and GET HTTP methods at HTTP Proxy Server?](https://stackoverflow.com/questions/11697943/when-should-one-use-connect-and-get-http-methods-at-http-proxy-server/40329026)
+
+
+
 ## OPTIONS
+
+| 항목                         | 유무|
+|------------------------------|-----|
+| Request has body             | `NO`  |
+| Successful response has body | Yes |
+| Safe                         | Yes |
+| Idempotent                   | Yes |
+| Cacheable                    | `NO` |
+| Allowed in HTML forms        | `NO` |
+
+목표 리소스와의 통신 옵션을 설명하기 위해 사용된다. 예제를 보면 확실히 이해가 된다.
+
+요청
+
+    curl -X OPTIONS http://example.org -i
+
+응답 
+
+    HTTP/1.1 200 OK
+    Allow: OPTIONS, GET, HEAD, POST
+    Cache-Control: max-age=604800
+    Date: Thu, 13 Oct 2016 11:45:00 GMT
+    Expires: Thu, 20 Oct 2016 11:45:00 GMT
+    Server: EOS (lax004/2813)
+    x-ec-custom-error: 1
+    Content-Length: 0
+
+응답 메시지 헤더에 포함되어있는 `Allow` 헤더를 통해 허용되는 HTTP request를 알수있다. 이때 OPTIONS 자체를 허용하지 않는 경우는 405(Not Allowed)가 리턴된다.
+
+### Preflighted requests in CORS (Cross-Origin Resource Sharing)
+
+CORS에 관한 내용은 아래의 링크로 대체한다.
+
+- [CORS](https://brownbears.tistory.com/336)
+
+- [MDN-OPTIONS](https://developer.mozilla.org/ko/docs/Web/HTTP/Methods/OPTIONS)
+
+- [MDN-CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS)
+
+
 
 ## TRACE
 
-## PATCH
+| 항목                         | 유무|
+|------------------------------|-----|
+| Request has body             | `NO`  |
+| Successful response has body | `NO` |
+| Safe                         | `NO` |
+| Idempotent                   | Yes |
+| Cacheable                    | `NO` |
+| Allowed in HTML forms        | `NO` |
+
+TRACE method는 원격지에 대해 어플리케이션 레벨에서 루프백 요청을 수행한다. 
+
+- [https://tools.ietf.org/html/rfc7231#section-4.3.8](https://tools.ietf.org/html/rfc7231#section-4.3.8)
+
+
+
+
