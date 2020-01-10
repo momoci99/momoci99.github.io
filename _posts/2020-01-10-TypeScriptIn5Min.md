@@ -78,6 +78,7 @@ TypeScript는 인터페이스를 명시적으로 지원한다.
 
 
 - interface 예시
+
 ```ts
 interface Person {
     firstName: string;
