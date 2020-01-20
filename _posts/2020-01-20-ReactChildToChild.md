@@ -14,7 +14,10 @@ tag :
 
 ## 문제-형제관계(sibling)인 컴포넌트에서 데이터 전달방법에 대한 고민
 
-(그림)
+
+![problem_20200120_1](https://github.com/momoci99/momoci99.github.io/blob/master/assets/img/dev_review_songi_stock/problem_20200120_1.PNG?raw=true)
+
+
 
 
 > 결론은 Context API를 사용.
