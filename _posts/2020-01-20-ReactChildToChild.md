@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "[중간정리][Context] Child -> Child 로 데이터 전달하는방법"
+title:  "[React][ContextAPI] Child -> Child 로 데이터 전달하는방법"
 tag : 
     - React
     - Context
