@@ -62,7 +62,7 @@ Redux 와 Context API 둘다 문제를 해결할 수 있기때문에 각각 타�
 
 Context API와 Redux를 닭잡는 칼과 소잡는 칼로 비유하여 설명한 글인데 지금 개발하고있는 어플리케이션은 Redux를 사용할만큼 복잡하지 않고 Context API면 충분하다는 결론을 얻었다. 결국 `Context API`를 사용하였다.
 
-다만 Context API 바로 사용한것은 아니다. 문제가 되는 컴포넌트가 Hook API를 사용하고 있어서 Hook API에서 Context API를 사용하기 위해 `useContext`를 사용했고 Hook의 변경이 일어나는것에 대한 대응을 위해 `useReducer`를 사용하였다
+다만 Context API를 바로 사용한것은 아니다. 문제가 되는 컴포넌트가 Hook API를 사용하고 있어서 Hook API에서 Context API를 사용하기 위해 `useContext`를 사용했고 Hook의 변경이 일어나는것에 대한 대응을 위해 `useReducer`를 사용하였다
 
 
 ## 코드 적용
