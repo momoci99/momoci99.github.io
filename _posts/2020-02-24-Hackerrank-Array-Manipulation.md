@@ -15,8 +15,8 @@ tag :
 
 주어진 입력에 따라 일정 범위의 배열에 k 값을 더하면 된다. 하지만 이 문제는 시간 복잡도를 최적화해야하는 문제가 있다. 시간 복잡도가 n 을 초과하면 실패하므로 단순히 코딩만 해서는 통과할 수 없다.
 
-### 첫번째 시도
-문제의 설명을 그대로 따라 작성한 코드이다. 
+
+처음에는 문제의 설명을 그대로 따라 코드를 작성하였다. 
 
 - n 크기의 배열 생성
 - querires를 순회하면서 위에서 생성한 배열의 a 부터 b까지 k 값을 더한다.
@@ -100,7 +100,7 @@ example
 ```js
 
 function arrayManipulation(n, queries) {
-    //n보다 하나 더 큰 배열을 생성한다.
+    //주의! n보다 하나 더 큰 배열을 생성한다.
     let array = Array(n+1).fill(0);
     let arrayLength = array.length;
     let queriesLength = queries.length;
