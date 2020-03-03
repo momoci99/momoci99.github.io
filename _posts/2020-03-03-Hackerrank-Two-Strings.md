@@ -1,6 +1,6 @@
 ---
 layout: single
-title:  "Hackerrank Queue Two Strings"
+title:  "Hackerrank Two Strings"
 tag : 
     - Dictionaries and Hashmaps
     - Hackerrank
