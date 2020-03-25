@@ -281,11 +281,11 @@ describe('HelloWorld.vue', () => {
 })
 ```
 ### 테스트 결과
-![사진](https://github.com/momoci99/momoci99.github.io/blob/master/assets/img/vue-jest/test_result2.PNG?raw=true)
+![사진](https://github.com/momoci99/momoci99.github.io/blob/master/assets/img/vue-jest/test_result2.png?raw=true)
 
 각 테스트 코드를 실행한 결과를 출력해줍니다. 위 사진은 테스트를 모두 정상적으로 통과하였기에 100% 통과율을 보였지만, 아래 예제처럼 소스코드 내에 테스트 코드로 처리가 안된 부분이 있다면 해당 소스코드를 Uncoverd Line로 지정하여 파일명 및 위치를 출력합니다.
 
-![사진](https://github.com/momoci99/momoci99.github.io/blob/master/assets/img/vue-jest/test_result3.PNG?raw=true)
+![사진](https://github.com/momoci99/momoci99.github.io/blob/master/assets/img/vue-jest/test_result3.png?raw=true)
 
 ## 마무리
 
