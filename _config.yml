@@ -110,7 +110,7 @@ author:
   name             : "MO YEONG-KWON"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "오늘도 개발 내일도 개발"
-  location         : "Pohang, South Korea"
+  location         : "Seoul, South Korea"
   email            : "momoci99@gmail.com"
   links:
     - label: "Email"
