@@ -93,15 +93,13 @@ function onMediaError(e) {
 }
 ```
 
-## 두 라이브러리의 차이
-
 ### 있는듯 하면서 없는듯한 차이
 
 ### Blob 처리방식
 
 결론만 말하면 Blob을 처리하는 방식에 있다. RecordRTC.js는 Timeslice된 Blob을 파일로 만들면 재생이 불가능하다. 반면 MediaStreamRecorder.js는 Timeslice된 Blob을 파일로 만들게되면 재생이 가능한 차이가 있다.
 
-여기에 muaz-khan이 남긴 코멘트를 본다면 좀더 확실히 알 수 있다. [링크](https://github.com/muaz-khan/RecordRTC/issues/134#issuecomment-228486551)
+여기에 muaz-khan이 남긴 코멘트를 본다면 좀더 확실히 알 수 있다. MultiStreamRecorder 관련 이야기도 함께 들어있으나 코멘트 내용은 두 라이브러리가 추구하는 방식에 따른 차이가 있음을 알수있다. [링크](https://github.com/muaz-khan/RecordRTC/issues/134#issuecomment-228486551)
 
 ### 지속적인 지원
 
