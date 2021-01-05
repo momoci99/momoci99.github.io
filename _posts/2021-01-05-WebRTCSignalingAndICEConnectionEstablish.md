@@ -1,8 +1,8 @@
 ---
 layout: single
-title: 'WebRTC'
+title: 'WebRTC signaling and ICE connection establish'
 tag:
-  - WebRTC signaling and ICE connection establish
+  - WebRTC
 ---
 
 WebRTC 시그널링 및 ICE 세션 수립 과정을 간단하게 정리하였습니다.
