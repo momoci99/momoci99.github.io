@@ -73,9 +73,6 @@ MediaRecorder의 mimeType에 `video/mp4`를 지정하여 해결이 된다면 참
 방법 2. https://github.com/ffmpegwasm/ffmpeg.wasm 로 mp4 컨버팅
 - 브라우저에서 변환하는 방법입니다. 별도의 서버가 필요없겠지만 클라이언트의 성능이 일정 이상이어야하며, 무엇보다 도중에 브라우저를 종료하면 컨버팅과정이 모두 날아가버립니다. 
 
-방법 3. Window Media Player 버리기
-- 버릴수만 있었으면 이 글이 작성되지는 않았을겁니다.
-
 
 # 결론
 - MediaRecorder는 mp4 컨테이너를 지원하지 않습니다.
