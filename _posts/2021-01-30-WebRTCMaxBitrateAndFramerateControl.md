@@ -81,6 +81,6 @@ localStream
 ## bitrate
 - unlimited to 2M, unlimited to 1M 모두 이상없이 동작하였습니다.
 - 인코딩 정보를 수정하는것이기 때문에 송신측은 영향을 안받고 수신측에서 송신측이 보내는 영상을 받을 때 영향이 있었습니다.
-- bitrate 자체가 낮아지면 framerate도 함께 함소하는것을 확인하였습니다.
+- bitrate 자체가 낮아지면 framerate도 함께 감소하는것을 확인하였습니다.
 
 
