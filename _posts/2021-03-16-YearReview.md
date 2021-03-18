@@ -55,3 +55,6 @@ tag:
 
 ## 줄이며
 작년에는 코로나-19로 인해 많은 사람들이 고통받았고 저또한 그랬습니다만, 힘들었던 시간을 뒤로하고 앞으로 나아가는 시간을 더 많이 가졌으면 좋겠네요.
+
+
+![pengsu_let's go](https://github.com/momoci99/momoci99.github.io/blob/master/assets/img/Etc/go_pengsu.jpeg?raw=true)
