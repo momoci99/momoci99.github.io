@@ -5,7 +5,7 @@ tag:
   - WebRTC
 ---
 
-이 글은 Modern Javascript: Everything you missed over the last 10 years 에서 영감을 받은 글입니다.
+WebRTC & Google Congestion Control
 
 # 개요
 
