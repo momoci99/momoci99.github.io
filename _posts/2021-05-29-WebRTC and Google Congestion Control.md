@@ -95,4 +95,9 @@ GCC는 회선이 포화될때 까지 bitrate를 계속 증가시킵니다. 만�
 1. WebRTC의 혼잡 제어 및 표준화 관련 이슈 : [Congestion Control for WebRTC: Standardization Status and Open Issues](https://www.researchgate.net/publication/317620792_Congestion_Control_for_WebRTC_Standardization_Status_and_Open_Issues)
 2. WebRTC 영상 흐름 제어 구조 - Google Congestion Control : [https://qiita.com/komasshu/items/1cb5d4469595a635c689?fbclid=IwAR2i8ilRnGFnGfK0S_OuNlXFurPyZXM5iTUrse1Ih-wBQiW3uvzK0GXR-zE](https://qiita.com/komasshu/items/1cb5d4469595a635c689?fbclid=IwAR2i8ilRnGFnGfK0S_OuNlXFurPyZXM5iTUrse1Ih-wBQiW3uvzK0GXR-zE)
 
-3. [IETF GCC 링크](https://datatracker.ietf.org/doc/html/draft-ietf-rmcat-gcc-02)
+3. Performance Analysis
+   of Google Congestion
+   Control Algorithm for
+   WebRTC : [https://repository.tudelft.nl/islandora/object/uuid%3A406dae1c-bc39-4973-9f82-0977a7bacdbf](https://repository.tudelft.nl/islandora/object/uuid%3A406dae1c-bc39-4973-9f82-0977a7bacdbf)
+
+4. [IETF GCC 링크](https://datatracker.ietf.org/doc/html/draft-ietf-rmcat-gcc-02)
