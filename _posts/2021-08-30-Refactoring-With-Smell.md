@@ -5,7 +5,7 @@ tag:
   - Refactoring
 ---
 
-저는 일하기 귀찮을때 가끔씩 제가 개발했던 코드를 한번씩 훑어보곤 합니다. 그때마다 악취가 올라오는 코드를 발견하면 지체없이 리팩터링 2판을 끼고 이 부분을 어떻게 개선하면 좋을 지 즐거운(?) 고민을 하곤 합니다. 
+저는 일하기 귀찮을때 가끔씩 제가 개발했던 코드를 한번씩 훑어보곤 합니다. 그때마다 악취가 올라오는 코드를 발견하면 지체없이 리팩터링 2판을 끼고 이 부분을 어떻게 개선하면 좋을 지 즐거운(?) 고민을 하곤 합니다.
 
 이번 글에는 리팩터링2판 내용중 냄새나는 코드의 특징 및 연관된 내용을 담았습니다.
 
@@ -23,12 +23,12 @@ tag:
 
 정말.. 어렵습니다😩
 
-**Example - meme** 
+**Example - meme**
 
 ```jsx
 const zoneBer = (time) => {
-	//time만큼 실행을 대기하는 함수
-}
+  //time만큼 실행을 대기하는 함수
+};
 ```
 
 '존버' 라는 밈을 모르면 알 수 없습니다. 재미는 있겠네요.
@@ -37,10 +37,10 @@ const zoneBer = (time) => {
 
 ```jsx
 const processPermission = (user) => {
-    //user의 권한을 확인
-		//user의 권한이 없으면 권한을 요청함.
-    //user의 권한이 있으면 true 반환.
-}
+  //user의 권한을 확인
+  //user의 권한이 없으면 권한을 요청함.
+  //user의 권한이 있으면 true 반환.
+};
 ```
 
 process라는 말로는 어떤 행위를 하는지 명확하지 않습니다.
@@ -49,8 +49,8 @@ process라는 말로는 어떤 행위를 하는지 명확하지 않습니다.
 
 ```jsx
 const zoneIn = (user) => {
-	//user를 특정 구역에 진입처리 로직
-}
+  //user를 특정 구역에 진입처리 로직
+};
 ```
 
 `zoomIn` 으로 착각할 수 있습니다.
@@ -69,27 +69,27 @@ const zoneIn = (user) => {
 **Example - 비슷한 패턴이 반복**
 
 ```jsx
-var findManager = function(){
-  employees.forEach(function(person){
-    if (person.type == 'Manager') {
+var findManager = function () {
+  employees.forEach(function (person) {
+    if (person.type == "Manager") {
       console.log(person.name);
     }
-  })
-}
-var findCleaner = function(){
-  employees.forEach(function(person){
-    if (person.type == 'Cleaner') {
+  });
+};
+var findCleaner = function () {
+  employees.forEach(function (person) {
+    if (person.type == "Cleaner") {
       console.log(person.name);
     }
-  })
-}
-var findDeveloper = function(){
-  employees.forEach(function(person){
-    if (person.type == 'Developer') {
+  });
+};
+var findDeveloper = function () {
+  employees.forEach(function (person) {
+    if (person.type == "Developer") {
       console.log(person.name);
     }
-  })
-}
+  });
+};
 ```
 
 **Example - 동일한 코드가 반복**
@@ -97,18 +97,16 @@ var findDeveloper = function(){
 ```jsx
 const array_a = [];
 const array_b = [];
- 
+
 let sum_a = 0;
 
-for (let i = 0; i < 4; i++)
-   sum_a += array_a[i];
+for (let i = 0; i < 4; i++) sum_a += array_a[i];
 
 let average_a = sum_a / 4;
- 
+
 let sum_b = 0;
 
-for (let j = 0; j < 4; i++)
-   sum_b += array_b[j];
+for (let j = 0; j < 4; i++) sum_b += array_b[j];
 
 let average_b = sum_b / 4;
 ```
@@ -124,9 +122,9 @@ let average_b = sum_b / 4;
 - 긴 함수는 한번에 이해하기 어렵습니다.
 - Example - 정신이 혼미해질 정도로 긴 함수(JAVA)
 
-    ![long_java_1.png](https://raw.githubusercontent.com/momoci99/momoci99.github.io/master/assets/img/Refactoring-With-Smell/long_java_1.png)
+  ![long_java_1.png](https://raw.githubusercontent.com/momoci99/momoci99.github.io/master/assets/img/Refactoring-With-Smell/long_java_1.png)
 
-    ![long_java_2.png](https://raw.githubusercontent.com/momoci99/momoci99.github.io/master/assets/img/Refactoring-With-Smell/long_java_2.png)
+  ![long_java_2.png](https://raw.githubusercontent.com/momoci99/momoci99.github.io/master/assets/img/Refactoring-With-Smell/long_java_2.png)
 
 ### 어떻게 고치나요?
 
@@ -146,9 +144,21 @@ let average_b = sum_b / 4;
 **Example - 긴 매개 변수**
 
 ```jsx
-const createUser = (name, address, hobby, income, car, length, mailAddress, weight, friendLength, job, assets) => {
-	//User 객체를 생성하는 함수
-}
+const createUser = (
+  name,
+  address,
+  hobby,
+  income,
+  car,
+  length,
+  mailAddress,
+  weight,
+  friendLength,
+  job,
+  assets
+) => {
+  //User 객체를 생성하는 함수
+};
 ```
 
 ### 어떻게 고치나요?
@@ -168,12 +178,12 @@ const createUser = (name, address, hobby, income, car, length, mailAddress, weig
 **Example - const, let, var 없는 전역 변수 사용 😡**
 
 ```jsx
-globalFlag = true //const, let 심지어 var도 없는 끔찍한 전역 변수
+globalFlag = true; //const, let 심지어 var도 없는 끔찍한 전역 변수
 
-if(globalFlag){
-	//do bad thing
+if (globalFlag) {
+  //do bad thing
 } else {
-	//do hell thing
+  //do hell thing
 }
 ```
 
@@ -188,11 +198,11 @@ if(globalFlag){
 **Example - 변수가 계속 갱신되어 의미가 바뀌는 경우**
 
 ```jsx
-let temp = 2 * (height + width); 
-console.log(temp)
+let temp = 2 * (height + width);
+console.log(temp);
 
 temp = height * width;
-console.log(temp)
+console.log(temp);
 ```
 
 ### 어떻게 고치나요?
@@ -250,36 +260,36 @@ console.log(temp)
 - 하나의 클래스에 너무 많은 필드가 존재하는 경우입니다.
 - Example - 너무 많은 필드
 
-    ```tsx
-    class Animal {
-      name: string;
-    	addresss : string;
-      color: string;
-      food : string;
-      sleeepingTime : string;
-      age : number;
-      roomNumber : number;
-      manager : string;
-      zoo : string;
-      //그외 동물을 나타내는 간접적인 클래스 필드들..
-    	//
-    	//
-    	//
-    	//
-    	//
-    	//
-    	//
-    	//
-    	//..
+  ```tsx
+  class Animal {
+    name: string;
+    addresss: string;
+    color: string;
+    food: string;
+    sleeepingTime: string;
+    age: number;
+    roomNumber: number;
+    manager: string;
+    zoo: string;
+    //그외 동물을 나타내는 간접적인 클래스 필드들..
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //
+    //..
 
-      constructor(theName: string) {
-        this.name = theName;
-      }
-      move(distanceInMeters: number = 0) {
-        console.log(`${this.name} moved ${distanceInMeters}m.`);
-      }
+    constructor(theName: string) {
+      this.name = theName;
     }
-    ```
+    move(distanceInMeters: number = 0) {
+      console.log(`${this.name} moved ${distanceInMeters}m.`);
+    }
+  }
+  ```
 
 ### 어떻게 고치나요?
 
@@ -307,45 +317,45 @@ console.log(temp)
 - 계속 반복되는 switch - case 문은 변경을 어렵게 합니다.
 - 객체지향의 다형성 or Key-Value 방식으로 개선 할 수 있습니다.
 
-- Example -  긴 switch - case 문
+- Example - 긴 switch - case 문
 
-    ```jsx
-    const getFoodCategory = (food) => {
-      let category = null
-    	switch(food) {
-    	case 'coke':
-    		category = 'drink'
-    	  break;
-    	case 'pizza':
-    	  category = 'food';
-    	  break;
-    	case 'orange':
-    	case 'strawberry':
-    	case 'apple':
-    		category = 'fruit'
-    		break;
-    	case 'icecreame':
-    		category = 'indulgence'
-    		break;
-    	case 'vegetable':
-    		category = 'bean'
-    		category = 'tomato'
-    		break;
-    	case 'bread':
-    		category = 'bread'
-    		break;
-    	default:
-    	  category = 'Unknown food!';
-    	}
+  ```jsx
+  const getFoodCategory = (food) => {
+    let category = null;
+    switch (food) {
+      case "coke":
+        category = "drink";
+        break;
+      case "pizza":
+        category = "food";
+        break;
+      case "orange":
+      case "strawberry":
+      case "apple":
+        category = "fruit";
+        break;
+      case "icecreame":
+        category = "indulgence";
+        break;
+      case "vegetable":
+        category = "bean";
+        category = "tomato";
+        break;
+      case "bread":
+        category = "bread";
+        break;
+      default:
+        category = "Unknown food!";
     }
-    console.log(getFoodCategory('pizza'));
-    ```
+  };
+  console.log(getFoodCategory("pizza"));
+  ```
 
 ### 어떻게 고치나요?
 
 - 조건부 로직을 다형성으로 바꾸기
 
-# 반목문 (Loops)
+# 반복문 (Loops)
 
 - 단순 for, while loop는 파이프라인으로 처리 할 수 있습니다.
 - reduce, map, filter 등등..
@@ -393,10 +403,10 @@ console.log(temp)
 
 - Example
 
-    ```jsx
-    //memberName을 얻기 위해 총 3개의 객체에 접근하는 경우
-    const memberName = aPerson.department.manager.name;
-    ```
+  ```jsx
+  //memberName을 얻기 위해 총 3개의 객체에 접근하는 경우
+  const memberName = aPerson.department.manager.name;
+  ```
 
 ### 어떻게 고치나요?
 
