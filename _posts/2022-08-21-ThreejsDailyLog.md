@@ -5,23 +5,21 @@ tag:
   - threejs
 ---
 
-개요
-
 React + Typescript 환경에서 Threejs 사용시 활용했던 라이브러리 및 삽질했던 내용들을 간단하게 정리하였습니다.
 
-Threejs
+**Threejs**
 
 [https://github.com/mrdoob/three.js/](https://github.com/mrdoob/three.js/)
 
 웹 브라우저에서 3d 그래픽을 처리할 수 있게 해주는 라이브러리 입니다. 웹 브라우저에서 3d 관련 라이브러리 작업에는 거의 필수로 사용되고 있습니다. 물론 바닐라 상태로 사용해도 됩니다만, react에서 좀 더 편리하게 사용하기 위한 wrapper 라이브러리를 사용하는게 좋습니다.
 
-React Three Fiber
+**React Three Fiber**
 
 [https://github.com/pmndrs/react-three-fiber](https://github.com/pmndrs/react-three-fiber)
 
 react에서 threejs를 사용하기 위한 renderer입니다. threejs의 기본 컴포넌트를 react JSX.Element로 제공해주며, Custom Hook을 통해 보다 쉽게 threejs Object를 다룰 수 있게 해줍니다.
 
-Drei
+**Drei**
 
 https://github.com/pmndrs/drei
 
