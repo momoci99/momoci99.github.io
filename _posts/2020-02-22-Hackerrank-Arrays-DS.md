@@ -1,9 +1,9 @@
 ---
 layout: single
-title:  "Hackerrank Arrays DS"
-tag : 
-    - Array
-    - Hackerrank
+title: "Hackerrank Arrays DS"
+tag:
+  - Array
+  - Hackerrank
 ---
 
 # Arrays DS
@@ -18,16 +18,13 @@ tag :
 
 ```js
 function reverseArray(a) {
-
-    if(Array.isArray(a)){
-        let reversed = [];
-        let length = a.length;
-        for(let i = length-1; i>=0; i--){
-            reversed.push(a[i]);
-        }
-        return reversed;
-    
+  if (Array.isArray(a)) {
+    let reversed = [];
+    let length = a.length;
+    for (let i = length - 1; i >= 0; i--) {
+      reversed.push(a[i]);
     }
-
+    return reversed;
+  }
 }
 ```

@@ -1,9 +1,9 @@
 ---
 layout: single
-title:  "[npm] npm package 취약점(vulnerabilities) 해결"
-tag : 
-    - npm
-    - audit
+title: "[npm] npm package 취약점(vulnerabilities) 해결"
+tag:
+  - npm
+  - audit
 ---
 
 # 개요
@@ -14,9 +14,8 @@ tag :
 
 ![npm_audit](https://raw.githubusercontent.com/momoci99/momoci99.github.io/master/assets/img/dev_review_songi_stock/npm_audit.png)
 
-해당 메시지를 구글링 해보니 내가 사용하고 있는 package중 취약점 문제가 있으니 이를 해결하라는 
+해당 메시지를 구글링 해보니 내가 사용하고 있는 package중 취약점 문제가 있으니 이를 해결하라는
 일종의 경고문이였다.
-
 
 우선 어떤 package에서 취약점이 발견되었는지 확인 한 결과
 
@@ -39,7 +38,6 @@ tag :
 
 - [npm-err-refusing-to-delete-code-eexist](https://stackoverflow.com/questions/46541371/npm-err-refusing-to-delete-code-eexist/46541654#46541654)
 
-
 그렇다 밀어버리고 새로 설치하면 되는것이다. `npm install` 이 완료되었다. 그리고 위에서 진행한 과정을 다시 반복하였다.
 
 - npm update
@@ -60,8 +58,6 @@ comment를 보면 Babel7에서는 분명 해결되었다고 하는데 나는 bab
 결국 `"babel-cli": "^6.26.0"`를 `package.json` 에서 제거하고 npm 패키지를 모두 재설치한 후 아래의 메시지를 볼수있었다.
 
 ![npm_audit3](https://raw.githubusercontent.com/momoci99/momoci99.github.io/master/assets/img/dev_review_songi_stock/npm_audit3.png)
-
-
 
 # 마무리
 

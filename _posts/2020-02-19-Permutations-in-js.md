@@ -1,11 +1,10 @@
 ---
 layout: single
-title:  "순열에 대하여"
-tag : 
-    - Algorithm
-    - Permutation
+title: "순열에 대하여"
+tag:
+  - Algorithm
+  - Permutation
 ---
-
 
 # 참고사항
 
@@ -15,8 +14,8 @@ tag :
 (주의! 구글 번역기를 주로 사용하였으며 의역, 직역, 저의 주관이 함께 섞여있습니다. 정확한 의미는 링크를 타고 원문을 참고하여주시면 감사하겠습니다.)
 
 ## 들어가며
-순열 관련 글을 보다가 우연히 간단하게 잘 정리된 글을 보게되어 번역하고 정리하려고 한다.
 
+순열 관련 글을 보다가 우연히 간단하게 잘 정리된 글을 보게되어 번역하고 정리하려고 한다.
 
 이 기사는 이 기사는 매우 일반적인 인터뷰 질문인 집합의 모든 순열을 다루고 있습니다.
 ‘주어진 문자열의 모든 순열이나 순서를 얻는 함수를 구현합니다.'
@@ -30,7 +29,7 @@ tag :
 
 쉽네요! 글쎄.. 아직은 아니지만, 우리는 최소한 마지막에 무엇을 리턴해야하는지 알고있습니다. 즉 'abc'가 주어졌을때 결과는 다음과 같아야 합니다.
 
->['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+> ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
 
 먼저 이 문제가 자연스럽게 해결 될 수있는 방법을 살펴 보겠습니다. 'abc'가 주어지면 자연스럽게 첫 글자를 분리하고 다음 두 글자의 모든 순열을 찾습니다. 따라서“abc”의 경우 :
 
@@ -82,14 +81,11 @@ tag :
           결과에 정의된 문자와 내부순열의 문자를 더해 추가함
       return 결과
 
-
 ## 복잡도
+
 위 알고리즘의 시간 및 공간 복잡도는 생성 된 항목 수와 같아야합니다. 크기 n의 집합에 대한 고유 순열의 수는 n!이므로 알고리즘의 시간 및 공간 복잡도는 O (n!)입니다.
 
-
-
 ```js
-
 //주석
 function getAllPermutations(string) {
   var results = [];
@@ -118,4 +114,3 @@ function getAllPermutations(string) {
 ## 기타
 
 C++ 에는 [next_permutation](http://www.cplusplus.com/reference/algorithm/next_permutation/), [prev_permutation](http://www.cplusplus.com/reference/algorithm/prev_permutation/) 이 존재한다. 이 함수들은 지정된 범위에 따라 각각 다음순열, 이전순열을 구하는 함수이다. 혹시 관심이 있다면 찾아보자.
-
