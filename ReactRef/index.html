@@ -1,0 +1,768 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.17.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>React ref, useImperativeHandle, forwardRef - YKMO 기술 메모</title>
+<meta name="description" content="얼마전에 ref 를 활용해야하는 일이 생겨 React Hook 을 이용한 Ref 활용법에 대해 기록을 남기고자한다. 우선 Hook는 함수기반 컴포넌트에서 상태를 다를수 있는 기능을 제공하는 도구이다.">
+
+
+  <meta name="author" content="MO YEONG-KWON">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="YKMO 기술 메모">
+<meta property="og:title" content="React ref, useImperativeHandle, forwardRef">
+<meta property="og:url" content="https://momoci99.github.io//ReactRef/">
+
+
+  <meta property="og:description" content="얼마전에 ref 를 활용해야하는 일이 생겨 React Hook 을 이용한 Ref 활용법에 대해 기록을 남기고자한다. 우선 Hook는 함수기반 컴포넌트에서 상태를 다를수 있는 기능을 제공하는 도구이다.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2019-12-27T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://momoci99.github.io//ReactRef/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "MO YEONG-KWON",
+      "url": "https://momoci99.github.io//"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="YKMO 기술 메모 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          YKMO 기술 메모
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://github.com/momoci99" >About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">MO YEONG-KWON</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>나를 쥐어짜는 즐거움</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seoul, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/momoci99" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:momoci99@gmail.com">
+            <meta itemprop="email" content="momoci99@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="React ref, useImperativeHandle, forwardRef">
+    <meta itemprop="description" content="얼마전에 ref 를 활용해야하는 일이 생겨 React Hook 을 이용한 Ref 활용법에 대해 기록을 남기고자한다. 우선 Hook는 함수기반 컴포넌트에서 상태를 다를수 있는 기능을 제공하는 도구이다.">
+    <meta itemprop="datePublished" content="December 27, 2019">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">React ref, useImperativeHandle, forwardRef
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>얼마전에 ref 를 활용해야하는 일이 생겨 React Hook 을 이용한 Ref 활용법에 대해 기록을 남기고자한다. 우선 <a href="https://ko.reactjs.org/docs/hooks-intro.html">Hook</a>는 함수기반 컴포넌트에서 상태를 다를수 있는 기능을 제공하는 도구이다.</p>
+
+<p>함수형 컴포넌트와 Hook의 사용으로 재사용가능한 코드를 만드는데 도움을 주지만 컴포넌트 생명주기 및 ref 사용에 제약이 있다.</p>
+
+<p>이번에 문제가 된 부분은 Navi 영역중 About 버튼을 눌렀을때 Dialog를 출력시키는 기능을 구현하는것이였다.</p>
+
+<p><img src="https://github.com/momoci99/momoci99.github.io/blob/master/assets/img/Etc/ReactRef1.png?raw=true" alt="pic1" /></p>
+
+<p><img src="https://github.com/momoci99/momoci99.github.io/blob/master/assets/img/Etc/ReactRef2.png?raw=true" alt="pic2" /></p>
+
+<p>컴포넌트 구성은 아래와 같을때 NaviBar의 About 버튼 클릭으로 Dialog 컴포넌트의 출력 함수를 실행시켜야했다. 즉 부모가 자식의 상태를 변경시켜야하는 문제다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>- NaviBar
+    - Dialog
+</code></pre></div></div>
+
+<p>물론 Class 기반 컴포넌트를 사용하고 있다면 Parent쪽에 Child의 상태를 변경하는 함수를 전달하면 쉽게 해결될 문제지만…</p>
+
+<p>현재 사용하고 있는 <a href="https://material-ui.com/">Material UI</a> 라이브러리는 대부분의 컴포넌트이 Hook을 사용한 함수형 컴포넌트이다. 따라서 상태를 변경하기 쉽지가 않았다.</p>
+
+<p>그런고로 stockoverflow를 검색한 결과 useRef를 이용하기로 하였다.</p>
+
+<ul>
+  <li><a href="https://stackoverflow.com/questions/55889357/change-react-hook-state-from-parent-component">Change react hook state from parent component</a></li>
+</ul>
+
+<p>잠시 ref에 대해 짚고 넘어가자면  ref는 React에서 DOM에 대해 이름을 지정하는 기능이다. 이 ref 명을 통해 어느 DOM이던 컴포넌트던간에 접근이 가능한것이다.</p>
+
+<p>물론 장점이 있다면 단점이 있기 마련이다. 특히 단점이 매우 극명한데 React 공식 문서 및 여러 개발자 블로그에도 언급되듯 아래와 같은 단점이 있다.</p>
+
+<ol>
+  <li>컴포넌트의 캡슐화가 깨진다.</li>
+  <li>어디서 접근하는지 알수가 없다.</li>
+</ol>
+
+<p>따라서 공식문서에서는 <code class="language-plaintext highlighter-rouge">Ref</code>를 사용할때에는 아래의 경우에만 사용하도록 권장하고 있다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ref의 바람직한 사용 사례는 다음과 같습니다.
+
+포커스, 텍스트 선택영역, 혹은 미디어의 재생을 관리할 때.
+애니메이션을 직접적으로 실행시킬 때.
+
+서드 파티 DOM 라이브러리를 React와 같이 사용할 때.
+선언적으로 해결될 수 있는 문제에서는 ref 사용을 지양하세요.
+
+예를 들어, Dialog 컴포넌트에서 open()과 close() 메서드를 두는 대신, isOpen이라는 prop을 넘겨주세요.
+
+
+</code></pre></div></div>
+
+<p>현재 내가 겪고있는 문제가 딱 <code class="language-plaintext highlighter-rouge">서드 파티 DOM 라이브러리사용</code>에 해당된다.</p>
+
+<p>이야기가 좀 많이 옆길로 샌것같아 다시 바로잡으면, React Hook을 사용한 컴포넌트에서 Ref를 사용하기 위해서는 아래의 함수가 필요하다.</p>
+
+<ul>
+  <li>
+    <p><a href="https://ko.reactjs.org/docs/hooks-reference.html#useref">useRef</a></p>
+  </li>
+  <li>
+    <p><a href="https://ko.reactjs.org/docs/react-api.html#reactforwardref">forwardRef</a></p>
+  </li>
+  <li>
+    <p><a href="https://ko.reactjs.org/docs/hooks-reference.html#useimperativehandle">useImperativeHandle</a></p>
+  </li>
+</ul>
+
+<h2 id="useref">useRef</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">refContainer</span> <span class="o">=</span> <span class="nx">useRef</span><span class="p">(</span><span class="nx">initialValue</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>useRef는 .current 프로퍼티로 전달된 인자(initialValue)로 초기화된 변경 가능한 ref 객체를 반환합니다. 반환된 객체는 컴포넌트의 전 생애주기를 통해 유지될 것입니다.
+</code></pre></div></div>
+
+<p>좀 쉽게 생각하면 ref 객체를 반환받을수 있는 함수라고 볼수있다. 여기서 반환된 객체는 공식 문서에 나와있는것처럼 컴포넌트의 모든생애 주기를 통해 유지된다.</p>
+
+<h2 id="useimperativehandle">useImperativeHandle</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">useImperativeHandle</span><span class="p">(</span><span class="nx">ref</span><span class="p">,</span> <span class="nx">createHandle</span><span class="p">,</span> <span class="p">[</span><span class="nx">deps</span><span class="p">])</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>useImperativeHandle은 ref를 사용할 때 부모 컴포넌트에 노출되는 인스턴스 값을 사용자화(customizes)합니다. 항상 그렇듯이, 대부분의 경우 ref를 사용한 명령형 코드는 피해야 합니다. useImperativeHandle는 forwardRef와 더불어 사용하세요.
+</code></pre></div></div>
+
+<p>이 함수는 이름부터가 의미가 남다른데 Imperative의 뜻은 <code class="language-plaintext highlighter-rouge">피할수 없는</code>, <code class="language-plaintext highlighter-rouge">명령적인</code> 을 가지고 있다. 즉 강제로 사용하겠다는 의미를 가지고 있는것이다.</p>
+
+<h2 id="reactforwardref">React.forwardRef</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>React.forwardRef는 전달받은 ref 어트리뷰트를 하부 트리 내의 다른 컴포넌트로 전달하는 React 컴포넌트를 생성합니다. 이 기법은 잘 사용되지 않지만, 아래의 두 시나리오에서는 특히 유용합니다.
+</code></pre></div></div>
+
+<ul>
+  <li>DOM 엘리먼트로 ref 전달하기</li>
+  <li>고차 컴포넌트(Higher Order Component)로 ref 전달하기</li>
+</ul>
+
+<p>위 세개 함수의 역할을 정리하면 다음과 같이 정리할 수 있다.</p>
+
+<ul>
+  <li>useRef : ref 객체 반환</li>
+  <li>useImperativeHandle : ref 객체를 부모 컴포넌트에 노출</li>
+  <li>React.forwardRef : ref 어트리뷰트를 다른 컴포넌트로 전달.</li>
+</ul>
+
+<p>위 함수를 이용하여 실제 문제를 해결해보았다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">//forwardRef를 통해 전달</span>
+<span class="kd">const</span> <span class="nx">NaviDialogs</span> <span class="o">=</span> <span class="nx">forwardRef</span><span class="p">((</span><span class="nx">props</span><span class="p">,</span> <span class="nx">ref</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">open</span><span class="p">,</span> <span class="nx">setOpen</span><span class="p">]</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+
+  <span class="kd">const</span> <span class="nx">handleClickOpen</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">setOpen</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+  <span class="p">};</span>
+  <span class="kd">const</span> <span class="nx">handleClose</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">setOpen</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+  <span class="p">};</span>
+
+  <span class="c1">//https://ko.reactjs.org/docs/hooks-reference.html#useimperativehandle</span>
+  <span class="c1">//자식의 ref를 부모에게 노출시킴</span>
+  <span class="c1">//되도록 사용하면 안되는 패턴임</span>
+  <span class="nx">useImperativeHandle</span><span class="p">(</span><span class="nx">ref</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">handleClickOpen</span><span class="p">:</span> <span class="nx">handleClickOpen</span>
+    <span class="p">}</span>
+ <span class="p">});</span>
+
+
+<span class="k">return</span> <span class="p">(</span>
+        <span class="c1">//...</span>
+    <span class="p">)</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//부모 컴포넌트 내부</span>
+
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">PersistentDrawerLeft</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="c1">//ref 객체 생성</span>
+  <span class="kd">const</span> <span class="nx">ref</span> <span class="o">=</span> <span class="nx">useRef</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+ 
+  <span class="c1">//...</span>
+
+  <span class="kd">function</span> <span class="nx">handleDrawerOpen</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">setOpen</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">function</span> <span class="nx">handleDrawerClose</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">setOpen</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="kd">const</span> <span class="nx">handleListItemClick</span> <span class="o">=</span> <span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">id</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+ 
+    <span class="nx">scroller</span><span class="p">.</span><span class="nx">scrollTo</span><span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="p">{</span>
+      <span class="na">duration</span><span class="p">:</span> <span class="mi">800</span><span class="p">,</span>
+      <span class="na">delay</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="na">offset</span> <span class="p">:</span> <span class="o">-</span><span class="mi">64</span><span class="p">,</span>
+      <span class="na">smooth</span><span class="p">:</span> <span class="dl">'</span><span class="s1">easeInOutQuart</span><span class="dl">'</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="c1">//ref.current 객체를 통해 자식 컴포넌트의 handleClickOpen()에 접근함</span>
+  <span class="kd">const</span> <span class="nx">handleOpenDialog</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span><span class="p">{</span>
+    <span class="nx">ref</span><span class="p">.</span><span class="nx">current</span><span class="p">.</span><span class="nx">handleClickOpen</span><span class="p">();</span>
+  <span class="p">}</span>
+
+  <span class="p">}</span>
+
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="c1">//...</span>
+    <span class="p">)</span>
+
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="마무리">마무리</h2>
+
+<p>문제는 해결했지만 애초에 공식문서에서 말했듯 Ref는 특수한 경우가 아니면 사용을 자제해야한다. 이번에는 Dialog 컴포넌트가 서드파티 라이브러리를 이용한 컴포넌트라 커스텀이 어려워 Ref를 사용한것이다.(물론 이는 내 실력이 부족하여 그럴수도 있다. 다른방법이 있을수 있다.)</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/forwardref" class="page__taxonomy-item" rel="tag">forwardRef</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/react" class="page__taxonomy-item" rel="tag">React</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/useimperativehandle" class="page__taxonomy-item" rel="tag">useImperativeHandle</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-12-27T00:00:00+00:00">December 27, 2019</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=React+ref%2C+useImperativeHandle%2C+forwardRef%20https%3A%2F%2Fmomoci99.github.io%2F%2FReactRef%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmomoci99.github.io%2F%2FReactRef%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fmomoci99.github.io%2F%2FReactRef%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/DevReview/" class="pagination--pager" title="React toy 프로젝트 개발 회고
+">Previous</a>
+    
+    
+      <a href="/YearReview/" class="pagination--pager" title="Review
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ProjectFinishedRetrospect/" rel="permalink">프로젝트 마무리 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">3개월 전 즈음, 진행하던 webrtc 관련 프로젝트가 다른 부서로 넘어가고 저는 신규 서비스를 개발하는 프로젝트에 참여하게 되었습니다. threejs와 react를 활용한 웹 기반 3d 컨텐츠 제작 및 증강 서비스 개발 업무에 참여하면서 팀, 기술 스택, 업무 방식이 바뀌었고, ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ThreejsDailyLog/" rel="permalink">React에서 threejs 사용 및 삽질
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">React + Typescript 환경에서 Threejs 사용시 활용했던 라이브러리 및 삽질했던 내용들을 간단하게 정리하였습니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/2021YearRetrospect/" rel="permalink">2021년 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">순식간에 지나간 2021년이 끝나갑니다. 한해를 돌아보는 회고를 써 봅니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/BookReviewSystemDesignChapter2/" rel="permalink">Book review - 가상 면접 사례로 배우는 대규모 시스템 기초  (2장 개략적인 규모 추정)
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">2장 개략적인 규모 추정
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 MO YEONG-KWON. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154155002-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-154155002-1', { 'anonymize_ip': false});
+</script>
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://momoci99.github.io//ReactRef/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/ReactRef"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://momoci99.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

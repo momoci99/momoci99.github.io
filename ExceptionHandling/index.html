@@ -1,0 +1,913 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.17.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>예외처리 이야기 - YKMO 기술 메모</title>
+<meta name="description" content="들어가며…">
+
+
+  <meta name="author" content="MO YEONG-KWON">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="YKMO 기술 메모">
+<meta property="og:title" content="예외처리 이야기">
+<meta property="og:url" content="https://momoci99.github.io//ExceptionHandling/">
+
+
+  <meta property="og:description" content="들어가며…">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-01-04T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://momoci99.github.io//ExceptionHandling/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "MO YEONG-KWON",
+      "url": "https://momoci99.github.io//"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="YKMO 기술 메모 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          YKMO 기술 메모
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://github.com/momoci99" >About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">MO YEONG-KWON</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>나를 쥐어짜는 즐거움</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seoul, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/momoci99" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:momoci99@gmail.com">
+            <meta itemprop="email" content="momoci99@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="예외처리 이야기">
+    <meta itemprop="description" content="들어가며…">
+    <meta itemprop="datePublished" content="January 04, 2020">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">예외처리 이야기
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  4 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="들어가며">들어가며…</h1>
+
+<p>어느 소프트웨어던 예외-Exception 상황은 존재하기 마련이다. 프로그래머가 미처 예상하지 못하여 대비 못한 예외가 발생한다면 그때부터 골치아픈 일이 생긴다. 프로그램이 그냥 죽던가, 전혀 예상치 못한 동작을 한다던지, 멈춘채로 자원을 점유만 하고있다던지 등등.. 정말 끔찍한 일들이다. 누가 말하길 실제 소프트웨어 개발에 30%의 시간을 쓰고 나머지 70%에 예외처리하는데 보낸다고 할정도로 중요하다.</p>
+
+<p>이번에는 예외처리를 정리하면서 평소 생각만 해둔 내용과 명확하지 않은 부분을 해소하고자 정리를 해보기로 하였다.</p>
+
+<p>예제코드는 대부분 <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Statements/try...catch#Nested_try-blocks">MDN</a>에서 가지고 왔다.</p>
+
+<h2 id="동기식-코드내에서의-기본적인-trycatch">동기식 코드내에서의 기본적인 try~catch</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>try {
+    try_statements
+}
+[catch (exception_var_1) { 
+    catch_statements_1
+}]
+...
+[catch (exception_var_2) {
+    catch_statements_2
+}]
+[finally {
+    finally_statements
+}]
+</code></pre></div></div>
+
+<p>위에는 가장 기본적인 javascript 의예외처리 구문이다. <code class="language-plaintext highlighter-rouge">동기식</code>으로 명시한 이유는 비동기 코드는 try~catch 로 예외처리가 힘들고 다른 방법을 사용해야하기 때문이다.</p>
+
+<h3 id="try">try</h3>
+<p>코드가 실행될 블럭이다. 만약 try 블럭 내에서 예외가 발생한다면 catch 블럭에서 예외를 처리할 코드가 실행된다.</p>
+
+<h3 id="catch">catch</h3>
+<p>try 블럭에서 예외가 발생하였을때 실행될 코드가 위치한다.</p>
+
+<p>만약 예외가 발생하지 않는다면 catch문은 실행되지 않는다.</p>
+
+<h3 id="finally">finally</h3>
+<p>이 블럭의 코드는 try 블럭 실행 이후나 catch 블럭 실행 이후  <strong>반드시</strong> 실행되는 코드이다. 보통 이 영역에는 할당받았거나 점유한 자원을 해제시키는 코드가 위치한다.</p>
+
+<h3 id="throw">throw</h3>
+
+<p>사용자 정의 예외를 말 그대로 <code class="language-plaintext highlighter-rouge">던지는</code> 코드이며 throw문 이후의 코드 제어는 call stack 내의 첫번째 catch 블록으로 전달되며 만약, catch 블록이 없으면 프로그램은 종료된다.</p>
+
+<p>예외처리문의 단어는 직관적인데 
+뭔가를 시도하고(try) 에러가 발생하여 이걸 누군가 처리하길 기원하면서 던지고(throw) 던진 에러를 받아(catch) 처리한다. 마무리를 위해 finally(끝) 구문이 실행된다.</p>
+
+<h2 id="try-catch의-간단한-예제">try catch의 간단한 예제</h2>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="c1">//javascript</span>
+<span class="nx">normalException</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="dl">"</span><span class="s2">myException</span><span class="dl">"</span><span class="p">;</span>
+        <span class="c1">// 에러발생</span>
+    <span class="p">}</span>
+    <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+       
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span> 
+        <span class="c1">// 에러 내용 확인</span>
+    <span class="p">}</span>
+
+<span class="p">};</span>
+
+<span class="nx">normalException</span><span class="p">();</span> 
+
+<span class="c1">//print</span>
+<span class="c1">//myException</span>
+</code></pre></div></div>
+
+<p>위 코드는 간단한 try~catch문 예제이다. 여기서부터 조금씩 심회시켜 나가보자</p>
+
+<h3 id="catch문의-식별자">catch문의 식별자</h3>
+
+<p>위 예제에서 본  catach문에</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">cathc</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">e</code> 라는 변수가 있다. 이 변수는 try 블럭에서 throw 된 상태가 저장되어있다. 이 변수를 통해 어떤 에러가 발생했는지 알수있다.</p>
+
+<p>단 catach 블럭은 local이기 때문에 변수는 catch문 블럭을 벗어나면 더이상 사용할 수 없다. 아래 예제를 보자.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//javascript</span>
+<span class="nx">normalException</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="dl">"</span><span class="s2">myException</span><span class="dl">"</span><span class="p">;</span>
+        <span class="c1">// 에러발생</span>
+    <span class="p">}</span>
+    <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+       
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span> 
+        <span class="c1">// 에러 내용 확인</span>
+    <span class="p">}</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="nx">normalException</span><span class="p">();</span> 
+
+
+<span class="c1">//print</span>
+<span class="c1">//myException</span>
+<span class="c1">//ReferenceError: e is not defined</span>
+
+</code></pre></div></div>
+<h3 id="catch문의-식별자를-이용한-예제">catch문의 식별자를 이용한 예제</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="p">{</span>
+    <span class="nx">myroutine</span><span class="p">();</span> <span class="c1">// 세가지 유형의 예외가 발생할 수 있는 함수</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">e</span> <span class="k">instanceof</span> <span class="nx">TypeError</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// TypeError 예외를 처리할 수 있는 선언문</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">e</span> <span class="k">instanceof</span> <span class="nx">RangeError</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// RangeError 예외를 처리할 수 있는 선언문</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">e</span> <span class="k">instanceof</span> <span class="nx">EvalError</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// EvalError 예외를 처리할 수 있는 선언문</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+       <span class="c1">// 명시되지 않은 그 외 모든 예외를 처리할 수 있는 선언문</span>
+
+       <span class="nx">logMyErrors</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span> <span class="c1">//예외 객체를 커스텀 예외처리 함수에 전달</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">instanceof </code>와if else 문으로 적절하게 상황에 맞게 에러 처리가 가능해진다.</p>
+
+<h3 id="중첩된-try-catch문1">중첩된 try catch문1</h3>
+
+<p>먼저 중첩된 try catch문에 대해 설명하기전에 이 pattern은 결코 바람직하지 않다는것을 말하고 싶다. 왜냐하면..</p>
+
+<ul>
+  <li>코드가 지저분해진다.</li>
+  <li>제어의 흐름을 파악하기 힘들다.</li>
+</ul>
+
+<p>따라서 최대한 사용을 자제하는게 바람직하지만 어쩔수 없이 사용하는 경우가 있으니 알아보도록 하자.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="p">{</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">"</span><span class="s2">oops</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">finally</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">finally</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">catch</span> <span class="p">(</span><span class="nx">ex</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">"</span><span class="s2">outer</span><span class="dl">"</span><span class="p">,</span> <span class="nx">ex</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Output:</span>
+<span class="c1">// "finally"</span>
+<span class="c1">// "outer" "oops"</span>
+
+</code></pre></div></div>
+
+<p>우선 내부 try-finally 구문의 실행이 종료되고 나서 그다음 외부의 catch문이 실행된다.</p>
+
+<p>언뜻보면 제어 흐름이</p>
+
+<ul>
+  <li>내부 try</li>
+  <li>외부 catch</li>
+  <li>내부 finally</li>
+</ul>
+
+<p>라고 생각해볼수도 있지만 try-catch-finally는 각각 연결되어있는 하나의 덩어리로 보는게 맞다.</p>
+
+<h3 id="중첩된-try-catch문-2">중첩된 try catch문 2</h3>
+
+<p>이번에는 내부에 catch문이 추가되었다. throw가 발생했을때 가장 가까운 catch문에서 이를처리하므로 외부의 catch문이 동작하지 않았다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="p">{</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">"</span><span class="s2">oops</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">catch</span> <span class="p">(</span><span class="nx">ex</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">"</span><span class="s2">inner</span><span class="dl">"</span><span class="p">,</span> <span class="nx">ex</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">finally</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">finally</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">catch</span> <span class="p">(</span><span class="nx">ex</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">"</span><span class="s2">outer</span><span class="dl">"</span><span class="p">,</span> <span class="nx">ex</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Output:</span>
+<span class="c1">// "inner" "oops"</span>
+<span class="c1">// "finally"</span>
+
+</code></pre></div></div>
+
+<h3 id="중첩된-try-catch문-3">중첩된 try catch문 3</h3>
+
+<p>이번에는 내부의 catch문에서 다시 <code class="language-plaintext highlighter-rouge">throw</code>하는 예제이다. 내부의 catch문에서 다시 예외를 throw 하므로 외부의 catch문에서 이를 처리하게 된다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="p">{</span>
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="dl">"</span><span class="s2">oops</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">catch</span> <span class="p">(</span><span class="nx">ex</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">"</span><span class="s2">inner</span><span class="dl">"</span><span class="p">,</span> <span class="nx">ex</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+    <span class="k">throw</span> <span class="nx">ex</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">finally</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">finally</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="k">catch</span> <span class="p">(</span><span class="nx">ex</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="dl">"</span><span class="s2">outer</span><span class="dl">"</span><span class="p">,</span> <span class="nx">ex</span><span class="p">.</span><span class="nx">message</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Output:</span>
+<span class="c1">// "inner" "oops"</span>
+<span class="c1">// "finally"</span>
+<span class="c1">// "outer" "oops"</span>
+
+</code></pre></div></div>
+
+<h3 id="예외처리와-return">예외처리와 return</h3>
+<p>try catch finally 내부에 return문을 넣으면 어떻게 될까? 물론 일반적인 경우는 아니지만 궁금하니 정리해보자.</p>
+
+<h4 id="try내부의-throw-이후-return문">try내부의 throw 이후 return문</h4>
+<p>이 경우는 좀 쉬운 경우이다. throw문 이후 동일 블럭내의 코드는 모두 무시되므로 <code class="language-plaintext highlighter-rouge">return 1</code>은 무시된다.</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">example</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="dl">"</span><span class="s2">myException</span><span class="dl">"</span><span class="p">;</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+
+    <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">finally</span><span class="dl">"</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">end of function</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="p">};</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">example</span><span class="p">());</span> 
+
+<span class="c1">//output</span>
+<span class="c1">//myException</span>
+<span class="c1">//finally</span>
+<span class="c1">//end of function</span>
+<span class="c1">//undefined</span>
+</code></pre></div></div>
+
+<h4 id="catch내부의-return문과-finally">catch내부의 return문과 finally</h4>
+
+<p>이 경우는 좀 주의해서 봐야하는 경우이다. catch 블럭내에 return이 존재하는 경우가 일반적인게 아니라는걸 인지하고 보는게 좋겠다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">example</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="dl">"</span><span class="s2">myException</span><span class="dl">"</span><span class="p">;</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
+
+    <span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">finally</span><span class="dl">"</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">end of function</span><span class="dl">"</span><span class="p">);</span>
+
+<span class="p">};</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">example</span><span class="p">());</span> 
+
+<span class="c1">//Output</span>
+<span class="c1">//myException</span>
+<span class="c1">//finally</span>
+<span class="c1">//2</span>
+</code></pre></div></div>
+<p>catch블럭내의 return 때문에 finally가 무시될것같지만 finally는 <code class="language-plaintext highlighter-rouge">반드시</code> 실행된다고 약속되어있기에 실행된다.</p>
+
+<p>주목할점은 catch내의 return문이 먼저 위치해 있었음에도 불구하고 <code class="language-plaintext highlighter-rouge">finally</code>가 실행 된 이후 return된것이다.</p>
+
+<h4 id="catch내부의-return문과-finally-return문-다-있을때">catch내부의 return문과 finally return문 다 있을때</h4>
+
+<p>이런 케이스가 없을것같지만 궁금하니 확인해보자</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">normalException</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+
+    <span class="k">try</span> <span class="p">{</span>
+        <span class="k">throw</span> <span class="dl">"</span><span class="s2">myException</span><span class="dl">"</span><span class="p">;</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="c1">// 에러발생</span>
+    <span class="p">}</span>
+    <span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+       
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span> 
+        <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
+
+    <span class="p">}</span> <span class="k">finally</span><span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">finally</span><span class="dl">"</span><span class="p">);</span>
+        <span class="k">return</span> <span class="mi">3</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">};</span>
+
+<span class="c1">//Output</span>
+<span class="c1">//myException</span>
+<span class="c1">//finally</span>
+<span class="c1">//3</span>
+</code></pre></div></div>
+<p>주목할 사항은 return되는 값이 2를 예상했지만 실제로는 3이 return되는것이다. 이는 <code class="language-plaintext highlighter-rouge">finally</code>블럭이 <code class="language-plaintext highlighter-rouge">무조건</code> 실행되기 때문에 catch블럭의 return문을 덮어버린것이다.</p>
+
+<h3 id="진짜-하면-안좋은-예">진짜 하면 안좋은 예</h3>
+
+<p>사실 위에서 말한 예제는 그럴수도 있겠다 싶지만 아래에서 다루는 예제는 정말 나쁜 패턴이니 정리해두고 따라하지 말자.</p>
+
+<h4 id="catch-문이-비어있을때">catch 문이 비어있을때</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="p">{</span>
+    <span class="c1">//...예외가 발생할 수 있는 코드</span>
+<span class="p">}</span>  
+<span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>이렇게 되면 예외가 발생했을 때 catch블럭이 비어 아무런 후속 조치 없이 그냥 로직이 끝나버린다. 저렇게 되면 try catch구문을 사용하는 의미가 퇴색되며 finally가 없는이상 catch문의 블럭을 빈 상태로 놔두지 말자.</p>
+
+<h2 id="마무리">마무리</h2>
+
+<p>여기까지 javascript의 동기식 예외처리 방법과 관련 이야기를 했는데 다음에는 비동기식 예외처리에 대해 정리하고싶다. 비동기 코드의 예외처리는 좀더 연구가 필요하다.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/exception" class="page__taxonomy-item" rel="tag">Exception</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-01-04T00:00:00+00:00">January 04, 2020</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%EC%98%88%EC%99%B8%EC%B2%98%EB%A6%AC+%EC%9D%B4%EC%95%BC%EA%B8%B0%20https%3A%2F%2Fmomoci99.github.io%2F%2FExceptionHandling%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmomoci99.github.io%2F%2FExceptionHandling%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fmomoci99.github.io%2F%2FExceptionHandling%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/Algo42888/" class="pagination--pager" title="프로그래머스-오픈채팅방
+">Previous</a>
+    
+    
+      <a href="/TypeScriptIn5Min/" class="pagination--pager" title="TypeScript 5분만에 살펴보기
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ProjectFinishedRetrospect/" rel="permalink">프로젝트 마무리 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">3개월 전 즈음, 진행하던 webrtc 관련 프로젝트가 다른 부서로 넘어가고 저는 신규 서비스를 개발하는 프로젝트에 참여하게 되었습니다. threejs와 react를 활용한 웹 기반 3d 컨텐츠 제작 및 증강 서비스 개발 업무에 참여하면서 팀, 기술 스택, 업무 방식이 바뀌었고, ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ThreejsDailyLog/" rel="permalink">React에서 threejs 사용 및 삽질
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">React + Typescript 환경에서 Threejs 사용시 활용했던 라이브러리 및 삽질했던 내용들을 간단하게 정리하였습니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/2021YearRetrospect/" rel="permalink">2021년 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">순식간에 지나간 2021년이 끝나갑니다. 한해를 돌아보는 회고를 써 봅니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/BookReviewSystemDesignChapter2/" rel="permalink">Book review - 가상 면접 사례로 배우는 대규모 시스템 기초  (2장 개략적인 규모 추정)
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">2장 개략적인 규모 추정
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 MO YEONG-KWON. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154155002-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-154155002-1', { 'anonymize_ip': false});
+</script>
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://momoci99.github.io//ExceptionHandling/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/ExceptionHandling"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://momoci99.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

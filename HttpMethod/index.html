@@ -1,0 +1,1160 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.17.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>HTTP reqeust method 정리 - YKMO 기술 메모</title>
+<meta name="description" content="HTTP request method">
+
+
+  <meta name="author" content="MO YEONG-KWON">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="YKMO 기술 메모">
+<meta property="og:title" content="HTTP reqeust method 정리">
+<meta property="og:url" content="https://momoci99.github.io//HttpMethod/">
+
+
+  <meta property="og:description" content="HTTP request method">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2019-12-30T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://momoci99.github.io//HttpMethod/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "MO YEONG-KWON",
+      "url": "https://momoci99.github.io//"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="YKMO 기술 메모 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          YKMO 기술 메모
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://github.com/momoci99" >About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">MO YEONG-KWON</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>나를 쥐어짜는 즐거움</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seoul, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/momoci99" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:momoci99@gmail.com">
+            <meta itemprop="email" content="momoci99@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="HTTP reqeust method 정리">
+    <meta itemprop="description" content="HTTP request method">
+    <meta itemprop="datePublished" content="December 30, 2019">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">HTTP reqeust method 정리
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  6 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="http-request-method">HTTP request method</h1>
+
+<p>HTTP request는 자주 사용하지만 간혹 헷갈리고 까먹는 부분이 종종 생겨 이참에 정리를 해보고자 한다. 그전에 먼저 method의 성격에 대해 기술한다.</p>
+
+<h4 id="아래의-내용은-http1x-에-대하여-기술함">아래의 내용은 HTTP/1.x 에 대하여 기술함.</h4>
+
+<ul>
+  <li>Request has body</li>
+</ul>
+
+<p>요청문 내에 본문이 있는지 여부이다. HTTP 요청 메시지의 구조에는 크게 <code class="language-plaintext highlighter-rouge">Start Line</code>, <code class="language-plaintext highlighter-rouge">Headers</code>, <code class="language-plaintext highlighter-rouge">Body</code> 로 나누어져 있고 이중에 Body가 존재하는지를 표현한다.
+예를들어 <code class="language-plaintext highlighter-rouge">GET</code>, <code class="language-plaintext highlighter-rouge">HEAD</code>, <code class="language-plaintext highlighter-rouge">DELETE</code>, 또는 <code class="language-plaintext highlighter-rouge">OPTIONS</code> 요청에는 일반적으로 Body가 존재하지 않는다.</p>
+
+<ul>
+  <li>
+    <p>Successful response has body
+성공적인 요청의 응답에 본문이 있는가에대한 여부이다. 요청문에도 그렇듯 응답문에도 일정한 구조가 있는데 <code class="language-plaintext highlighter-rouge">Status Line</code>, <code class="language-plaintext highlighter-rouge">Headers</code>, <code class="language-plaintext highlighter-rouge">Body</code> 이다. 이중에 Body의 존재 유무를 나타내며 <code class="language-plaintext highlighter-rouge">HEAD</code> 요청은 유일하게 Body가 없다.</p>
+  </li>
+  <li>
+    <p>Safe
+안전의 의미는 <code class="language-plaintext highlighter-rouge">요청</code>이 서버의 상태를 변화시키는가에 대한 유무이다. 쉽게 정리하면 만약 요청을 처리하면서 <code class="language-plaintext highlighter-rouge">a = a + 10</code> 이런식으로 서버내의 어떤 상태를 변경시킨다면 Safe하지 않다.</p>
+  </li>
+  <li>
+    <p>Idempotent
+직역하면 <code class="language-plaintext highlighter-rouge">멱등성</code>을 의미하는데, 요청을 수십 수만번을 해도 동일한 결과를 가진다면 멱등성을 가진다고 할수 있겠다. 안전한 함수는 멱등성을 가지지만 안전하지 않은 함수는 멱등성을 가질수도, 가지지 않을수도 있다. 코드로 설명하지면 <code class="language-plaintext highlighter-rouge">a = 10</code> 으로 표현할수있다. 아무리 호출해도 a 변수에는 10이라는 정수가 할당되기 때문디ㅏ.</p>
+  </li>
+  <li>
+    <p>Cacheable
+HTTP request가 캐싱이 되는지에 대한 여부를 나타낸다. HTTP caching는 사설 브라우저 캐시 혹은 공유 프록시 캐시에서 이루어지며 캐시는 생명주기를 가진다. 좀더 자세한 내용은 링크를 참조. <a href="https://developer.mozilla.org/ko/docs/Web/HTTP/Caching">Caching</a></p>
+  </li>
+  <li>
+    <p>Allowed in HTML forms
+html의 <code class="language-plaintext highlighter-rouge">&lt;form&gt;</code> 요소로 사용될 수 있는지 여부를 나타낸다. <code class="language-plaintext highlighter-rouge">GET</code> 과 <code class="language-plaintext highlighter-rouge">POST</code> 요청만이 <code class="language-plaintext highlighter-rouge">&lt;form&gt;</code> 요소에 사용될 수 있다.</p>
+  </li>
+</ul>
+
+<h2 id="get">GET</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>항목</th>
+      <th>유무</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Request has body</td>
+      <td><code class="language-plaintext highlighter-rouge">No</code></td>
+    </tr>
+    <tr>
+      <td>Successful response has body</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Safe</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Idempotent</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Cacheable</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Allowed in HTML forms</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="language-plaintext highlighter-rouge">GET</code> 은 특정한 리소스를 가지고 오도록 요청하며 오로지 데이터를 가져오는데에만 사용된다.</p>
+
+<p>Request 내의 body는 별도로 존재하지 않고 파라미터가 URL에 붙어서 문자열 형태로 전달된다.</p>
+
+<p>예를 들어 URL이 아래와 같다면</p>
+
+<blockquote>
+  <p>http://www.songistock.net/GetGroupPrice?target=AREA&amp;dateOpt=2019-12-30</p>
+</blockquote>
+
+<p>서버내의 호출되는 함수명이 GetGroupPrice이고 파라미터명은 target, dateOpt이며 파라미터 값은 각각AREA, 2019-12-30이 되는것이다.</p>
+
+<p>GET에 대해 좀더 기술하자면 GET은 body가 없는 구조이지만 임의로 body를 붙혀보내면 어떻게 될까? 이에 대해 아래의 블로거 분이 잘 정리해주셨다.</p>
+
+<ul>
+  <li>
+    <p><a href="https://libsora.so/posts/http-get-request-with-body-and-http-library/">HTTP GET 요청에 body를 붙여서 보내면 어떤 일이 벌어질까?</a></p>
+  </li>
+  <li>
+    <p><a href="https://libsora.so/posts/http-request-with-body-and-java-httpurlconnection/">HTTP 요청에 body를 붙여서 보내면 어떤 일이 벌어질까? part 2</a></p>
+  </li>
+</ul>
+
+<p>그리고 GET은 모든 파라미터가 URL에 담겨지므로 URL의 길이 제한도 고민해볼만한 부분이다. 이에대해 찾아보니 이에 대해 흥미로운 답변을 stackoverflow에서 찾을수 있었다.</p>
+
+<p><a href="https://stackoverflow.com/questions/417142/what-is-the-maximum-length-of-a-url-in-different-browsers">What is the maximum length of a URL in different browsers?</a></p>
+
+<p>가장 많은 reputation을 받은 답변을 참고하여 정리하면 다음과 같다.</p>
+
+<ul>
+  <li>RFC 2616에 정의된 표준에는 길이 제한이 없다.</li>
+  <li>만약 서버가 감당못할 길이의 URI가 들어온다면 (Request-URI Too Long) 를 리턴해야한다.</li>
+  <li>RFC 7230에 분리된 표준에는 8000(octets)바이트 까지는 처리할 수 있어야한다고 명시되어있따.</li>
+</ul>
+
+<p>즉 서버는 서버 자신이 감당할수 있는 최대한으로 처리를 해야한다는 뜻이되겠다.</p>
+
+<p>하지만 현실은 그렇지 않다. 브라우저마다 감당할수있는 URL의 길이가 각각 다르고 서버에서도 처리할수있는 길이가 별도로 있기 때문이다.</p>
+
+<p>위의 링크에 걸린 답변을 참고하여 결론을 내리면 2000 chars 내의 수준으로 적절히 제한하는게 맞는것같다.</p>
+
+<h2 id="post">POST</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>항목</th>
+      <th>유무</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Request has body</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Successful response has body</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Safe</td>
+      <td><code class="language-plaintext highlighter-rouge">NO</code></td>
+    </tr>
+    <tr>
+      <td>Idempotent</td>
+      <td><code class="language-plaintext highlighter-rouge">NO</code></td>
+    </tr>
+    <tr>
+      <td>Cacheable</td>
+      <td>새 정보가 포함되었을 때만</td>
+    </tr>
+    <tr>
+      <td>Allowed in HTML forms</td>
+      <td>Yes</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">POST</code> 메서드는 데이터를 서버로 보내는 방법 중 하나이다. request의 body 타입은 Content-Type 헤더에 따라 결정된다. 예를 들어</li>
+</ul>
+
+<blockquote>
+  <p>application/x-www-for</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST / HTTP/1.1
+Host: foo.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 13
+
+say=Hi&amp;to=Mom
+</code></pre></div></div>
+
+<p>POST 요청이 위와 같을때(Content-Type: application/x-www-form-urlencoded) html form 을 통해 POST 요청을 한것을 알수 있고 body의 데이터가 <code class="language-plaintext highlighter-rouge">key</code>=<code class="language-plaintext highlighter-rouge">value</code> 형태를 가지고 있는것을 알수있다.</p>
+
+<blockquote>
+  <p>multipart/form-data</p>
+</blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST /test.html HTTP/1.1 
+Host: example.org 
+Content-Type: multipart/form-data;boundary="boundary" 
+
+--boundary 
+Content-Disposition: form-data; name="field1" 
+
+value1 
+--boundary 
+Content-Disposition: form-data; name="field2"; filename="example.txt" 
+
+value2
+</code></pre></div></div>
+
+<p>이번에는 Content-Type: multipart/form-data; 이다. body의 데이터가 <code class="language-plaintext highlighter-rouge">key</code>:<code class="language-plaintext highlighter-rouge">value</code> 형태인것을 알수있다.</p>
+
+<p>이 Content-Type에 따라 body 데이터 형식이 달라지니 유의해야하고 서버에서 처리할때도 유의하는것이 좋다.</p>
+
+<ul>
+  <li>
+    <p>동작의 유사성으로 <code class="language-plaintext highlighter-rouge">PUT</code>과 비슷하나 <code class="language-plaintext highlighter-rouge">멱등성</code>에서 차이가 있다. PUT은 몇번을 호출하던 같은 결과를 가지고 오지만 POST는 호출할때마다 그 결과가 달라진다.</p>
+  </li>
+  <li>
+    <p>POST request는 보통 HTML form 을 통해 서버에 데이터를 전송하고 서버상에 변경사항을 만든다. 예를들어 HTML form에 입력한 데이터는 서버에 전송되고 해당 데이터가 서버에서 적절히 처리되고 변경된다.</p>
+  </li>
+</ul>
+
+<p><em>예제코드</em></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">"/my-handling-form-page"</span> <span class="na">method=</span><span class="s">"post"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"name"</span><span class="nt">&gt;</span>Name:<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">"name"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"mail"</span><span class="nt">&gt;</span>E-mail:<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"email"</span> <span class="na">id=</span><span class="s">"mail"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"msg"</span><span class="nt">&gt;</span>Message:<span class="nt">&lt;/label&gt;</span>
+        <span class="nt">&lt;textarea</span> <span class="na">id=</span><span class="s">"msg"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"button"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">&gt;</span>Send your message<span class="nt">&lt;/button&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+
+</code></pre></div></div>
+
+<ul>
+  <li>POST는 body에 파라미터가 저장된다 따라서 GET과는 달리 파라미터가 URL에 노출되는 일이 없다. 이는 GET과 POST의 주요 차이점 중 하나이다. 여기서 궁금증이 하나가 떠오르는데 POST request에 GET 처럼 URL에 파라미터를 추가해서 보내는 방식은 어떠한가 대한것이다.</li>
+</ul>
+
+<p>물론 이에 대해 stackoverflow에 질문이 올라와있다. <a href="https://stackoverflow.com/questions/611906/http-post-with-url-query-parameters-good-idea-or-not">HTTP POST with URL query parameters — good idea or not? [closed]
+</a> 의견이 매우매우 분분하지만 결국 다 하는소리가 <code class="language-plaintext highlighter-rouge">가능은 한데 하지마라</code> 가 주된 의견이다.</p>
+
+<p>이 글에서 나온 의견들을 찬찬히 살펴보면 GET과 POST는 왜 구분되어서 사용되어야 하는지, 두 request method의 차이점까지 드러난다.</p>
+
+<ul>
+  <li>서버에서 두가지 방식이 혼용된 요청을 받았을때 그걸 적절히 처리한다는 보장이 없다.</li>
+  <li>프로그래머에게 혼란을 주게 된다.</li>
+  <li>GET은 멱등성이 있고 POST는 멱등성이 없다. 이 두가지 방식을 혼용하면 멱등성이 명확하지 않아 혼란만 준다.</li>
+</ul>
+
+<p>정리하면 GET과 POST는 구분되어 사용되어야한다. 이렇게 정리할 수 있겠다.</p>
+
+<ul>
+  <li>POST 방식은 request body에 데이터가 전달되는데 이때 body의 한도는 얼마인가? 라는 의문이 또 든다. 또 구글링해본 결과, GET의 URI 제약이 표준에 없는것처럼 마찬가지로 제한이 없고 브라우저 및 서버에 따라 결정된다.</li>
+</ul>
+
+<p><a href="https://stackoverflow.com/questions/2880722/can-http-post-be-limitless/55998160#55998160">Can HTTP POST be limitless?</a></p>
+
+<p>한번 읽어보면 좋을것같다.</p>
+
+<h2 id="put">PUT</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>항목</th>
+      <th>유무</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Request has body</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Successful response has body</td>
+      <td><code class="language-plaintext highlighter-rouge">NO</code></td>
+    </tr>
+    <tr>
+      <td>Safe</td>
+      <td><code class="language-plaintext highlighter-rouge">NO</code></td>
+    </tr>
+    <tr>
+      <td>Idempotent</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Cacheable</td>
+      <td><code class="language-plaintext highlighter-rouge">NO</code></td>
+    </tr>
+    <tr>
+      <td>Allowed in HTML forms</td>
+      <td><code class="language-plaintext highlighter-rouge">NO</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>HTTP PUT 방식은 새로운 자료를 만들거나 목표로 하는 기존의 자료를 요청 페이로드를 통해 교체함.</p>
+
+<p>언뜻 보기에는 POST와 유사해보이나 멱등성, 캐쉬가능유무, HTML form 허가 유무에서 차이를 드러낸다. 이 내용은 좀더 아래 문단에서 정리하겠다.</p>
+
+<p>PUT에는 아래와같은 응답 규칙이 존재한다.</p>
+
+<ul>
+  <li>서버에 자료가 없는 상태에서 PUT 요청이 성공적으로 해당 자료를 생성했을경우
+    <blockquote>
+      <p>반드시 201(Created) 응답을 보내야함.</p>
+    </blockquote>
+  </li>
+  <li>만약 서버에 대표되는 자료가 있는 것을 목표로 하고 요청에 포함된 자료에 준하여 성공적으로 대표되는 자료가 수정한 경우
+    <blockquote>
+      <p>반드시 200(OK) or 204(No Content)를 응답으로 보내야함.</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h3 id="post-vs-put">POST vs PUT</h3>
+
+<p>POST 와 PUT은 얼핏보기에 하는일이 정말 비슷해보인다. request에 담긴 페이로드를 가지고 서버의 상태를 변화시키는점이 매우 유사하기때문이다. 하지만 멱등성을 가지고 본다면 확연히 다른점을 알수있다.</p>
+
+<p>POST의 경우 <strong>멱등성</strong>이 없다. 동일한 POST request 요청을 보내면 동일한 결과를 가지고 온다는것을 장담할수 없다. 서버에서 특별한 처리를 하지 않는 이상은 말이다.</p>
+
+<p>PUT의 경우 <strong>멱등성</strong>이 있다. PUT 요청을 보낸다면, 데이터의 존재유무에 따라 생성, 혹은 업데이트를 결정한다. 그 이후 동일한 데이터를 가지고 PUT요청을 계속 보낸다면 서버에 기존 데이터가 있는한, 계속 업데이트를 할것이다.</p>
+
+<p>나또한 과거에 POST 요청과 PUT 요청을 나누지 않고 POST로 퉁(?)쳐서 처리하곤 했으나 이는 바람직하지 않으므로 구분지어야 한다.</p>
+
+<p>아래 링크는 REST API관점으로 본 POST와 PUT에 관한 질문이지만 POST vs PUT에 관한 열띤 토론과 의견이 있으니 한번 참고해보자.
+<a href="https://stackoverflow.com/questions/630453/put-vs-post-in-rest">put-vs-post-in-rest</a></p>
+
+<h2 id="delete">DELETE</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>항목</th>
+      <th>유무</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Request has body</td>
+      <td><code class="language-plaintext highlighter-rouge">NO</code></td>
+    </tr>
+    <tr>
+      <td>Successful response has body</td>
+      <td><code class="language-plaintext highlighter-rouge">NO</code></td>
+    </tr>
+    <tr>
+      <td>Safe</td>
+      <td><code class="language-plaintext highlighter-rouge">NO</code></td>
+    </tr>
+    <tr>
+      <td>Idempotent</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Cacheable</td>
+      <td><code class="language-plaintext highlighter-rouge">NO</code></td>
+    </tr>
+    <tr>
+      <td>Allowed in HTML forms</td>
+      <td><code class="language-plaintext highlighter-rouge">NO</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>DELETE 요청 메소드는 특정 리소스를 삭제한다.</p>
+
+<p>DELETE 요청 또한 처리결과에 따라 아래의 응답 코드를 반환한다.</p>
+
+<ul>
+  <li>요청이 정상적으로 받아들여졌고 곧 삭제될것이지만 아직 확실히 삭제되지는 않은 상태.
+    <blockquote>
+      <p>202(Accepted)를 반환함.</p>
+    </blockquote>
+  </li>
+  <li>요청이 정상적으로 받아들여졌고 실제로 삭제까지 완료된 상태이며 별도의 응답이 필요없는 상태. (response가 비어있음)
+    <blockquote>
+      <p>204(No Content)를 반환함</p>
+    </blockquote>
+  </li>
+  <li>요청이 정상적으로 받아들여졌고 실제로 삭제까지 완료된 상태이며 이에 대한 응답이 반환된 상태 (response에 메시지 전달됨)
+    <blockquote>
+      <p>200(OK) 반환됨</p>
+    </blockquote>
+  </li>
+</ul>
+
+<h2 id="patch">PATCH</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>항목</th>
+      <th>유무</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Request has body</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Successful response has body</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Safe</td>
+      <td><code class="language-plaintext highlighter-rouge">NO</code></td>
+    </tr>
+    <tr>
+      <td>Idempotent</td>
+      <td><code class="language-plaintext highlighter-rouge">NO</code></td>
+    </tr>
+    <tr>
+      <td>Cacheable</td>
+      <td><code class="language-plaintext highlighter-rouge">NO</code></td>
+    </tr>
+    <tr>
+      <td>Allowed in HTML forms</td>
+      <td><code class="language-plaintext highlighter-rouge">NO</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>HTTP PATCH 메소드는 리소스의 부분적인 수정을 할 때에 사용된다. PUT 메소드가 떠오를 수 있는데 PUT은 멱등성을 가지고 있지만 PATCH는 멱등성이 없다.(다만 서버에서 멱등성을 가지게 할 수도 있다.)</p>
+
+<h2 id="connect">CONNECT</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>항목</th>
+      <th>유무</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Request has body</td>
+      <td><code class="language-plaintext highlighter-rouge">NO</code></td>
+    </tr>
+    <tr>
+      <td>Successful response has body</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Safe</td>
+      <td><code class="language-plaintext highlighter-rouge">NO</code></td>
+    </tr>
+    <tr>
+      <td>Idempotent</td>
+      <td><code class="language-plaintext highlighter-rouge">NO</code></td>
+    </tr>
+    <tr>
+      <td>Cacheable</td>
+      <td><code class="language-plaintext highlighter-rouge">NO</code></td>
+    </tr>
+    <tr>
+      <td>Allowed in HTML forms</td>
+      <td><code class="language-plaintext highlighter-rouge">NO</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>CONNECT 요청은 요청한 리소스에 대해 양방향 연결을 시작하는 메소드 이다. 라고 되어 있는데 MDN의 설명이 나에게는 좀 부족하여 좀더 찾아본 결과 위키피디아의  <a href="https://en.wikipedia.org/wiki/HTTP_tunnel">HTTP tunnel</a> 항목에서 찾을 수 있었다.</p>
+
+<p>HTTP CONNECT 요청은 두 컴퓨터간에 네트워크 터널링을 만들때 사용되는데 클라이언트가 프록시 서버에게 서버와 TCP 커넥션을 맺으라고 요구할때 사용된다.</p>
+
+<ul>
+  <li>참고자료2 <a href="https://stackoverflow.com/questions/11697943/when-should-one-use-connect-and-get-http-methods-at-http-proxy-server/40329026">When should one use CONNECT and GET HTTP methods at HTTP Proxy Server?</a></li>
+</ul>
+
+<h2 id="options">OPTIONS</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>항목</th>
+      <th>유무</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Request has body</td>
+      <td><code class="language-plaintext highlighter-rouge">NO</code></td>
+    </tr>
+    <tr>
+      <td>Successful response has body</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Safe</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Idempotent</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Cacheable</td>
+      <td><code class="language-plaintext highlighter-rouge">NO</code></td>
+    </tr>
+    <tr>
+      <td>Allowed in HTML forms</td>
+      <td><code class="language-plaintext highlighter-rouge">NO</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>목표 리소스와의 통신 옵션을 설명하기 위해 사용된다. 예제를 보면 확실히 이해가 된다.</p>
+
+<p>요청</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -X OPTIONS http://example.org -i
+</code></pre></div></div>
+
+<p>응답</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>HTTP/1.1 200 OK
+Allow: OPTIONS, GET, HEAD, POST
+Cache-Control: max-age=604800
+Date: Thu, 13 Oct 2016 11:45:00 GMT
+Expires: Thu, 20 Oct 2016 11:45:00 GMT
+Server: EOS (lax004/2813)
+x-ec-custom-error: 1
+Content-Length: 0
+</code></pre></div></div>
+
+<p>응답 메시지 헤더에 포함되어있는 <code class="language-plaintext highlighter-rouge">Allow</code> 헤더를 통해 허용되는 HTTP request를 알수있다. 이때 OPTIONS 자체를 허용하지 않는 경우는 405(Not Allowed)가 리턴된다.</p>
+
+<h3 id="preflighted-requests-in-cors-cross-origin-resource-sharing">Preflighted requests in CORS (Cross-Origin Resource Sharing)</h3>
+
+<p>CORS에 관한 내용은 아래의 링크로 대체한다.</p>
+
+<ul>
+  <li>
+    <p><a href="https://brownbears.tistory.com/336">CORS</a></p>
+  </li>
+  <li>
+    <p><a href="https://developer.mozilla.org/ko/docs/Web/HTTP/Methods/OPTIONS">MDN-OPTIONS</a></p>
+  </li>
+  <li>
+    <p><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">MDN-CORS</a></p>
+  </li>
+</ul>
+
+<h2 id="trace">TRACE</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>항목</th>
+      <th>유무</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Request has body</td>
+      <td><code class="language-plaintext highlighter-rouge">NO</code></td>
+    </tr>
+    <tr>
+      <td>Successful response has body</td>
+      <td><code class="language-plaintext highlighter-rouge">NO</code></td>
+    </tr>
+    <tr>
+      <td>Safe</td>
+      <td><code class="language-plaintext highlighter-rouge">NO</code></td>
+    </tr>
+    <tr>
+      <td>Idempotent</td>
+      <td>Yes</td>
+    </tr>
+    <tr>
+      <td>Cacheable</td>
+      <td><code class="language-plaintext highlighter-rouge">NO</code></td>
+    </tr>
+    <tr>
+      <td>Allowed in HTML forms</td>
+      <td><code class="language-plaintext highlighter-rouge">NO</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>TRACE method는 원격지에 대해 어플리케이션 레벨에서 루프백 요청을 수행한다.</p>
+
+<ul>
+  <li><a href="https://tools.ietf.org/html/rfc7231#section-4.3.8">https://tools.ietf.org/html/rfc7231#section-4.3.8</a></li>
+</ul>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/http" class="page__taxonomy-item" rel="tag">HTTP</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-12-30T00:00:00+00:00">December 30, 2019</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=HTTP+reqeust+method+%EC%A0%95%EB%A6%AC%20https%3A%2F%2Fmomoci99.github.io%2F%2FHttpMethod%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmomoci99.github.io%2F%2FHttpMethod%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fmomoci99.github.io%2F%2FHttpMethod%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/YearReview/" class="pagination--pager" title="Review
+">Previous</a>
+    
+    
+      <a href="/Algo42888/" class="pagination--pager" title="프로그래머스-오픈채팅방
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ProjectFinishedRetrospect/" rel="permalink">프로젝트 마무리 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">3개월 전 즈음, 진행하던 webrtc 관련 프로젝트가 다른 부서로 넘어가고 저는 신규 서비스를 개발하는 프로젝트에 참여하게 되었습니다. threejs와 react를 활용한 웹 기반 3d 컨텐츠 제작 및 증강 서비스 개발 업무에 참여하면서 팀, 기술 스택, 업무 방식이 바뀌었고, ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ThreejsDailyLog/" rel="permalink">React에서 threejs 사용 및 삽질
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">React + Typescript 환경에서 Threejs 사용시 활용했던 라이브러리 및 삽질했던 내용들을 간단하게 정리하였습니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/2021YearRetrospect/" rel="permalink">2021년 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">순식간에 지나간 2021년이 끝나갑니다. 한해를 돌아보는 회고를 써 봅니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/BookReviewSystemDesignChapter2/" rel="permalink">Book review - 가상 면접 사례로 배우는 대규모 시스템 기초  (2장 개략적인 규모 추정)
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">2장 개략적인 규모 추정
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 MO YEONG-KWON. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154155002-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-154155002-1', { 'anonymize_ip': false});
+</script>
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://momoci99.github.io//HttpMethod/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/HttpMethod"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://momoci99.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

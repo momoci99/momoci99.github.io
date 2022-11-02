@@ -1,0 +1,775 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.17.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>React toy 프로젝트 개발 회고 - YKMO 기술 메모</title>
+<meta name="description" content="React Toy Project - Songi Stock">
+
+
+  <meta name="author" content="MO YEONG-KWON">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="YKMO 기술 메모">
+<meta property="og:title" content="React toy 프로젝트 개발 회고">
+<meta property="og:url" content="https://momoci99.github.io//DevReview/">
+
+
+  <meta property="og:description" content="React Toy Project - Songi Stock">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2019-12-23T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://momoci99.github.io//DevReview/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "MO YEONG-KWON",
+      "url": "https://momoci99.github.io//"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="YKMO 기술 메모 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          YKMO 기술 메모
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://github.com/momoci99" >About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">MO YEONG-KWON</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>나를 쥐어짜는 즐거움</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seoul, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/momoci99" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:momoci99@gmail.com">
+            <meta itemprop="email" content="momoci99@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="React toy 프로젝트 개발 회고">
+    <meta itemprop="description" content="React Toy Project - Songi Stock">
+    <meta itemprop="datePublished" content="December 23, 2019">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">React toy 프로젝트 개발 회고
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  4 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="react-toy-project---songi-stock">React Toy Project - Songi Stock</h1>
+
+<p>이때까지 배운 Reactjs를 실제로 활용하여 작은 프로젝트를 진행하였다. 개발이 어느정도 마무리되어 AWS EC2 인스턴스에 Deploy 및 도메인 연결까지 진행되었다. 진행하면서 얻은 경험과 기록하고싶은 내용들을 여기에 정리하고자 한다.</p>
+
+<p>긴 글에는 3줄 요약</p>
+
+<ul>
+  <li>내가 불편해서</li>
+  <li>기술스택을 활용하여</li>
+  <li>송이 통계 사이트 만듬 끝. <a href="http://www.songistock.net">사이트 링크</a></li>
+</ul>
+
+<h2 id="아이템-선정-사유">아이템 선정 사유</h2>
+
+<p>우리 가족은 해마다 가을철에 <a href="https://ko.wikipedia.org/wiki/%EC%86%A1%EC%9D%B4">송이버섯</a>을 채취한다. 채취한 송이버섯은 여러 경로로 판매하게 되는데 이때 중요한 요소가 바로 <code class="language-plaintext highlighter-rouge">가격</code>이다. 송이버섯의 수매 가격은 그날그날 달라진다. 수매가에 따라 공판장 / 개인 판매비율을 결정하는데 수매가는 <a href="http://iforest.nfcf.or.kr/forest/user.tdf?a=user.songi.SongiApp&amp;c=1001&amp;mc=CYB_FIF_DGS_SNI_02&amp;pmsh_item_c=01&amp;sply_date=20191108&amp;x=19&amp;y=3">산림조합중앙회</a>에서 볼수 있다.</p>
+
+<p>그 외에 아래의 링크에서도 관련 정보를 조회해 볼 수있다.</p>
+
+<ul>
+  <li>
+    <p><a href="https://www.forestinfo.or.kr/public/mjif/selectMjifPrinfoGradeList.do?pageNo=11110400">임산물 유통정보 시스템</a></p>
+  </li>
+  <li>
+    <p><a href="https://fps.kofpi.or.kr/fnt/price/forest/area/list.do">임산물 가격정보 시스템</a></p>
+  </li>
+</ul>
+
+<p>링크를 들어가보면 알겠지만 보기가 좀 불편했다. 특정 날짜의 송이 가격 정도야 쉽게 알 수 있겠지만 내가 원하는것은 년, 월, 일 단위로 가격의 변동을 한눈에 보고 싶었다. 가격 변동을 보면 언제 어느 날짜에 가격이 상승/하락 했는지 바로 알수있고 이날에는 송이 품질을 결정하는 요소가 어떠했는가를 추적하기 쉽기 때문이다. (날씨, 습도, 온도)</p>
+
+<p>송이 이야기가 좀 길었던것같다. 요약하면 내가 불편하면 내가 만들면 되지라는 생각으로 만들게 되었다.</p>
+
+<h3 id="사용된-기술-스택과-관련된-코멘트">사용된 기술 스택과 관련된 코멘트</h3>
+
+<h4 id="visual-studio-code-1411">Visual Studio Code 1.41.1</h4>
+
+<ul>
+  <li>가장 자주 사용하는 도구이다. 코딩 관련 도구중에는 손꼽히는 도구라고 생각한다. 지금 이글도 VSCode로 작성중이다.</li>
+</ul>
+
+<h4 id="jetbrain-pycharm-201923">JetBrain PyCharm 2019.2.3</h4>
+<ul>
+  <li>Visual Studio Code도 좋지만 PyCharm도 이에 버금가는 강력한 IDE라고 생각한다. Python 코드를 작성하는데 사용하였다.</li>
+</ul>
+
+<h4 id="python-37">Python 3.7</h4>
+<ul>
+  <li>
+    <p>무언가 가볍고 빠르게 프로그램을 개발하고 싶다면 역시 Python만한게 없는것같다. 참고로 Python2는 올해(2019)까지가 마지막이기 떄문에 Python 3를 사용하였고 송이 공판현황 사이트 크롤링 및 트위터 업데이트 코드를 작성하였다.</p>
+  </li>
+  <li>
+    <p>이번 프로젝트에 Python을 깊게 사용하지는 않았지만 덕분에 가벼운 수준의 Phyton 사용 경험을 습득할 수 있었다.</p>
+  </li>
+</ul>
+
+<h4 id="javascript-ecmascript-2015---es6">Javascript (Ecmascript 2015 - ES6)</h4>
+
+<ul>
+  <li>현 세대에서 웹페이지를 구성하는데 javascript는 거의 필수요소가 되었다. 시작은 미미하나 그 끝은 창대하리라는 말이 떠오를 정도로 javacript는 눈부시게 발전하였고 사용 영역은 웹을 벗어난지는 이미 오래이다. ReactJS는 javacript lib이기 때문에 React를 사용하고 싶다면 반드시 사용해야하는 언어이다.</li>
+</ul>
+
+<h4 id="react-js">React JS</h4>
+<ul>
+  <li>이 프로젝트를 시작하게 된 원인중 70%를 차지하고 있다. React JS로 개발을 꼭 해보고 싶었고 실제로 사용하게 되었다. 비록 매우 깊게 다루지는 못하였지면 여러 새로운 개념들을 배울 수 있었고 앞으로도 계속 다루고 싶고 사용할 예정이다.</li>
+</ul>
+
+<h4 id="nodejs-v12140-ltswith-koa">NodeJS v12.14.0 LTS(with Koa)</h4>
+
+<ul>
+  <li><a href="https://v8.dev/">Chrome V8 JavaScript 엔진</a>을 기반으로한 런타임인 NodeJs를 백엔드에 사용하였다. 여러 장점이 있지만 javascript로 개발을 할 수 있다는점이 내가 NodeJs를 채택한 사유이고 또 NodeJS로 개발을 해보고 싶었기 때문이다.</li>
+</ul>
+
+<h4 id="mongodb-40-to-422">MongoDB 4.0 to 4.2.2</h4>
+
+<ul>
+  <li>
+    <p>NoSQL기반 DB이다. NodeJS 및 Python과의 궁합도 좋고 또 사용해보고 싶어서 사용하게 되었다.</p>
+  </li>
+  <li>
+    <p>사용해보고싶어서 사용하긴 했는데 NoSQL에 대한 개념을 알고 실제 쿼리를 작성하는데 많은 시간이 소요되었다. 만약 MongoDB를 사용하지 않고 RDBMS인 <code class="language-plaintext highlighter-rouge">MSSQL</code>이나 <code class="language-plaintext highlighter-rouge">MySQL</code>을 사용하였다면 개발기간이 절반으로 줄어들었을것이다.</p>
+  </li>
+  <li>
+    <p>비록 익숙해지는데 많은 노력과 시간이 들었지만 NoSQL 기반 DB의 개념을 조금이나마 이해할 수 있어 큰 도움이 되었다.</p>
+  </li>
+</ul>
+
+<h4 id="awsamazon-web-services-with-ec2-route-53">AWS(Amazon Web Services) with EC2, Route 53</h4>
+<ul>
+  <li>아마존에서 제공하는 매우 강력한 클라우드 컴퓨팅 플랫폼이며 이것또한 꼭 써보고싶어 사용하게 되었다. 마침 프리티어 기간이 아직 남아 있어서 비용 부담도 거의 없었다. EC2 인스턴스를 구성하였고 도메인을 구입하여 인스턴스와 도메인을 연결하여 웹페이지를 구성할 수 있엇다.</li>
+</ul>
+
+<h2 id="개발과정-with-삽질">개발과정 with 삽질</h2>
+
+<h3 id="데이터-분석--크롤링">데이터 분석 &amp; 크롤링</h3>
+
+<ul>
+  <li>python3.7</li>
+</ul>
+
+<p>데이터를 크롤링 하기 앞서 크롤링할 데이터가 어떤 구조인지 파악하였다. 크롤링 대상 페이지는 위에서 언급한 <a href="http://iforest.nfcf.or.kr/forest/user.tdf?a=user.songi.SongiApp&amp;c=1001&amp;mc=CYB_FIF_DGS_SNI_02&amp;pmsh_item_c=01&amp;sply_date=20191108&amp;x=19&amp;y=3">산림조합중앙회 송이공판 현황 페이지</a>중 <a href="iforest.nfcf.or.kr/forest/user.tdf?a=user.songi.SongiApp&amp;c=1002&amp;sply_date=20191108&amp;pmsh_item_c=01&amp;mc=CYB_FIF_DGS_SNI_02">공판현황 자세히 보기</a>항목이였다.</p>
+
+<p>해당 페이지는 단순한 구조로 공판일자 콤보박스에서 원하는 날짜를 선택하고 <code class="language-plaintext highlighter-rouge">이동</code> 버튼을 누르면 get 요청이 날아가 데이터를 불러오는 구조였다. 파라미터를 확인 해보니 아래와 같았다.</p>
+
+<p><img src="https://github.com/momoci99/momoci99.github.io/blob/master/assets/img/dev_review_songi_stock/songi_url_query.PNG?raw=true" alt="songi_url_query" /></p>
+
+<p>다른 파라미터는 어떤 역할을 하는지 잘 모르겠지만 <code class="language-plaintext highlighter-rouge">sply_date</code> 가 조회할 날짜를 의미하는것은 바로 알 수 있었다. 쉽게 생각해서 url에 <code class="language-plaintext highlighter-rouge">sply_date</code> 파라미터에 날짜만 변경하여 요청을 계속 보내면 원하는 데이터를 얻을 수 있을것 같았고 실제로 요청을 날리자 정상적으로 데이터를 받아 MongoDB의 DB에 저장할 수 있었다. <a href="https://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a>을 이용하였으며 결과를 파싱후 MongoDB에 저장될 데이터 스키마도 최대한 단순하게 만들었다.</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># 데이터 스키마
+</span>    <span class="n">songiDic</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">"_id"</span><span class="p">:</span><span class="s">""</span><span class="p">,</span><span class="c1"># DB _id
+</span>        <span class="s">"SALE_DATE"</span><span class="p">:</span> <span class="s">""</span><span class="p">,</span> <span class="c1">#공판 일자
+</span>        <span class="s">"AREA"</span><span class="p">:</span> <span class="s">""</span><span class="p">,</span> <span class="c1">#지역명
+</span>        <span class="s">"UNION"</span><span class="p">:</span><span class="s">""</span><span class="p">,</span> <span class="c1">#조합명
+</span>        <span class="s">"BEFORE_SUMMARY_KG"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="c1">#전일까지의 수량
+</span>        <span class="s">"BEFORE_SUMMARY_PRICE"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="c1">#전일까지의 가격
+</span>        <span class="s">"TODAY_KG"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="c1">#금일 수량
+</span>        <span class="s">"TODAY_PRICE"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="c1">#금일 가격
+</span>        <span class="s">"SUM_KG"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="c1">#누계 수량
+</span>        <span class="s">"SUM_PRICE"</span> <span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="c1">#누계 가격
+</span>        <span class="s">"CLASS_A_KG"</span><span class="p">:</span> <span class="s">""</span><span class="p">,</span> <span class="c1">#1등품 수량
+</span>        <span class="s">"CLASS_A_PRICE"</span><span class="p">:</span> <span class="s">""</span><span class="p">,</span> <span class="c1">#1등품 가격
+</span>        <span class="s">"CLASS_B_KG"</span><span class="p">:</span> <span class="s">""</span><span class="p">,</span> <span class="c1">#2등품 수량
+</span>        <span class="s">"CLASS_B_PRICE"</span><span class="p">:</span> <span class="s">""</span><span class="p">,</span> <span class="c1">#2등품 가격
+</span>        <span class="s">"CLASS_C1_KG"</span><span class="p">:</span> <span class="s">""</span><span class="p">,</span><span class="c1">#3등(생장정지품) 수량
+</span>        <span class="s">"CLASS_C1_PRICE"</span><span class="p">:</span> <span class="s">""</span><span class="p">,</span><span class="c1">#3등(생장정지품) 가격
+</span>        <span class="s">"CLASS_C2_KG"</span><span class="p">:</span> <span class="s">""</span><span class="p">,</span> <span class="c1">#3등(개산품) 수량
+</span>        <span class="s">"CLASS_C2_PRICE"</span><span class="p">:</span> <span class="s">""</span><span class="p">,</span> <span class="c1">#3등(개산품) 가격
+</span>        <span class="s">"CLASS_D_KG"</span><span class="p">:</span> <span class="s">""</span><span class="p">,</span> <span class="c1">#등외품 수량
+</span>        <span class="s">"CLASS_D_PRICE"</span><span class="p">:</span> <span class="s">""</span><span class="p">,</span><span class="c1">#등외품 가격
+</span>        <span class="s">"CLASS_F_KG"</span><span class="p">:</span> <span class="s">""</span><span class="p">,</span> <span class="c1">#혼합품 수량
+</span>        <span class="s">"CLASS_F_PRICE"</span><span class="p">:</span> <span class="s">""</span><span class="p">,</span> <span class="c1">#혼합품 가격
+</span>        <span class="s">"LAST_UPDATED"</span> <span class="p">:</span> <span class="s">""</span><span class="c1">#최종변경일시
+</span>    <span class="p">}</span>
+
+</code></pre></div></div>
+
+<h3 id="백엔드-코드-작성-nodejs">백엔드 코드 작성 Nodejs</h3>
+
+<ul>
+  <li>Koa</li>
+</ul>
+
+<p>Nodejs 특성상 javascript로 코드를 작성할 수 있어 비교적 수월하게 코드를 작성할 수 있었다. 다만 미들웨어로 <a href="https://koajs.com/">Koa</a>를 사용하였다. Expresss또한 자료가 많았지만 <code class="language-plaintext highlighter-rouge">Koa</code>로 갈아타고 있는 추세라고 하여 Koa를 활용하였다. 사실 이전에도 Express 로 간단한 코드를 몇번 작성한적이 있어 Express가 더 익숙한것인 사실이나 koa를 한번 사용하고 싶었다.</p>
+
+<p>koa와 Express 둘다 겉으로는 비슷한 역할을 수행하나 라우팅이라던지 파라미터 구성, 들어온 요청을 처리하는 방식에 차이가 있었다. 물론 koa API 문서를 참고하여 잘 활용할 수 있었다.</p>
+
+<p>아래 블로그도 참조하였다</p>
+
+<p><a href="https://velog.io/@noyo0123/express-vs-koa-qyk24lsozz">express-vs-koa</a></p>
+
+<ul>
+  <li>async await</li>
+</ul>
+
+<p>Nodejs를 사용하면서 <a href="http://callbackhell.com/">CallBack Hell</a>이란 말을 자주 접하게 된다. 이는 Nodejs의 특성에 기인한것인데 일반적인 동기 방식과 달리 Nodejs는 비동기 이벤트 주도 JavaScript 런타임이다. 따라서 비동기 이벤트를 처리하기 위해 es6의 <code class="language-plaintext highlighter-rouge">Promise</code>가 등장 하기 전까지는 CallBack 함수를 주렁주렁 달거나 별도의 lib를 사용해야 했다. 나도 Promise까지만 사용해봤고 그 이후에 등장한 async await는 접해볼 길이 없었는데 이번 기회를 통해 사용하게 되었다.</p>
+
+<ul>
+  <li>같이 보면 좋은 블로그</li>
+</ul>
+
+<p><a href="https://tk-one.github.io/2019/02/07/nodejs-event-loop/">Node.js 이벤트루프 제대로 이해하기</a></p>
+
+<p><a href="1https://joshua1988.github.io/web-development/javascript/js-async-await/">js-async-await</a></p>
+
+<p><a href="https://developers.google.com/web/fundamentals/primers/async-functions?hl=ko">google-async-functions</a></p>
+
+<h3 id="mongodb">MongoDB</h3>
+
+<p>NoSQL 기반의 MongoDB는 평소에 이름만 알았지 실제 프로그램 개발에 사용하는것은 이번이 처음이였다. 우선 SQL 기반 RDBMS인 MySQL, MSSQL에 익숙해져 있던 터라 NoSQL 방식의 쿼리를 작성하는데 매우 큰 애를 먹었다. 만약 RDBMS를 사용했다면 개발 기간이 크게 단축되었을것이다.(..) 그래도 MongoDB의 워크벤치라고 할수있는 MongoDB Compass로 쿼리를 미리 구성하고 적용하는것으로 원하는 쿼리를 작성할 수 있었다.</p>
+
+<ul>
+  <li><a href="https://docs.mongodb.com/manual/aggregation/">Aggregation</a></li>
+</ul>
+
+<h3 id="reactjs">ReactJS</h3>
+
+<p>크게 삽질한 부분은 React 16.8에 추가된 <a href="https://ko.reactjs.org/docs/hooks-intro.html">Hooks</a> 였다. <code class="language-plaintext highlighter-rouge">setState</code>를 대신하여 상태관리를 자동으로 해주게 되었다. 아직 제대로 이해하고 있는것은 아니지만 기존 생명주기 관련 함수들 대신 <code class="language-plaintext highlighter-rouge">useEffect()</code>가 대체하게 되고 필요에따라 DOM을 업데이트하게 되는것으로 간단하게 이해하고 개발했다. 개발 시간을 늘린(!) 주요 사항중 하나였지만 덕분에 상태관리에 대한 개념을 익힐 수 있었다.</p>
+
+<h4 id="aws">AWS</h4>
+
+<p>최초에는 계획에 없었고 라즈베리파이에 서버를 올릴 계획이었으나 AWS도 한번 사용하고 싶은 마음에 EC2 인스턴스를 생성하고 도메인까지 구입하였다. 의외로 크게 삽질할 요소는 없었다. AWS 자체 안내서가 매우 잘 되어있기 때문이다.</p>
+
+<p>도메인의 경우 아래 그림과 같이 가격대에 맞게 구입이 가능하다. 나는 제일 저렴한 11$(1년)의 .net 을 구입하였다.</p>
+
+<p><img src="https://github.com/momoci99/momoci99.github.io/blob/master/assets/img/dev_review_songi_stock/domain_buy.PNG?raw=true" alt="domain_buy" /></p>
+
+<p>도메인과 인스턴스를 연결하기 위해서는 <a href="https://aws.amazon.com/ko/route53/">route 53</a>에서 연결하려는 인스턴스와 도메인간의 쿼리를 생성하면 된다.</p>
+
+<p><img src="https://github.com/momoci99/momoci99.github.io/blob/master/assets/img/dev_review_songi_stock/route53.png?raw=true" alt="route53" /></p>
+
+<h2 id="마무리">마무리</h2>
+
+<p>toy project로 시작해서 어떻게 잘 deploy시킨것같다. 물론 아직 버그나 개선 사항이 많이 남아 있어 조금씩 잡아나갈 예정이다. 아쉬운점으로는 모바일 지원이 안된다는점이다. 좀더 열심히 해야겠다.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/devreview" class="page__taxonomy-item" rel="tag">DevReview</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-12-23T00:00:00+00:00">December 23, 2019</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=React+toy+%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8+%EA%B0%9C%EB%B0%9C+%ED%9A%8C%EA%B3%A0%20https%3A%2F%2Fmomoci99.github.io%2F%2FDevReview%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmomoci99.github.io%2F%2FDevReview%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fmomoci99.github.io%2F%2FDevReview%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/dev_map/" class="pagination--pager" title="웹 / 프론트 엔드 개발자 로드맵 2019
+">Previous</a>
+    
+    
+      <a href="/ReactRef/" class="pagination--pager" title="React ref, useImperativeHandle, forwardRef
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ProjectFinishedRetrospect/" rel="permalink">프로젝트 마무리 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">3개월 전 즈음, 진행하던 webrtc 관련 프로젝트가 다른 부서로 넘어가고 저는 신규 서비스를 개발하는 프로젝트에 참여하게 되었습니다. threejs와 react를 활용한 웹 기반 3d 컨텐츠 제작 및 증강 서비스 개발 업무에 참여하면서 팀, 기술 스택, 업무 방식이 바뀌었고, ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ThreejsDailyLog/" rel="permalink">React에서 threejs 사용 및 삽질
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">React + Typescript 환경에서 Threejs 사용시 활용했던 라이브러리 및 삽질했던 내용들을 간단하게 정리하였습니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/2021YearRetrospect/" rel="permalink">2021년 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">순식간에 지나간 2021년이 끝나갑니다. 한해를 돌아보는 회고를 써 봅니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/BookReviewSystemDesignChapter2/" rel="permalink">Book review - 가상 면접 사례로 배우는 대규모 시스템 기초  (2장 개략적인 규모 추정)
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">2장 개략적인 규모 추정
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 MO YEONG-KWON. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154155002-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-154155002-1', { 'anonymize_ip': false});
+</script>
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://momoci99.github.io//DevReview/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/DevReview"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://momoci99.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

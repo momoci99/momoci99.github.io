@@ -1,0 +1,742 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.17.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>AWS Transcribe / Translate / Polly - YKMO 기술 메모</title>
+<meta name="description" content="AWS Transcribe / Translate / Polly">
+
+
+  <meta name="author" content="MO YEONG-KWON">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="YKMO 기술 메모">
+<meta property="og:title" content="AWS Transcribe / Translate / Polly">
+<meta property="og:url" content="https://momoci99.github.io//AWS-Transcribe-Translate-polly/">
+
+
+  <meta property="og:description" content="AWS Transcribe / Translate / Polly">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-03-18T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://momoci99.github.io//AWS-Transcribe-Translate-polly/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "MO YEONG-KWON",
+      "url": "https://momoci99.github.io//"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="YKMO 기술 메모 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          YKMO 기술 메모
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://github.com/momoci99" >About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">MO YEONG-KWON</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>나를 쥐어짜는 즐거움</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seoul, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/momoci99" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:momoci99@gmail.com">
+            <meta itemprop="email" content="momoci99@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="AWS Transcribe / Translate / Polly">
+    <meta itemprop="description" content="AWS Transcribe / Translate / Polly">
+    <meta itemprop="datePublished" content="March 18, 2020">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">AWS Transcribe / Translate / Polly
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="aws-transcribe--translate--polly">AWS Transcribe / Translate / Polly</h1>
+
+<h2 id="0-개요">0. 개요</h2>
+
+<p>Remote 2.0 에서 추가 계획인 실시간 음성 번역 기능 개발과 관련하여 
+AWS가 제공하는 솔루션에 대한 내용입니다.</p>
+
+<h2 id="1-큰-그림">1. 큰 그림</h2>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>USER -&gt; Amazon Transcribe -&gt; Amazon Translate -&gt; Amazon Polly -&gt; USER
+</code></pre></div></div>
+
+<ul>
+  <li>USER가 입력한 오디오 데이터를 Amazon Transcribe로 전송</li>
+  <li>Amazon Transcribe는 입력받은 오디오를 컴퓨터가 읽을수 있는 json 데이터로 변환</li>
+  <li>변환된 json 데이터는 Amazon Translate로 전송</li>
+  <li>Amazon Translate는 입력받은 json 데이터를 분석하여 번역</li>
+  <li>번역된 결과물을 Amazon Polly로 전송</li>
+  <li>Amazon Polly는 전달받은 결과물을 TTS로 발성</li>
+</ul>
+
+<h2 id="2-큰-그림에-대한-세부-설명예제">2. 큰 그림에 대한 세부 설명(예제)</h2>
+
+<p><img src="https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2019/06/06/real-time-translator-2.gif" alt="https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2019/06/06/real-time-translator-2.gif" /></p>
+
+<p>서비스 상호 작용의 흐름은 다음과 같음.</p>
+
+<p><a href="https://d399h0fue2zb49.cloudfront.net/voice-translator.html">아래 내용을 실제 구현한 예제</a></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Amazon CloudFront</code> 를 사용하여 사이트에 대한 액세스를 허용하면 페이지에 대한 HTTPS 링크를 얻을 수 있음.</li>
+  <li><code class="language-plaintext highlighter-rouge">Amazon S3</code>에 브라우저에 기록 된 입력 오디오 파일을 저장.</li>
+  <li>입력 오디오 파일을 S3에 저장하고 Lambda 함수를 호출. 함수 입력에서 이전에 Amazon S3에서 저장 한 오디오 파일의 이름을 제공하고 소스 및 대상 언어 매개 변수를 전달.</li>
+  <li><code class="language-plaintext highlighter-rouge">Amazon Transcribe</code>를 사용하여 오디오를 텍스트로 변환</li>
+  <li><code class="language-plaintext highlighter-rouge">Amazon Translate</code>를 사용하여 문자를 한 언어에서 다른 언어로 번역.</li>
+  <li><code class="language-plaintext highlighter-rouge">Amazon Polly</code>를 사용하여 새로운 번역 된 텍스트를 음성으로 변환.</li>
+  <li><code class="language-plaintext highlighter-rouge">Lambda</code> 함수를 사용하여 출력 오디오 파일을 S3에 다시 저장 한 다음 파일 이름을 페이지로 반환 (JavaScript 호출). 오디오 파일 자체를 반환 할 수 있지만 간단하게하기 위해 S3에 저장하고 이름 만 반환하면됨.</li>
+  <li>번역 된 오디오를 사용자에게 자동으로 재생.</li>
+</ul>
+
+<h2 id="3-각-솔루션-특징">3. 각 솔루션 특징</h2>
+
+<h3 id="3-1-amazon-transcribe">3-1. Amazon Transcribe</h3>
+
+<blockquote>
+  <p>음성을 텍스트로 자동 변환</p>
+</blockquote>
+
+<p><a href="https://aws.amazon.com/ko/transcribe/">링크</a></p>
+
+<h3 id="특징">특징</h3>
+
+<ul>
+  <li>음성을 텍스트로 변환해주는 솔루션</li>
+  <li>텍스트로 변환하기 위해 음성파일이 <code class="language-plaintext highlighter-rouge">반드시</code> <strong>S3</strong>에 저장되어 있어야함.</li>
+  <li>거의 실시간 오디오 스트리밍(한국어는 안됨)을 텍스트로 변환할 수 있음. (<a href="https://docs.aws.amazon.com/transcribe/latest/dg/what-is-transcribe.html">지원언어</a>)</li>
+  <li><a href="https://console.aws.amazon.com/transcribe/home?region=us-east-1#realTimeTranscription">Amazon Real-time transcription 예제</a></li>
+  <li>여러명이 동시에 말했을때 이를 구분할 수 있음.</li>
+  <li>필터링할 단어를 지정하여 특정 단어(보안 사항)를 제거할 수 있음.</li>
+  <li>변환된 결과물은 아래와 같이 <code class="language-plaintext highlighter-rouge">json</code> 형식으로 출력됨.</li>
+  <li>16kHz 및 8kHz 오디오 스트림과 WAV, MP3, MP4 및 FLAC를 비롯한 여러 오디오 인코딩을 지원
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="p">{</span><span class="nl">"Transcript"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nl">"Results"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nl">"Alternatives"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nl">"Items"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"See"</span><span class="p">,</span><span class="nl">"EndTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2199</span><span class="p">,</span><span class="nl">"StartTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0699</span><span class="p">,</span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pronunciation"</span><span class="p">},</span><span class="err">생략...</span><span class="p">{</span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"how"</span><span class="p">,</span><span class="nl">"EndTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6099</span><span class="p">,</span><span class="nl">"StartTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.2299</span><span class="p">,</span><span class="nl">"Type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pronunciation"</span><span class="p">},{</span><span class="nl">"Content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"much"</span><span class="p">,</span><span class="nl">"EndTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.7999</span><span class="p">,</span><span class="nl">"StartTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.6199</span><span class="p">,}],</span><span class="nl">"Transcript"</span><span class="p">:</span><span class="w"> </span><span class="s2">"See how much a transcribed Rachel test copy of the speech into your time. Choose started dreaming and talk."</span><span class="p">}],</span><span class="nl">"EndTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">7.05</span><span class="p">,</span><span class="nl">"IsPartial"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="nl">"ResultId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"e6be6579-af08-4447-b084-b68debc496a1"</span><span class="p">,</span><span class="nl">"StartTime"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0699</span><span class="p">}]}}</span><span class="err">,</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li>한글도 지원
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="p">{</span><span class="nl">"jobName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TestKor"</span><span class="p">,</span><span class="nl">"accountId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"002568105033"</span><span class="p">,</span><span class="nl">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nl">"transcripts"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nl">"transcript"</span><span class="p">:</span><span class="w"> </span><span class="s2">"안녕하세요 만나서 반갑습니다"</span><span class="w"> </span><span class="p">}],</span><span class="nl">"items"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="nl">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.04"</span><span class="p">,</span><span class="nl">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.89"</span><span class="p">,</span><span class="nl">"alternatives"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nl">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w"> </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"안녕하세요"</span><span class="w"> </span><span class="p">}],</span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pronunciation"</span><span class="p">},{</span><span class="nl">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.89"</span><span class="p">,</span><span class="nl">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.53"</span><span class="p">,</span><span class="nl">"alternatives"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nl">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w"> </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"만나서"</span><span class="w"> </span><span class="p">}],</span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pronunciation"</span><span class="p">},{</span><span class="nl">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.53"</span><span class="p">,</span><span class="nl">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2.65"</span><span class="p">,</span><span class="nl">"alternatives"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nl">"confidence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w"> </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"반갑습니다"</span><span class="w"> </span><span class="p">}],</span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"pronunciation"</span><span class="p">}]},</span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"COMPLETED"</span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
+    <h3 id="3-2-amazon-translate">3-2. Amazon Translate</h3>
+  </li>
+</ul>
+
+<blockquote>
+  <p>딥 러닝을 기법을 이용한 번역 솔루션</p>
+</blockquote>
+
+<p><a href="https://ap-northeast-2.console.aws.amazon.com/translate/home?region=ap-northeast-2#translation">링크</a></p>
+
+<h3 id="특징-1">특징</h3>
+
+<ul>
+  <li>딥 러닝 기법을 사용하여 자연스러운 번역을 추구함.</li>
+  <li>Amazon Translate에서 처리되는 모든 컨텐츠는 암호화됨.</li>
+  <li><code class="language-plaintext highlighter-rouge">json</code> 형식으로 요청 및 응답함.</li>
+</ul>
+
+<p><strong>요청</strong></p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="nl">"Text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Coronaviruses are a group of related viruses that cause diseases in mammals and birds. In humans, coronaviruses cause respiratory tract infections that can be mild, such as some cases of the common cold (among other possible causes, predominantly rhinoviruses), and others that can be lethal, such as SARS, MERS, and COVID-19. Symptoms in other species vary: in chickens, they cause an upper respiratory tract disease, while in cows and pigs they cause diarrhea. There are yet to be vaccines or antiviral drugs to prevent or treat human coronavirus infections."</span><span class="p">,</span><span class="nl">"SourceLanguageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="nl">"TargetLanguageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ko"</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p><strong>응답</strong></p>
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">    </span><span class="p">{</span><span class="nl">"TranslatedText"</span><span class="p">:</span><span class="w"> </span><span class="s2">"코로나 바이러스는 포유류와 조류에 질병을 일으키는 관련 바이러스 그룹입니다. 인간에서 코로나 바이러스는 (다른 가능한 원인, 주로 라이노 바이러스 중) 감기의 일부 경우와 같이 경미하게 될 수있는 호흡기 감염을 일으키고 사스, MERS 및 COVIDD-19와 같이 치명적일 수 있습니다. 다른 종의 증상은 다양합니다. 닭에서는 상부 호흡기 질환을 일으키고 소와 돼지에서는 설사를 일으 킵니다. 인간 코로나 바이러스 감염을 예방하거나 치료하기 위해 백신이나 항 바이러스제가 아직 없습니다."</span><span class="p">,</span><span class="nl">"SourceLanguageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="nl">"TargetLanguageCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ko"</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+<p><a href="https://ap-northeast-2.console.aws.amazon.com/translate/home?region=ap-northeast-2#translation">실시간 번역 예제 링크</a></p>
+
+<h3 id="3-3-amazon-polly">3-3. Amazon Polly</h3>
+
+<blockquote>
+  <p>딥 러닝을 사용하여 텍스트를 음성으로 전환</p>
+</blockquote>
+
+<ul>
+  <li>실시간 스트리밍 제공</li>
+  <li>자연스러운 음성</li>
+  <li>음성 저장 및 재배포가 자유러움</li>
+</ul>
+
+<p><a href="https://aws.amazon.com/ko/polly/">링크</a></p>
+
+<h2 id="3-각-솔루션별-요금-정책">3. 각 솔루션별 요금 정책</h2>
+
+<ul>
+  <li>Amazon Transcribe
+    <ul>
+      <li>월별 변환된 오디오 시간(초)을 기준으로 사용한 만큼 비용을 지불</li>
+      <li>초당 0.0004 USD의 비율로 월별 청구</li>
+      <li>사용량은 1초 단위</li>
+      <li>요청당 15초의 최소 요금이 청구됨</li>
+      <li>24시간 거의 풀로 사용하면 5만원 정도 부과되는걸로 예상</li>
+      <li>월 사용량이 1백만분(하루종일 풀로 사용하는경우) 별도 문의 필요</li>
+    </ul>
+  </li>
+</ul>
+
+<p><a href="https://aws.amazon.com/ko/transcribe/pricing/?nc=sn&amp;loc=3">요금 정책 링크</a></p>
+
+<ul>
+  <li>Amazon Translate
+    <ul>
+      <li>처리한 텍스트 수를 기준으로 사용한만큼 지불함</li>
+      <li>문자 1백만개에 15$</li>
+    </ul>
+  </li>
+</ul>
+
+<p><a href="https://aws.amazon.com/ko/translate/pricing/">요금 정책 링크</a></p>
+
+<ul>
+  <li>Amazon Polly
+    <ul>
+      <li>변환되는 텍스트 문자 수에 따라 비용이 부과됨.</li>
+      <li>신경명 TTS와 표준 TTS 비용이 다르게 부과됨(신경망이 더 비쌈)</li>
+      <li>문자 1백만개 (23시간 8분)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><a href="https://aws.amazon.com/ko/polly/pricing/?nc=sn&amp;loc=4">요금 정책 링크</a></p>
+
+<h2 id="4-결론">4. 결론</h2>
+
+<ul>
+  <li>각각의 솔루션은 나쁘지 않다고 판단됨.</li>
+  <li>허나, 번역을 위해서는 각각의 솔루션을 거치면서 json 파일을 전달함</li>
+  <li>이는 결과적으로 지연을 발생시킴.</li>
+  <li>3가지 솔루션을 유기적으로 묶어 지연을 감소시킬 수 있는 방법(양방향 스트리밍이라던지..)이 필요함.</li>
+</ul>
+
+<h2 id="5-기타">5. 기타</h2>
+
+<p><a href="https://hyperconnect.com/tech/rtc/">hyperconnect-Azar</a> : 실시간 음성 -&gt; 텍스트 번역 제공</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/aws" class="page__taxonomy-item" rel="tag">AWS</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-03-18T00:00:00+00:00">March 18, 2020</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=AWS+Transcribe+%2F+Translate+%2F+Polly%20https%3A%2F%2Fmomoci99.github.io%2F%2FAWS-Transcribe-Translate-polly%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmomoci99.github.io%2F%2FAWS-Transcribe-Translate-polly%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fmomoci99.github.io%2F%2FAWS-Transcribe-Translate-polly%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/AWS-memo/" class="pagination--pager" title="AWS CLI &amp; SDK 관련 메모
+">Previous</a>
+    
+    
+      <a href="/Jest-And-Vue/" class="pagination--pager" title="Jest And Vue
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ProjectFinishedRetrospect/" rel="permalink">프로젝트 마무리 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">3개월 전 즈음, 진행하던 webrtc 관련 프로젝트가 다른 부서로 넘어가고 저는 신규 서비스를 개발하는 프로젝트에 참여하게 되었습니다. threejs와 react를 활용한 웹 기반 3d 컨텐츠 제작 및 증강 서비스 개발 업무에 참여하면서 팀, 기술 스택, 업무 방식이 바뀌었고, ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ThreejsDailyLog/" rel="permalink">React에서 threejs 사용 및 삽질
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">React + Typescript 환경에서 Threejs 사용시 활용했던 라이브러리 및 삽질했던 내용들을 간단하게 정리하였습니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/2021YearRetrospect/" rel="permalink">2021년 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">순식간에 지나간 2021년이 끝나갑니다. 한해를 돌아보는 회고를 써 봅니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/BookReviewSystemDesignChapter2/" rel="permalink">Book review - 가상 면접 사례로 배우는 대규모 시스템 기초  (2장 개략적인 규모 추정)
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">2장 개략적인 규모 추정
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 MO YEONG-KWON. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154155002-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-154155002-1', { 'anonymize_ip': false});
+</script>
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://momoci99.github.io//AWS-Transcribe-Translate-polly/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/AWS-Transcribe-Translate-polly"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://momoci99.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

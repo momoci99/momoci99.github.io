@@ -1,0 +1,663 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.17.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>프로젝트 마무리 회고 - YKMO 기술 메모</title>
+<meta name="description" content="3개월 전 즈음, 진행하던 webrtc 관련 프로젝트가 다른 부서로 넘어가고 저는 신규 서비스를 개발하는 프로젝트에 참여하게 되었습니다. threejs와 react를 활용한 웹 기반 3d 컨텐츠 제작 및 증강 서비스 개발 업무에 참여하면서 팀, 기술 스택, 업무 방식이 바뀌었고, 이 과정에서 어떤일을 했고 좋았던 점, 나빴던 점, 개선해야할 점 그리고 앞으로 해야할 일들을 정리해봅니다.">
+
+
+  <meta name="author" content="MO YEONG-KWON">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="YKMO 기술 메모">
+<meta property="og:title" content="프로젝트 마무리 회고">
+<meta property="og:url" content="https://momoci99.github.io//ProjectFinishedRetrospect/">
+
+
+  <meta property="og:description" content="3개월 전 즈음, 진행하던 webrtc 관련 프로젝트가 다른 부서로 넘어가고 저는 신규 서비스를 개발하는 프로젝트에 참여하게 되었습니다. threejs와 react를 활용한 웹 기반 3d 컨텐츠 제작 및 증강 서비스 개발 업무에 참여하면서 팀, 기술 스택, 업무 방식이 바뀌었고, 이 과정에서 어떤일을 했고 좋았던 점, 나빴던 점, 개선해야할 점 그리고 앞으로 해야할 일들을 정리해봅니다.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2022-11-02T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://momoci99.github.io//ProjectFinishedRetrospect/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "MO YEONG-KWON",
+      "url": "https://momoci99.github.io//"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="YKMO 기술 메모 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          YKMO 기술 메모
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://github.com/momoci99" >About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">MO YEONG-KWON</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>나를 쥐어짜는 즐거움</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seoul, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/momoci99" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:momoci99@gmail.com">
+            <meta itemprop="email" content="momoci99@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="프로젝트 마무리 회고">
+    <meta itemprop="description" content="3개월 전 즈음, 진행하던 webrtc 관련 프로젝트가 다른 부서로 넘어가고 저는 신규 서비스를 개발하는 프로젝트에 참여하게 되었습니다. threejs와 react를 활용한 웹 기반 3d 컨텐츠 제작 및 증강 서비스 개발 업무에 참여하면서 팀, 기술 스택, 업무 방식이 바뀌었고, 이 과정에서 어떤일을 했고 좋았던 점, 나빴던 점, 개선해야할 점 그리고 앞으로 해야할 일들을 정리해봅니다.">
+    <meta itemprop="datePublished" content="November 02, 2022">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">프로젝트 마무리 회고
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>3개월 전 즈음, 진행하던 webrtc 관련 프로젝트가 다른 부서로 넘어가고 저는 신규 서비스를 개발하는 프로젝트에 참여하게 되었습니다. threejs와 react를 활용한 웹 기반 3d 컨텐츠 제작 및 증강 서비스 개발 업무에 참여하면서 팀, 기술 스택, 업무 방식이 바뀌었고, 이 과정에서 어떤일을 했고 좋았던 점, 나빴던 점, 개선해야할 점 그리고 앞으로 해야할 일들을 정리해봅니다.</p>
+
+<h3 id="기술-스택과-domain의-전환">기술 스택과 Domain의 전환</h3>
+
+<ul>
+  <li>Vue2 → React</li>
+  <li>WebRTC → Three.js</li>
+  <li>Javascript → Typescript</li>
+</ul>
+
+<p>기회는 항상 예고없이 찾아온다고 했던가요. 😱 기존에 사용하던 vue2 → react 로 기술 전환 뿐만아니라 webrtc기반 협업 솔루션 → threejs 기반 3d 저작 과 같이 Domain의 전환도 함께 진행해야했습니다. 시간이 널널했으면 모르겠지만 전환에 필요한 시간은 저의 체감상 턱없이 부족했고, 서비스 런칭일은 정해져 있었습니다.</p>
+
+<p><strong>vue2 → react</strong></p>
+
+<p>react의 러닝커브가 vue에 비해 높다는건 알고 있었지만 실제 프로덕트를 개발하려고 보니 예상보다 어려운 점이 많아 여러 삽질을 거쳐야만 했습니다.</p>
+
+<ul>
+  <li>vue2보다 알기 어려운 React의 rerender을 유발하는 요인과 useEffect의 활용</li>
+  <li>vue2와 비슷해보이지만, react와 다른, 보다 엄격한 data flow</li>
+  <li>input tag처럼 내부 element에 별도의 상태를 가지는 컴포넌트 관리</li>
+</ul>
+
+<p>시간이 촉박했기에 react를 a to z 스타일로 볼 수는 없었고 vue2와 react의 차이점 위주로 react가 어떻게 되먹은건지 😩 파악하고 vue2 스타일로 개발하되 막힐 때 마다 공식 문서를 들여다보는 식으로 개발했습니다. 덕분에 그나마 정해진 기한내에 서비스를 런칭 할 수 있었다고 생각되네요.</p>
+
+<p><strong>WebRTC → Three.js</strong></p>
+
+<p>WebRTC는 media stream과 peer connection을 다루지만, 추상화가 잘 되어 있어 브라우저 API와 SDK만 잘 활용해도 응용 서비스를 개발하는데 어려움이 없습니다. 서비스 개발 및 의존관계 측면으로 본다면 클라이언트보다 서버쪽 의존도가 많은 편이라고 생각합니다.</p>
+
+<p><img src="https://webrtc.github.io/webrtc-org/assets/images/webrtc-public-diagram-for-website.png" alt="Front-End 개발자 입장에서 보라색 영역만 잘 알고 있어도 어떻게든 WebRTC 기반 서비스 개발이 가능합니다." /></p>
+
+<p>Front-End 개발자 입장에서 보라색 영역만 잘 알고 있어도 어떻게든 WebRTC 기반 서비스 개발이 가능합니다.</p>
+
+<p>반면, <a href="https://threejs.org/">Threejs</a>는 클라이언트에 매우 의존적입니다. 빛, 사물, 카메라, 재질 등 3d를 웹상에서 표현하기 위한 지식과 webgl 관련 지식이 함께 필요합니다. 원하는 서비스를 개발하기 위해서는 WebRTC에 비해 요구되는 최소 지식 보다 더 많은 지식을 요구하는 느낌이였습니다 (물론 지금도 “이게 뭐지?”를 연발중입니다 🥵) 그리고 아래 사항들이 개발을 더욱 어렵게 만들었습니다.</p>
+
+<ul>
+  <li>3d기반 지식이 없으면 threejs 라이브러리를 전혀 활용할 수 없음.</li>
+  <li>threejs는 디버거가 없어서 대부분 console.log에 의존.</li>
+  <li>react에서 threejs로 개발할 때 다음 라이브러리를 필수로 사용(<a href="https://github.com/pmndrs/react-three-fiber">react-three-fiber</a>, <a href="https://github.com/pmndrs/drei">drei</a>)</li>
+</ul>
+
+<p>어찌어찌 서비스를 런칭하긴 했습니다만, 시간이 조금만 더 있었다면 3d, threejs쪽을 파악하고 나서 개발을 시작했을텐데 그런 시간이 없어서 조금 아쉬움이 남습니다.</p>
+
+<h2 id="의견차이---개발자-기획자-디자이너">의견차이 - 개발자, 기획자, 디자이너</h2>
+
+<p>이번에 서비스를 런칭하면서 크게 배운건, 개발자와, 기획자, 디자이너가 똑같은 기능 정의서와 디자인을 봐도 각자 서로 다른 생각을 가진다것입니다. 예를 들어 <a href="https://drei.pmnd.rs/?path=/story/gizmos-gizmohelper--gizmo-helper-story">예시</a>와 같이 OrbitControl viewport gizmo를 구현한다고 했을때..</p>
+
+<p>나(개발자) : 개발 서버에 반영했는데 체크 부탁드려요~</p>
+
+<p>기획자 : 이거 왜 360도 회전이 안되요?</p>
+
+<p>나 : 네? 잘 되는데요.. 잠시 자리로 갈께요</p>
+
+<p>기획자 : 이거 회전할 때 극점에서 멈춰요</p>
+
+<p>나 : !!</p>
+
+<p>OrbitControl은 특성상 카메라를 항상 피사체 위에서 바라보게 설정되어있어 구의 극점(꼭대기 &amp; 바닥)에 도달하면 움직일 수가 없습니다. 저는 OrbitContorl의 특성이니 움직이지 못하는게 당연하다고 생각하였으나 기획자 입장에서는 그게 아니였던거죠.</p>
+
+<p>사람마다 동일한 문서를 봐도 생각하는게 다르다는걸 알게된 사례중 하나였습니다. 이전 WebRTC기반 프로젝트 개발할 때는 구성원 모두 비슷하거나 동일한 서비스 개발 경험을 가지고 있어서 의견차이가 큰 경험이 없었는데 이번에는 각자 다른 경험을 가진 구성원이 모여 일을 하다보니 이런 사례를 많이 경험 할 수 있었습니다.</p>
+
+<h2 id="좋았던-점">좋았던 점</h2>
+
+<ul>
+  <li>적극적인 의사소통 : 어떤날은 코드 작성보다 의사 교환하는 시간이 더 길었던적이 있을 만큼 전보다 많은 의견 교환과 의사소통을 했던것 같습니다.</li>
+  <li>빠른 피드백 : 어떤 요청사항이나 확인이 필요한 부분은 최대한 빠르게 대응했던 것 같습니다. 이전 프로젝트에서는 보통 반나절 정도의 딜레이가 생기곤 했었는데 최근에는 가능한한 즉각적인 피드백을 주려고 노력하고 있습니다. 덕분에 업무 속도가 많이 빨라졌습니다.</li>
+</ul>
+
+<h2 id="개선이-필요한-점">개선이 필요한 점</h2>
+
+<ul>
+  <li>기능 위주의 개발 : 사용자 동선을 고려하지 않고 기능과 기능을 합치면 프로덕트가 완성될꺼라는 생각.. 잘못된 생각이었습니다. 기능위주로 개발하게되면 서로 맞지 않는 부분이 생기고 결국 문제가 발생하더라구요.</li>
+  <li>스프린트 전 후 단계에서 세밀한 플래닝 : task 플래닝이 제대로 되지 않아 예상보다 업무가 너무 적어서 공백이 생긴다던지, 범위가 예상보다 너무 넓어서 예상 이상의 시간을 사용하는 문제들이 많았습니다.</li>
+</ul>
+
+<h2 id="해야할-일">해야할 일</h2>
+
+<ul>
+  <li>스프린트 계획을 좀 더 구체적으로 하기.</li>
+  <li>사용자 동선을 고려해서 개발하기.</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/retrospect" class="page__taxonomy-item" rel="tag">Retrospect</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2022-11-02T00:00:00+00:00">November 02, 2022</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8+%EB%A7%88%EB%AC%B4%EB%A6%AC+%ED%9A%8C%EA%B3%A0%20https%3A%2F%2Fmomoci99.github.io%2F%2FProjectFinishedRetrospect%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmomoci99.github.io%2F%2FProjectFinishedRetrospect%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fmomoci99.github.io%2F%2FProjectFinishedRetrospect%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/ThreejsDailyLog/" class="pagination--pager" title="React에서 threejs 사용 및 삽질
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ThreejsDailyLog/" rel="permalink">React에서 threejs 사용 및 삽질
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">React + Typescript 환경에서 Threejs 사용시 활용했던 라이브러리 및 삽질했던 내용들을 간단하게 정리하였습니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/2021YearRetrospect/" rel="permalink">2021년 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">순식간에 지나간 2021년이 끝나갑니다. 한해를 돌아보는 회고를 써 봅니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/BookReviewSystemDesignChapter2/" rel="permalink">Book review - 가상 면접 사례로 배우는 대규모 시스템 기초  (2장 개략적인 규모 추정)
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">2장 개략적인 규모 추정
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/BookReviewSystemDesignChapter1/" rel="permalink">Book review - 가상 면접 사례로 배우는 대규모 시스템 기초  (1장 사용자 수에 따른 규모확장성)
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 MO YEONG-KWON. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154155002-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-154155002-1', { 'anonymize_ip': false});
+</script>
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://momoci99.github.io//ProjectFinishedRetrospect/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/ProjectFinishedRetrospect"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://momoci99.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

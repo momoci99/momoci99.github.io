@@ -1,0 +1,697 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.17.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>간단한 Vue 정리 - YKMO 기술 메모</title>
+<meta name="description" content="0. 잠깐!">
+
+
+  <meta name="author" content="MO YEONG-KWON">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="YKMO 기술 메모">
+<meta property="og:title" content="간단한 Vue 정리">
+<meta property="og:url" content="https://momoci99.github.io//Vue-Basic/">
+
+
+  <meta property="og:description" content="0. 잠깐!">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-04-01T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://momoci99.github.io//Vue-Basic/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "MO YEONG-KWON",
+      "url": "https://momoci99.github.io//"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="YKMO 기술 메모 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          YKMO 기술 메모
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://github.com/momoci99" >About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">MO YEONG-KWON</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>나를 쥐어짜는 즐거움</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seoul, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/momoci99" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:momoci99@gmail.com">
+            <meta itemprop="email" content="momoci99@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="간단한 Vue 정리">
+    <meta itemprop="description" content="0. 잠깐!">
+    <meta itemprop="datePublished" content="April 01, 2020">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">간단한 Vue 정리
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="0-잠깐">0. 잠깐!</h2>
+
+<p>얼마전 캡틴판교님의 Vue.js 초급강의를 모두 수강하게되어 수강 배경 및 강의 내용을 가볍게 정리하고 넘어가고자 합니다. 이 글의 내용은 캡틴판교님의 강의 자료를 참고하였습니다. <a href="https://www.inflearn.com/course/Age-of-Vuejs/dashboard">링크</a></p>
+
+<h2 id="1-저희는-vue-써요">1. 저희는 Vue 써요.</h2>
+
+<p>현재 제가 다니고 있는 <code class="language-plaintext highlighter-rouge">VIRNECT</code>에 입사 면접을 볼 당시에 들었던 이야기였습니다.
+<img src="https://i.imgur.com/1i7v3B7.png" alt="pepe" /></p>
+<h5 id="vue가뭐야">Vue가..뭐야???????</h5>
+
+<p>저는 Ext JS 및 React를 주로 다루었고 Vue는 당시 처음 들어보는 js 프레임워크였기에 매우 당황했던 기억이 납니다. 현재는 어떻게 합격하게되어 R&amp;D 챕터 웹 클라이언트를 담당하게 되었네요. 무튼 저는 본격적인 개발을 하기 위해 Vue.js를 단기간에 습득할 필요가 있었고 인프런의 캡틴판교님이 강의하신 <code class="language-plaintext highlighter-rouge">Vue.js 시작하기 - Age of Vue.js</code> 초급 강의를 수강하게 되었습니다.</p>
+
+<h2 id="2-vue">2. Vue?</h2>
+
+<p>Vue는 <a href="https://evanyou.me/">Evan You</a> 가 만든 자바스크립트 프레임워크입니다. 발음대로 뷰(View)에 최적화된 프레임워크로 react와 같이 MVVM(Model-View-ViewModel) 패턴을 기반으로 하고 있으며 컴포넌트를 사용하여 재사용을 적극적으로 권장하고 있습니다.</p>
+
+<h2 id="3-강의에-언급된-vue의-요소들">3. 강의에 언급된 Vue의 요소들</h2>
+
+<h3 id="reactivity">Reactivity</h3>
+<ul>
+  <li>Vue.js가 추구하는 중심 사상이자 핵심.</li>
+  <li>데이터에 대한 변화를 Vue에서 감지.</li>
+  <li>화면 조작에 대한 API, 속성을 제공.</li>
+</ul>
+
+<p>Vue는 React에 비해 좀더 즉각적이고 쉽게 화면을 조작하는 방법을 제공하고있습니다. 아래 코드에서 message가 어떤 이유로 변화한다면 화면에 출력되는 message의 내용이 바로 반영됩니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Vue</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="dl">'</span><span class="s1">example</span><span class="dl">'</span><span class="p">,</span> <span class="p">{</span>
+  <span class="na">template</span><span class="p">:</span> <span class="dl">'</span><span class="s1">&lt;span&gt;&lt;/span&gt;</span><span class="dl">'</span><span class="p">,</span>
+  <span class="na">data</span><span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">message</span><span class="p">:</span> <span class="dl">'</span><span class="s1">안녕하세요!</span><span class="dl">'</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<h3 id="인스턴스">인스턴스</h3>
+<ul>
+  <li>필수로 생성해야하는 단위</li>
+  <li>인스턴스에 내용을 추가하여 개발</li>
+</ul>
+
+<h3 id="컴포넌트">컴포넌트</h3>
+<ul>
+  <li>화면의 영역을 구분하여 개발하는 방식</li>
+  <li>대부분의 UI는 컴포넌트 기반으로 개발됨</li>
+  <li>코드의 반복을 최대한 줄이는것이 컴포넌트 개념의 핵심</li>
+</ul>
+
+<h3 id="컴포넌트-통신">컴포넌트 통신</h3>
+<ul>
+  <li>데이터 통신에 대한 제약을 부여함으로서 여러사람이 함께 개발하여도 통신 흐름을 예측할수 있음</li>
+  <li>props : 상위에서 아래로</li>
+  <li>event emit : 하위에서 상위로</li>
+  <li>형제간 : 자식 -&gt; 부모 -&gt; 자식 순으로</li>
+</ul>
+
+<p>이 부분은 굉장히 react와 흡사한 부분이라고 느껴졌습니다. vue는 철저하게 부모, 자식간의 통신방법을 규정하고 있습니다. 이를 통해 데이터의 흐름을 명확하게 추적할 수 있습니다.</p>
+
+<p>제가 과거에 사용했던 Ext js는 제한없는 양방향 데이터 바인딩을 사용하고 있었기 때문에 성능 문제는 물론이고 디버깅 난이도를 높힌 주범이였습니다. 현재 개발 패러다임을 보았을때 데이터 흐름에 제한을 주는것은 바람직하다고 느껴지네요.</p>
+
+<h3 id="템플릿-문법">템플릿 문법</h3>
+<blockquote>
+  <p>화면을 조작하기위한 Vue의 문법들</p>
+</blockquote>
+
+<ul>
+  <li>데이터 바인딩
+    <ul>
+      <li>Reactivity와 비슷한 개념</li>
+      <li>데이터와 화면을 엮어내는 부분</li>
+    </ul>
+  </li>
+  <li>뷰 디렉티브(지시자)
+    <ul>
+      <li>화면을 조작하기 위해 Vue가 제공하는 추가적인 문법</li>
+      <li><code class="language-plaintext highlighter-rouge">v-xxxx</code></li>
+    </ul>
+  </li>
+  <li>Vue CLI
+    <ul>
+      <li>프로젝트를 생성할때 명령어를 이용하는 방식</li>
+      <li>싱글 파일 컴포넌트</li>
+      <li>template, js, style을 한 파일로 관리하는 컴포넌트</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;template&gt;</span>
+    <span class="c">&lt;!-- 마크업 --&gt;</span>
+<span class="nt">&lt;/template&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+    <span class="c1">// 컴포넌트 js 코드</span>
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+
+<span class="p">}</span>
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;style&gt;</span>
+    <span class="c">/* css or scss */</span>
+<span class="nt">&lt;/style&gt;</span>
+
+</code></pre></div></div>
+
+<h3 id="참조하면-좋은-자료">참조하면 좋은 자료</h3>
+<ul>
+  <li><a href="https://vuejs.org/v2/guide/">Vue 공식 가이드</a></li>
+  <li><a href="https://vuejs.org/v2/cookbook/">Vue Cook Book</a></li>
+</ul>
+
+<h2 id="마무리">마무리</h2>
+
+<p>Vue 초급 강좌를 들으면서 어느 부분은 React, 또 어떤 부분은 angular와 비슷하다고 느꼈습니다. 다만 확실하게 다르다고 느낀것은 러닝 커브였습니다. 머리가 저절로 아파오던 React보다 좀 더 쉽고 빠르게 익혀진다는게 느껴질 정도였으니까요. 다음에는 중급 수강 및 Vue-jest를 좀더 연구해보려고 합니다.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/vue" class="page__taxonomy-item" rel="tag">Vue</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-04-01T00:00:00+00:00">April 01, 2020</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%EA%B0%84%EB%8B%A8%ED%95%9C+Vue+%EC%A0%95%EB%A6%AC%20https%3A%2F%2Fmomoci99.github.io%2F%2FVue-Basic%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmomoci99.github.io%2F%2FVue-Basic%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fmomoci99.github.io%2F%2FVue-Basic%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/Jest-And-Vue/" class="pagination--pager" title="Jest And Vue
+">Previous</a>
+    
+    
+      <a href="/VueLifeCycle/" class="pagination--pager" title="Vue Life Cycle
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ProjectFinishedRetrospect/" rel="permalink">프로젝트 마무리 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">3개월 전 즈음, 진행하던 webrtc 관련 프로젝트가 다른 부서로 넘어가고 저는 신규 서비스를 개발하는 프로젝트에 참여하게 되었습니다. threejs와 react를 활용한 웹 기반 3d 컨텐츠 제작 및 증강 서비스 개발 업무에 참여하면서 팀, 기술 스택, 업무 방식이 바뀌었고, ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ThreejsDailyLog/" rel="permalink">React에서 threejs 사용 및 삽질
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">React + Typescript 환경에서 Threejs 사용시 활용했던 라이브러리 및 삽질했던 내용들을 간단하게 정리하였습니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/2021YearRetrospect/" rel="permalink">2021년 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">순식간에 지나간 2021년이 끝나갑니다. 한해를 돌아보는 회고를 써 봅니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/BookReviewSystemDesignChapter2/" rel="permalink">Book review - 가상 면접 사례로 배우는 대규모 시스템 기초  (2장 개략적인 규모 추정)
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">2장 개략적인 규모 추정
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 MO YEONG-KWON. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154155002-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-154155002-1', { 'anonymize_ip': false});
+</script>
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://momoci99.github.io//Vue-Basic/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/Vue-Basic"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://momoci99.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

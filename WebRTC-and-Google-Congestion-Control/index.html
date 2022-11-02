@@ -1,0 +1,706 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.17.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>WebRTC 혼잡 제어 알고리즘 &amp; GCC - YKMO 기술 메모</title>
+<meta name="description" content="WebRTC &amp; Google Congestion Control">
+
+
+  <meta name="author" content="MO YEONG-KWON">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="YKMO 기술 메모">
+<meta property="og:title" content="WebRTC 혼잡 제어 알고리즘 &amp; GCC">
+<meta property="og:url" content="https://momoci99.github.io//WebRTC-and-Google-Congestion-Control/">
+
+
+  <meta property="og:description" content="WebRTC &amp; Google Congestion Control">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-05-29T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://momoci99.github.io//WebRTC-and-Google-Congestion-Control/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "MO YEONG-KWON",
+      "url": "https://momoci99.github.io//"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="YKMO 기술 메모 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          YKMO 기술 메모
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://github.com/momoci99" >About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">MO YEONG-KWON</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>나를 쥐어짜는 즐거움</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seoul, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/momoci99" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:momoci99@gmail.com">
+            <meta itemprop="email" content="momoci99@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="WebRTC 혼잡 제어 알고리즘 &amp; GCC">
+    <meta itemprop="description" content="WebRTC &amp; Google Congestion Control">
+    <meta itemprop="datePublished" content="May 29, 2021">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">WebRTC 혼잡 제어 알고리즘 &amp; GCC
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>WebRTC &amp; Google Congestion Control</p>
+
+<h1 id="개요">개요</h1>
+
+<p>이번 글에는 WebRTC의 혼잡 제어 알고리즘과 WebRTC에서 널리 쓰이는 Google Congestion Control 알고리즘에 대해 다루어 보았습니다.</p>
+
+<h1 id="혼잡-제어-알고리즘">혼잡 제어 알고리즘?</h1>
+
+<p>WebRTC는 네트워크에 트래픽이 많거나, 처리가 지연되는 경우를 대비하여 흐름을 제어하는 알고리즘이 탑재되어 있습니다. 이를 혼잡 제어 알고리즘(Congestion Control Algorithm)이라고 합니다.</p>
+
+<h2 id="gcc---google-congestion-control">GCC - Google Congestion Control</h2>
+
+<p>현재 Google Chrome과 Google Hangout에서 사용되고 있는 실질적인 혼잡 제어 알고리즘입니다. 실질적이라고 표현한 이유는, NADA, SCReAM과 같은 알고리즘이 있지만, 당장 사용되고 있는것은 GCC이기 때문입니다.</p>
+
+<p>GCC는 지연과 패킷 손실률을 파악하여 유동적으로 데이터 흐름을 제어합니다. 이로인해 화질이 갑자기 나빠졌다가, 시간이 지나면서 좋아지거나 하는 이유이죠.</p>
+
+<h1 id="gcc에-대해-좀-더-알아봅시다">GCC에 대해 좀 더 알아봅시다.</h1>
+
+<p>GCC는 어떤 방식으로 혼잡을 감지하고, 어떻게 혼잡을 제어하는걸까요?</p>
+
+<h2 id="혼잡을-감지하고-제어하는-방식">혼잡을 감지하고 제어하는 방식</h2>
+
+<p>GCC는 회선의 가용 용량을 최대한 활용하고, 대기 대기열을 최대한 줄이려고 합니다.</p>
+
+<p>GCC의 동작 목표는 현재 회선의 가용 용량을 최대한으로 사용함과 동시에, 패킷 대기 대기열을 최대한 줄이려고 동작합니다. 이 목표를 달성하고자 지연 기반 제어와 손실 기반 제어를 수행합니다. GCC는 이 두 가지 방식을 상황에 따라 사용하고 있으나, 지연 기반 방식이 좀 더 세분화 되어있습니다</p>
+
+<hr />
+
+<h3 id="1-지연-기반-제어delay-based-controller">1. 지연 기반 제어(Delay-based controller)</h3>
+
+<p>GCC는 회선이 포화될때 까지 bitrate를 계속 증가시킵니다. 만약 이 과정에서 회선의 가용 용량을 모두 사용하여 대기 대기열이 발생하는 경우, 대기열이 0이 될 때 까지 bitrate를 감소킵니다. 회선에 다시 여유가 생긴다면 bitrate를 다시 증가시킵니다. 참고로 지연 기반 제어는 사전 필터링, 도착 시간 필터, 과용 감지기, 속도 제어로 구성됩니다.</p>
+
+<p>지연 기반 제어가 동작하여 bitrate를 제어하는 기준을 정리하면 다음과 같습니다.</p>
+
+<ol>
+  <li>지연 임계 값 초과(12.5ms)</li>
+  <li>대기 대기열 발생</li>
+</ol>
+
+<h3 id="2-손실-기반-제어loss-based-controller">2. 손실 기반 제어(Loss-based controller)</h3>
+
+<p>송신측은 수신측이 보내는 각 정보(지연, 패킷 손실률 등등)를 토대로 자체적으로 사용 가능한 대역폭을 추측합니다. 간단하게 아래의 방식으로 동작합니다.</p>
+
+<ul>
+  <li>패킷 손실률이 2% 이하일 때 송신 가능 대역폭 추정치 증가.</li>
+  <li>패킷 손실률이 10% 이상일 때 송신 가능 대역폭 추정치 감소.</li>
+</ul>
+
+<h3 id="속도-제어">속도 제어</h3>
+
+<p>지연 기반 제어와 손실 기반 제어를 바탕으로 최종적으로 대역폭을 제어합니다. 속도 제어는 상태에 따라 증가, 보류, 감소를 수행합니다.</p>
+
+<p><strong>사용가능한 대역폭 추정 기준</strong></p>
+
+<ul>
+  <li>지연 기반 제어에서 추측된 회선 대역폭</li>
+  <li>손실 기반 제어에서 추측된 회선 대역폭</li>
+</ul>
+
+<p>이 두가지 값 중 낮은 값을 기준으로 합니다.</p>
+
+<p><strong>신호 정의 - 지연 기반 제어, 손실 기반 제어에서 보고</strong></p>
+
+<ul>
+  <li>과다 사용 : 지연 기반 제어에서 과다 사용 신호가 검출.</li>
+  <li>일반 : 과다, 여유 신호 미검출</li>
+  <li>미사용 : 회선에 여유가 있는 신호 검출</li>
+</ul>
+
+<p><strong>상태 정의 - 속도 제어가 현재 수행하는 작업</strong></p>
+
+<ul>
+  <li>증가 - 대역폭을 증가시키는 중</li>
+  <li>감소 - 대역폭을 감소시키는 중</li>
+  <li>유지 - 현재 상태 유지중</li>
+  <li>보류 - 대역폭을 증가시키기 전 대기열이 비워질 때 까지 대기 중</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/momoci99/momoci99.github.io/master/assets/img/Etc/webrtc_status_table.png" alt="webrtc_status_table.png" /></p>
+
+<p>과다 사용</p>
+
+<ul>
+  <li>과다 사용 감지시 속도 보류 상태 → 속도 감소</li>
+  <li>과다 사용 감지시 속도 증가 상태 → 속도 감소</li>
+  <li>과다 사용 감지시 속도 감소 상태 → 유지(계속 속도 감소)</li>
+</ul>
+
+<p>일반 상태</p>
+
+<ul>
+  <li>일반 상태 감지시 속도 보류 상태 → 속도 증가</li>
+  <li>일반 상태 감지시 속도 증가 상태 → 유지(계속 속도 증가)</li>
+  <li>일반 상태 감지시 속도 감소 상태 → 보류(이후 속도 증가)</li>
+</ul>
+
+<p>미사용 감지</p>
+
+<ul>
+  <li>미사용 감지시 속도 보류 상태 → 보류(이후 속도 증가)</li>
+  <li>미사용 감지시 속도 증가 상태 → 보류(이후 속도 증가)</li>
+  <li>미사용 감지시 속도 감소 상태 → 보류(이후 속도 증가)</li>
+</ul>
+
+<h1 id="정리">정리</h1>
+
+<p>이번 글에서는 WebRTC의 혼잡 제어 알고리즘인 Google Congestion Control 알고리즘의 구성, 동작 방식을 알아보았습니다. 참고 자료를 통해 나름대로 정리 하였으나 틀린 부분이 존재할 수 있습니다. 혹시라도 잘못된 부분이 있으시다면 댓글 달아주세요!</p>
+
+<h1 id="참고자료">참고자료</h1>
+
+<ol>
+  <li>WebRTC의 혼잡 제어 및 표준화 관련 이슈 : <a href="https://www.researchgate.net/publication/317620792_Congestion_Control_for_WebRTC_Standardization_Status_and_Open_Issues">Congestion Control for WebRTC: Standardization Status and Open Issues</a></li>
+  <li>
+    <p>WebRTC 영상 흐름 제어 구조 - Google Congestion Control : <a href="https://qiita.com/komasshu/items/1cb5d4469595a635c689?fbclid=IwAR2i8ilRnGFnGfK0S_OuNlXFurPyZXM5iTUrse1Ih-wBQiW3uvzK0GXR-zE">https://qiita.com/komasshu/items/1cb5d4469595a635c689?fbclid=IwAR2i8ilRnGFnGfK0S_OuNlXFurPyZXM5iTUrse1Ih-wBQiW3uvzK0GXR-zE</a></p>
+  </li>
+  <li>
+    <p>Performance Analysis
+of Google Congestion
+Control Algorithm for
+WebRTC : <a href="https://repository.tudelft.nl/islandora/object/uuid%3A406dae1c-bc39-4973-9f82-0977a7bacdbf">https://repository.tudelft.nl/islandora/object/uuid%3A406dae1c-bc39-4973-9f82-0977a7bacdbf</a></p>
+  </li>
+  <li><a href="https://datatracker.ietf.org/doc/html/draft-ietf-rmcat-gcc-02">IETF GCC 링크</a></li>
+</ol>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/webrtc" class="page__taxonomy-item" rel="tag">WebRTC</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-05-29T00:00:00+00:00">May 29, 2021</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=WebRTC+%ED%98%BC%EC%9E%A1+%EC%A0%9C%EC%96%B4+%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98+%26+GCC%20https%3A%2F%2Fmomoci99.github.io%2F%2FWebRTC-and-Google-Congestion-Control%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmomoci99.github.io%2F%2FWebRTC-and-Google-Congestion-Control%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fmomoci99.github.io%2F%2FWebRTC-and-Google-Congestion-Control%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/Everything-you-missed-over-the-last-10-years-array/" class="pagination--pager" title="잊고 지냈던 js array 메서드
+">Previous</a>
+    
+    
+      <a href="/NuxtScratchTheSurface/" class="pagination--pager" title="Nuxt 찍먹하기
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ProjectFinishedRetrospect/" rel="permalink">프로젝트 마무리 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">3개월 전 즈음, 진행하던 webrtc 관련 프로젝트가 다른 부서로 넘어가고 저는 신규 서비스를 개발하는 프로젝트에 참여하게 되었습니다. threejs와 react를 활용한 웹 기반 3d 컨텐츠 제작 및 증강 서비스 개발 업무에 참여하면서 팀, 기술 스택, 업무 방식이 바뀌었고, ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ThreejsDailyLog/" rel="permalink">React에서 threejs 사용 및 삽질
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">React + Typescript 환경에서 Threejs 사용시 활용했던 라이브러리 및 삽질했던 내용들을 간단하게 정리하였습니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/2021YearRetrospect/" rel="permalink">2021년 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">순식간에 지나간 2021년이 끝나갑니다. 한해를 돌아보는 회고를 써 봅니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/BookReviewSystemDesignChapter2/" rel="permalink">Book review - 가상 면접 사례로 배우는 대규모 시스템 기초  (2장 개략적인 규모 추정)
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">2장 개략적인 규모 추정
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 MO YEONG-KWON. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154155002-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-154155002-1', { 'anonymize_ip': false});
+</script>
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://momoci99.github.io//WebRTC-and-Google-Congestion-Control/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/WebRTC and Google Congestion Control"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://momoci99.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

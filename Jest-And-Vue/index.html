@@ -1,0 +1,873 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.17.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Jest And Vue - YKMO 기술 메모</title>
+<meta name="description" content="Jest And Vue">
+
+
+  <meta name="author" content="MO YEONG-KWON">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="YKMO 기술 메모">
+<meta property="og:title" content="Jest And Vue">
+<meta property="og:url" content="https://momoci99.github.io//Jest-And-Vue/">
+
+
+  <meta property="og:description" content="Jest And Vue">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-03-25T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://momoci99.github.io//Jest-And-Vue/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "MO YEONG-KWON",
+      "url": "https://momoci99.github.io//"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="YKMO 기술 메모 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          YKMO 기술 메모
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://github.com/momoci99" >About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">MO YEONG-KWON</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>나를 쥐어짜는 즐거움</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seoul, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/momoci99" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:momoci99@gmail.com">
+            <meta itemprop="email" content="momoci99@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Jest And Vue">
+    <meta itemprop="description" content="Jest And Vue">
+    <meta itemprop="datePublished" content="March 25, 2020">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Jest And Vue
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  4 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="jest-and-vue">Jest And Vue</h1>
+
+<blockquote>
+  <p>NodeJS가 이미 설치되어 있고 npm 혹은 yarn을 쓸수 있는 환경이라는 가정하에 작성되었습니다.</p>
+</blockquote>
+
+<h2 id="개요">개요</h2>
+<p><code class="language-plaintext highlighter-rouge">Jest</code>는 페이스북에서 만든 javascript테스트 라이브러리입니다. 이 글을 쓰고있는 현재(2020-03-24) 30.2k의 github star 및 4.3k의 Fork횟수를 자랑하는 그야말로 아주 잘 나가는 Testing 라이브러리 입니다.</p>
+
+<p><img src="https://github.com/momoci99/momoci99.github.io/blob/master/assets/img/vue-jest/framework_ranking.PNG?raw=true" alt="사진1" /></p>
+
+<p><a href="https://2019.stateofjs.com/testing/#testing_experience_ranking">작년 javascript 개발자 설문</a>에서는 1위를 차지할 정도로 널리 알려져있습니다. 오늘은 이 Jest와 Jest를 사용하여 Vue.js의 컴포넌트를 테스트하는 과정을 다루려고 합니다.</p>
+
+<h2 id="테스트-코드가-필요한-이유">테스트 코드가 필요한 이유</h2>
+<p>테스트 코드가 왜 필요할까요? 테스트 코드를 작성하는것은 매우 귀찮은 일이라고도 볼수있습니다. 개발자는 본래 자신이 작성해야하는 코드와 더불어 테스트코드까지 작성해야하니 일이 두배가 되는 꼴이니까요. 하지만! 테스트 코드를 작성하면 아래와 같은 이점이 생깁니다.</p>
+
+<ol>
+  <li>
+    <p>끊임없이 발생할 버그에 대해 걱정하지 않고, 일이 언제 끝날지 알수 있게됩니다.</p>
+  </li>
+  <li>
+    <p>제품의 안전성이 높아집니다. 고객의 만족도도 함께 높아집니다.</p>
+  </li>
+  <li>
+    <p>코드에 대한 자신감이 생깁니다.</p>
+  </li>
+  <li>
+    <p>전체적으로 보았을때 개발 시간을 감소시킵니다.</p>
+  </li>
+  <li>
+    <p>행복해집니다.</p>
+  </li>
+</ol>
+
+<p>이 외에도 여러 장점들이 있습니다. 심지어 테스트 주도 개발 이라는 책을 쓰신 켄트 백님은 작성하는동안 기분이 좋다고 까지하네요. 그러니 우리 모두 행복하기 위해 테스트 코드를 작성해봅시다.</p>
+
+<h2 id="vue-cli로-손쉽게-환경-구성하기">Vue CLI로 손쉽게 환경 구성하기</h2>
+
+<h3 id="1설치하기">1.설치하기</h3>
+
+<p>Vue.js 는 Vue CLI를 통해 어렵지 않게 유닛 테스트를 진행하기 위한 옵션이 존재합니다. 이 옵션을 통해 프로젝트를 생성하게 되면 자동으로 기본적인 유닛 테스트를 위한 환경이 적용됩니다.</p>
+
+<p>우선 Vue CLI 를 설치하기 위해 아래의 명령어를 입력합시다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install -g @vue/cli
+# OR
+yarn global add @vue/cli
+</code></pre></div></div>
+
+<p>설치가 완료되었으면 제대로 되었는지 확인해봅시다</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vue --version
+</code></pre></div></div>
+
+<p>혹시 window powershell 에서 vue 입력시 권한 에러가 발생한다면 아래와 같이 입력해봅시다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vue.cmd --version
+</code></pre></div></div>
+
+<p>Vue CLI가 정상적으로 설치되었다면 버전이 정상적으로 출력됩니다.</p>
+
+<p>Vue에서 제공하는 <a href="https://github.com/vuejs-templates">템플릿</a>을 사용하기 위해 <code class="language-plaintext highlighter-rouge">vue/cli-init</code>을 설치합시다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install @vue/cli-init -g
+</code></pre></div></div>
+
+<p>완료되었다면 아래의 명령어로 webpack 템플릿을 적용한 프로젝트를 생성합니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vue init webpack [프로젝트명]
+</code></pre></div></div>
+
+<p>프로젝트를 생성하는 과정에서 아래처럼 커맨드 라인을 통해 설정을 진행할 수 있게 표시됩니다. 입맛에 맛게 진행하되 test runner부분에서는 Jest를 선택합시다. 물론 평소에는 선호하는 테스트 라이브러리를 사용하셔도 됩니다만 이번 글에는 Jest로 설명하기 때문에 Jest로 진행하겠습니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    ? Project name vue-jest-test
+    ? Project description A Vue.js project
+    ? Author tester
+    ? Vue build standalone      
+    ? Install vue-router? Yes
+    ? Use ESLint to lint your code? Yes
+    ? Pick an ESLint preset Standard
+    ? Set up unit tests Yes
+    ? Pick a test runner (Use arrow keys)
+    &gt; Jest
+    Karma and Mocha
+    none (configure it yourself)
+</code></pre></div></div>
+
+<p>선택이 끝나면 관련된 package를 설치하기 때문에 시간이 다소 소요될 수 있습니다.</p>
+
+<h3 id="2-생성-완성된-프로젝트-살펴보기">2. 생성 완성된 프로젝트 살펴보기</h3>
+
+<p>생성이 완료되었다면 프로젝트는 아래의 구조를 가지게 됩니다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>+---vue-jest-test
+|   +---build
+|   +---config
+|   +---node_modules
+|   +---src
+|   +---static
+|   +---test
+</code></pre></div></div>
+
+<p>components 디렉토리 내부에는 HelloWorld.vue 파일이 이미 생성되어 있습니다.</p>
+
+<p><img src="https://github.com/momoci99/momoci99.github.io/blob/master/assets/img/vue-jest/d2.png?raw=true" alt="사진" /></p>
+
+<p>이뿐만 아니라 test 디렉토리에는 jest 테스트 및 e2e 테스트를 위한 파일과 설정파일이 준비되어있습니다.</p>
+
+<p><img src="https://github.com/momoci99/momoci99.github.io/blob/master/assets/img/vue-jest/d1.png?raw=true" alt="사진" /></p>
+
+<p>아래는 HelloWorld.spec.js 파일에 정의된 테스트 코드입니다. Jest는 디렉토리를 재귀적으로 탐색하여 모든 test파일을 탐색합니다.</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Vue</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vue</span><span class="dl">'</span>
+<span class="k">import</span> <span class="nx">HelloWorld</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@/components/HelloWorld</span><span class="dl">'</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">HelloWorld.vue</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">should render correct contents</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">Constructor</span> <span class="o">=</span> <span class="nx">Vue</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="nx">HelloWorld</span><span class="p">)</span>
+    <span class="kd">const</span> <span class="nx">vm</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Constructor</span><span class="p">().</span><span class="nx">$mount</span><span class="p">()</span>
+    <span class="nx">expect</span><span class="p">(</span><span class="nx">vm</span><span class="p">.</span><span class="nx">$el</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">.hello h1</span><span class="dl">'</span><span class="p">).</span><span class="nx">textContent</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">toEqual</span><span class="p">(</span><span class="dl">'</span><span class="s1">Welcome to Your Vue.js App</span><span class="dl">'</span><span class="p">)</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+
+
+</code></pre></div></div>
+
+<p>package.json 에도 테스트를 위한 명령어가 세팅되어있습니다.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="w">  </span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"dev"</span><span class="p">:</span><span class="w"> </span><span class="s2">"webpack-dev-server --inline --progress --config build/webpack.dev.conf.js"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm run dev"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"unit"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jest --config test/unit/jest.conf.js --coverage"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"e2e"</span><span class="p">:</span><span class="w"> </span><span class="s2">"node test/e2e/runner.js"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"test"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npm run unit &amp;&amp; npm run e2e"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"lint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eslint --ext .js,.vue src test/unit test/e2e/specs"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"node build/build.js"</span><span class="w">
+  </span><span class="p">}</span><span class="err">,</span><span class="w">
+</span></code></pre></div></div>
+
+<p>이 상태에서 아래의 명령어로 테스트를 실행하면</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm run unit
+</code></pre></div></div>
+
+<p>아래의 결과를 얻으실 수 있습니다.</p>
+
+<p><img src="https://github.com/momoci99/momoci99.github.io/blob/master/assets/img/vue-jest/test_result1.png?raw=true" alt="사진" /></p>
+
+<p>만약 <code class="language-plaintext highlighter-rouge">localstorage</code> 관련 에러가 난다면 이 <a href="https://stackoverflow.com/questions/51554366/jest-securityerror-localstorage-is-not-available-for-opaque-origins">링크</a>를 참고하여 jest.conf.js 파일에 아래의 내용을 추가해줍시다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="p">...</span>
+  <span class="nx">verbose</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="nx">testURL</span><span class="p">:</span> <span class="dl">"</span><span class="s2">http://localhost/</span><span class="dl">"</span><span class="p">,</span>
+  <span class="p">...</span>
+</code></pre></div></div>
+
+<p>이로서 Vue CLI를 통해 생성된 프로젝트를 가볍게 살펴보았습니다.</p>
+
+<h2 id="간단한-예제를-통한-테스트">간단한 예제를 통한 테스트</h2>
+
+<h3 id="사칙연산을-수행하는-간단한-코드">사칙연산을 수행하는 간단한 코드</h3>
+
+<blockquote>
+  <p>아래 코드는 브랜디 랩스의 이경희 대리님의 코드<a href="http://labs.brandi.co.kr/2020/01/02/leekh.html">링크</a>를 가지고 왔습니다.</p>
+</blockquote>
+
+<p>사칙연산을 수행하는 간단한 코드입니다.</p>
+<div class="language-vue highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="nt">&lt;</span><span class="k">template</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div&gt;</span>
+    <span class="nt">&lt;h1&gt;&lt;/h1&gt;</span>
+    <span class="nt">&lt;ul&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">v-model=</span><span class="s">"frist"</span> <span class="nt">/&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">v-model=</span><span class="s">"second"</span> <span class="nt">/&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;</span> =  <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;ul&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;input</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">value=</span><span class="s">"더하기"</span> <span class="err">@</span><span class="na">click=</span><span class="s">"plus(frist, second)"</span> <span class="nt">/&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;input</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">value=</span><span class="s">"빼기"</span> <span class="err">@</span><span class="na">click=</span><span class="s">"minus(frist, second)"</span> <span class="nt">/&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;input</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">value=</span><span class="s">"곱하기"</span> <span class="err">@</span><span class="na">click=</span><span class="s">"multiply(frist, second)"</span> <span class="nt">/&gt;&lt;/li&gt;</span>
+      <span class="nt">&lt;li&gt;&lt;input</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">value=</span><span class="s">"나누기(반올림)"</span> <span class="err">@</span><span class="na">click=</span><span class="s">"divide(frist, second)"</span> <span class="nt">/&gt;&lt;/li&gt;</span>
+    <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;h2&gt;&lt;/h2&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/</span><span class="k">template</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;</span><span class="k">script</span><span class="nt">&gt;</span>
+<span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">HelloWorld</span><span class="dl">'</span><span class="p">,</span>
+  <span class="nx">data</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+      <span class="na">message</span><span class="p">:</span> <span class="dl">'</span><span class="s1">Unit Test</span><span class="dl">'</span><span class="p">,</span>
+      <span class="na">frist</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+      <span class="na">second</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+      <span class="na">total</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="na">methods</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nx">plus</span> <span class="p">(</span><span class="nx">frist</span><span class="p">,</span> <span class="nx">second</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">total</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">frist</span><span class="p">)</span> <span class="o">+</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">second</span><span class="p">)</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">total</span>
+    <span class="p">},</span>
+    <span class="nx">minus</span> <span class="p">(</span><span class="nx">frist</span><span class="p">,</span> <span class="nx">second</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">total</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">frist</span><span class="p">)</span> <span class="o">-</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">second</span><span class="p">)</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">total</span>
+    <span class="p">},</span>
+    <span class="nx">multiply</span> <span class="p">(</span><span class="nx">frist</span><span class="p">,</span> <span class="nx">second</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">frist</span><span class="p">)</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">||</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">second</span><span class="p">)</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span>
+      <span class="p">}</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">total</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">frist</span><span class="p">)</span> <span class="o">*</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">second</span><span class="p">)</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">total</span>
+    <span class="p">},</span>
+    <span class="nx">divide</span> <span class="p">(</span><span class="nx">frist</span><span class="p">,</span> <span class="nx">second</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">frist</span><span class="p">)</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">||</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">second</span><span class="p">)</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span>
+      <span class="p">}</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">total</span> <span class="o">=</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">frist</span><span class="p">)</span> <span class="o">/</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">second</span><span class="p">)</span>
+
+      <span class="c1">// 소숫점 반올림</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">total</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">total</span><span class="p">)</span>
+      <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">total</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="nt">&lt;/</span><span class="k">script</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<p>아래는 HelloWold.spec.js 파일입니다. jest가 재귀적으로 테스트 파일을 찾아 아래 테스트 코드를 실행하고 그 결과를 반환합니다.</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">import</span> <span class="nx">Vue</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">vue</span><span class="dl">'</span>
+<span class="k">import</span> <span class="nx">HelloWorld</span> <span class="k">from</span> <span class="dl">'</span><span class="s1">@/components/HelloWorld</span><span class="dl">'</span>
+
+<span class="kd">let</span> <span class="nx">Constructor</span>
+<span class="kd">let</span> <span class="nx">vm</span>
+<span class="kd">let</span> <span class="nx">frist</span>
+<span class="kd">let</span> <span class="nx">second</span>
+
+<span class="c1">// 초기화</span>
+<span class="nx">beforeEach</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">Constructor</span> <span class="o">=</span> <span class="nx">Vue</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="nx">HelloWorld</span><span class="p">)</span>
+  <span class="nx">vm</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Constructor</span><span class="p">().</span><span class="nx">$mount</span><span class="p">()</span>
+  <span class="nx">frist</span> <span class="o">=</span> <span class="nx">vm</span><span class="p">.</span><span class="nx">_data</span><span class="p">.</span><span class="nx">frist</span>
+  <span class="nx">second</span> <span class="o">=</span> <span class="nx">vm</span><span class="p">.</span><span class="nx">_data</span><span class="p">.</span><span class="nx">second</span>
+<span class="p">})</span>
+
+<span class="nx">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">HelloWorld.vue</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">유효성 검사</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">숫자가 아닌 Null 또는 문자열을 입력할 경우 결과값이 에러(NaN)인지 확인한다.</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">second</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">가</span><span class="dl">'</span>
+      <span class="c1">// NaN값인 경우</span>
+      <span class="nx">expect</span><span class="p">(</span><span class="nx">vm</span><span class="p">.</span><span class="nx">plus</span><span class="p">(</span><span class="nx">frist</span><span class="p">,</span> <span class="nx">second</span><span class="p">)).</span><span class="nx">toBeNaN</span><span class="p">()</span>
+      <span class="nx">expect</span><span class="p">(</span><span class="nx">vm</span><span class="p">.</span><span class="nx">minus</span><span class="p">(</span><span class="nx">frist</span><span class="p">,</span> <span class="nx">second</span><span class="p">)).</span><span class="nx">toBeNaN</span><span class="p">()</span>
+      <span class="nx">expect</span><span class="p">(</span><span class="nx">vm</span><span class="p">.</span><span class="nx">multiply</span><span class="p">(</span><span class="nx">frist</span><span class="p">,</span> <span class="nx">second</span><span class="p">)).</span><span class="nx">toBeNaN</span><span class="p">()</span>
+      <span class="nx">expect</span><span class="p">(</span><span class="nx">vm</span><span class="p">.</span><span class="nx">divide</span><span class="p">(</span><span class="nx">frist</span><span class="p">,</span> <span class="nx">second</span><span class="p">)).</span><span class="nx">toBeNaN</span><span class="p">()</span>
+    <span class="p">})</span>
+    <span class="nx">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">0으로 곱하기 또는 나누기 하려고 하는지 확인한다.</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">second</span> <span class="o">=</span> <span class="mi">0</span>
+      <span class="c1">// toBeFalsy : if 문의 리턴값이 false 인 경우</span>
+      <span class="nx">expect</span><span class="p">(</span><span class="nx">vm</span><span class="p">.</span><span class="nx">multiply</span><span class="p">(</span><span class="nx">frist</span><span class="p">,</span> <span class="mi">0</span><span class="p">)).</span><span class="nx">toBeFalsy</span><span class="p">()</span>
+      <span class="nx">expect</span><span class="p">(</span><span class="nx">vm</span><span class="p">.</span><span class="nx">divide</span><span class="p">(</span><span class="nx">frist</span><span class="p">,</span> <span class="mi">0</span><span class="p">)).</span><span class="nx">toBeFalsy</span><span class="p">()</span>
+    <span class="p">})</span>
+  <span class="p">})</span>
+  <span class="nx">describe</span><span class="p">(</span><span class="dl">'</span><span class="s1">사칙연산 테스트</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="nx">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">더하기의 결과값을 비교하여 일치한지 확인한다.</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// toBe : 기본값을 비교할때 사용</span>
+      <span class="nx">expect</span><span class="p">(</span><span class="nx">vm</span><span class="p">.</span><span class="nx">plus</span><span class="p">(</span><span class="nx">frist</span><span class="p">,</span> <span class="nx">second</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+    <span class="p">})</span>
+    <span class="nx">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">뺴기 결과값을 비교하여 정수인지 음수인지 확인한다.</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">expect</span><span class="p">(</span><span class="nx">vm</span><span class="p">.</span><span class="nx">minus</span><span class="p">(</span><span class="nx">frist</span><span class="p">,</span> <span class="nx">second</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="p">})</span>
+    <span class="nx">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">곱하기의 결과값을 비교하여 일치한지 확인한다.</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">expect</span><span class="p">(</span><span class="nx">vm</span><span class="p">.</span><span class="nx">multiply</span><span class="p">(</span><span class="nx">frist</span><span class="p">,</span> <span class="nx">second</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
+    <span class="p">})</span>
+    <span class="nx">it</span><span class="p">(</span><span class="dl">'</span><span class="s1">나누기의 결과값을 비교하여 소스점 반올림이 되었는지 확인한다.</span><span class="dl">'</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="c1">// toBeCloseTo : 소수점 다음에 확인할 자리 수를 제어하는데 사용</span>
+      <span class="nx">expect</span><span class="p">(</span><span class="nx">vm</span><span class="p">.</span><span class="nx">divide</span><span class="p">(</span><span class="nx">frist</span><span class="p">,</span> <span class="nx">second</span><span class="p">)).</span><span class="nx">toBeCloseTo</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+    <span class="p">})</span>
+  <span class="p">})</span>
+<span class="p">})</span>
+</code></pre></div></div>
+<h3 id="테스트-결과">테스트 결과</h3>
+<p><img src="https://github.com/momoci99/momoci99.github.io/blob/master/assets/img/vue-jest/test_result2.png?raw=true" alt="사진" /></p>
+
+<p>각 테스트 코드를 실행한 결과를 출력해줍니다. 위 사진은 테스트를 모두 정상적으로 통과하였기에 100% 통과율을 보였지만, 아래 예제처럼 소스코드 내에 테스트 코드로 처리가 안된 부분이 있다면 해당 소스코드를 Uncoverd Line로 지정하여 파일명 및 위치를 출력합니다.</p>
+
+<p><img src="https://github.com/momoci99/momoci99.github.io/blob/master/assets/img/vue-jest/test_result3.png?raw=true" alt="사진" /></p>
+
+<h2 id="마무리">마무리</h2>
+
+<p>간단하게 Vue CLI를 이용한 Vue와 Jest의 사용법을 다루어보았습니다. 시간이 허락한다면 다음에는 jest가 제공하는 테스트 메서드와 mock 객체에 대해 다루어보려고 합니다.</p>
+
+<h2 id="참고한-글">참고한 글</h2>
+
+<ul>
+  <li>http://labs.brandi.co.kr/2020/01/02/leekh.html</li>
+  <li>https://medium.com/witinweb/vue-cli-%EB%A1%9C-vue-js-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-browserify-webpack-22582202cd52</li>
+  <li>https://stackoverflow.com/questions/51554366/jest-securityerror-localstorage-is-not-available-for-opaque-origins</li>
+</ul>
+
+<h2 id="더-읽으면-좋은-글">더 읽으면 좋은 글</h2>
+
+<ul>
+  <li>
+    <p><a href="https://tech.kakao.com/2019/11/27/kakao-business-vue-component-test/">바닥부터 시작하는 Vue 컴포넌트 테스트</a></p>
+  </li>
+  <li>
+    <p><a href="https://blog.coderifleman.com/2016/06/17/e2e-test-and-nightwatch/">E2E 테스트와 나이트왓치</a></p>
+  </li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-03-25T00:00:00+00:00">March 25, 2020</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Jest+And+Vue%20https%3A%2F%2Fmomoci99.github.io%2F%2FJest-And-Vue%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmomoci99.github.io%2F%2FJest-And-Vue%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fmomoci99.github.io%2F%2FJest-And-Vue%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/AWS-Transcribe-Translate-polly/" class="pagination--pager" title="AWS Transcribe / Translate / Polly
+">Previous</a>
+    
+    
+      <a href="/Vue-Basic/" class="pagination--pager" title="간단한 Vue 정리
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ProjectFinishedRetrospect/" rel="permalink">프로젝트 마무리 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">3개월 전 즈음, 진행하던 webrtc 관련 프로젝트가 다른 부서로 넘어가고 저는 신규 서비스를 개발하는 프로젝트에 참여하게 되었습니다. threejs와 react를 활용한 웹 기반 3d 컨텐츠 제작 및 증강 서비스 개발 업무에 참여하면서 팀, 기술 스택, 업무 방식이 바뀌었고, ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ThreejsDailyLog/" rel="permalink">React에서 threejs 사용 및 삽질
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">React + Typescript 환경에서 Threejs 사용시 활용했던 라이브러리 및 삽질했던 내용들을 간단하게 정리하였습니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/2021YearRetrospect/" rel="permalink">2021년 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">순식간에 지나간 2021년이 끝나갑니다. 한해를 돌아보는 회고를 써 봅니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/BookReviewSystemDesignChapter2/" rel="permalink">Book review - 가상 면접 사례로 배우는 대규모 시스템 기초  (2장 개략적인 규모 추정)
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">2장 개략적인 규모 추정
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 MO YEONG-KWON. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154155002-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-154155002-1', { 'anonymize_ip': false});
+</script>
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://momoci99.github.io//Jest-And-Vue/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/Jest-And-Vue"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://momoci99.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

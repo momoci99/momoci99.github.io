@@ -1,0 +1,842 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.17.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Javascript Array 가볍게 정리 - YKMO 기술 메모</title>
+<meta name="description" content="들어가며..">
+
+
+  <meta name="author" content="MO YEONG-KWON">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="YKMO 기술 메모">
+<meta property="og:title" content="Javascript Array 가볍게 정리">
+<meta property="og:url" content="https://momoci99.github.io//Javascript_Array/">
+
+
+  <meta property="og:description" content="들어가며..">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-02-26T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://momoci99.github.io//Javascript_Array/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "MO YEONG-KWON",
+      "url": "https://momoci99.github.io//"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="YKMO 기술 메모 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          YKMO 기술 메모
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://github.com/momoci99" >About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">MO YEONG-KWON</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>나를 쥐어짜는 즐거움</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seoul, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/momoci99" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:momoci99@gmail.com">
+            <meta itemprop="email" content="momoci99@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Javascript Array 가볍게 정리">
+    <meta itemprop="description" content="들어가며..">
+    <meta itemprop="datePublished" content="February 26, 2020">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Javascript Array 가볍게 정리
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="들어가며">들어가며..</h1>
+
+<p>javascript의 array는 다른 정적 언어에 비해 재미있는 특성을 가졌다. 보통 배열이라고 하면 보통 정해진 길이를 가지고 있고 동일한 형식의 요소의 연속적인 모음을 의미한다. 하지만 javascript에서는 좀 다르다. 길이도 자유롭게 변경되고 요소의 형식은 구별되지 않는다. 이런점에서 javascript의 array만의 특징과 재미있는점을 정리한다.</p>
+
+<h1 id="1-무엇이든-환영">1. 무엇이든 환영</h1>
+
+<p>다른 정적 언어에서는 배열을 선언할때 보통 배열의 크기, 저장할 요소의 형식이 미리 지정되어 있어야한다. 그렇지 않으면 컴파일러에서 에러를 뿜어내지만 javascript는 아래의 예제처럼 모두 자유다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//ok</span>
+<span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="c1">//ok</span>
+<span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">foo</span><span class="dl">"</span><span class="p">,</span><span class="dl">"</span><span class="s2">bar</span><span class="dl">"</span><span class="p">];</span>
+
+<span class="c1">//ok</span>
+<span class="kd">let</span> <span class="nx">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="dl">"</span><span class="s2">foo</span><span class="dl">"</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">];</span>
+
+<span class="c1">//Nan, null, undefined도 저장할 수 있다. ok</span>
+<span class="kd">let</span> <span class="nx">whyThisWorking</span> <span class="o">=</span> <span class="p">[</span><span class="kc">NaN</span><span class="p">,</span> <span class="kc">null</span><span class="p">,</span> <span class="kc">undefined</span><span class="p">];</span>
+
+<span class="c1">//ok</span>
+<span class="kd">let</span> <span class="nx">objectArray</span> <span class="o">=</span> <span class="p">[{</span><span class="na">aa</span><span class="p">:</span><span class="mi">11</span><span class="p">},{},</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="dl">"</span><span class="s2">asdf</span><span class="dl">"</span><span class="p">}];</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span> 
+<span class="c1">//[]</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">b</span><span class="p">);</span> 
+<span class="c1">//["foo", "bar"]</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">c</span><span class="p">);</span> 
+<span class="c1">//[1, "foo", 3.5]</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">whyThisWorking</span><span class="p">);</span> 
+<span class="c1">//[NaN, null, undefined]</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">objectArray</span><span class="p">);</span> 
+<span class="c1">//[{…}, {…}, 1, 2, "asdf"] 객체 전개시 객체 내용이 출력된다.</span>
+
+
+</code></pre></div></div>
+
+<p>다만 <code class="language-plaintext highlighter-rouge">TypedArray</code> 라고 하는 형식이 지정된 배열이 존재한다. 이 TypedArray는 추후에 따로 다뤄보도록 하겠다. <a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/TypedArray">링크</a></p>
+
+<p>작은 팁이지만 간혹 배열의 크기를 지정하여 지정된 값으로 선언해야하는 경우가 종종 발생한다. 이때는 아래의 방법으로 배열을 만들어보자.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//아래 코드는 es6를 지원하는 환경에서 동작함.</span>
+<span class="kd">let</span> <span class="nx">filledArray</span> <span class="o">=</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">filledArray</span><span class="p">);</span>
+<span class="c1">// [0, 0, 0]</span>
+
+</code></pre></div></div>
+
+<h1 id="2-길이도-마음대로">2. 길이도 마음대로</h1>
+<p>js의 array는 길이또한 마음대로 늘였다 줄였다 할 수 있다. array의 크기는 <code class="language-plaintext highlighter-rouge">array.length</code>에서 확인할 수 있다. 이 length는 배열의 길이를 나타내며 임의의 정수(0 이상 2^32 미만의 값)를 대입하면 배열의 길이를 조절 할 수 있다.</p>
+
+<p><strong>배열의 길이를 늘리는 예</strong></p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+<span class="c1">//3</span>
+
+<span class="c1">//length 값을 수정</span>
+<span class="nx">a</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+<span class="c1">//[1, 2, 3, empty × 2]</span>
+
+</code></pre></div></div>
+
+<p><strong>배열의 길이를 줄이는 예</strong></p>
+<pre><code class="language-Js">let a = [1,2,3];
+
+
+console.log(a.length);
+//3
+
+//lenth를 줄이면 요소가 삭제됨
+a.length = 2;
+
+console.log(a);
+//[1, 2]
+
+</code></pre>
+
+<p>참고로 length에 올바르지 않은 값을 대입하면 아래의 에러가 발생한다.</p>
+<blockquote>
+  <p>Uncaught RangeError: Invalid array length</p>
+</blockquote>
+
+<h2 id="2-1-length는-요소의-갯수가-아니다">2-1. length는 요소의 갯수가 아니다.</h2>
+
+<p>array.length에 대한 이야기를 좀 더 하자면  <code class="language-plaintext highlighter-rouge">array.length</code>는 배열의 길이를 의미하지 요소 갯수를 의미하는것은 아니다. javascript의 배열 특성상 빈 요소가 들어갈 수 있기 때문이다. 아래 예제를 살펴보자</p>
+
+<p><a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array#length_%EC%99%80_%EC%88%AB%EC%9E%90%ED%98%95_%EC%86%8D%EC%84%B1%EC%9D%98_%EA%B4%80%EA%B3%84">코드 참조-length 와 숫자형 속성의 관계</a></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">const</span> <span class="nx">fruits</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="nx">fruits</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">banana</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">apple</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">peach</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>
+<span class="c1">// 3</span>
+
+<span class="nx">fruits</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">mango</span><span class="dl">'</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">[</span><span class="mi">5</span><span class="p">]);</span>           <span class="c1">// 'mango'</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">fruits</span><span class="p">));</span> <span class="c1">// ['0', '1', '2', '5']</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruits</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>       <span class="c1">// 6</span>
+
+</code></pre></div></div>
+
+<h2 id="2-2-index의-유효성을-검사하지-않는다">2-2. index의 유효성을 검사하지 않는다.</h2>
+
+<p>일반적인 정적 언어에서는 범위를 벗어나거나 올바르지 않은 index로 array에 접근하면 대번에 에러를 발생시킨다. 하지만 javascript는 좀 다르다. 아래의 예시를 보면 에러가 날것같지만 에러가 발생하지 않는다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
+
+<span class="c1">//배열의 크기보다 더 큰 index로 배열에 접근한다.</span>
+<span class="nx">a</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+<span class="c1">//[1, 2, 3, empty × 3, 4]</span>
+
+<span class="c1">//잘못된 index로 배열에 접근한다.</span>
+<span class="nx">a</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
+<span class="c1">//아무일도 일어나지 않는다.</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+<span class="c1">//[1, 2, 3, empty × 3, 4]</span>
+
+</code></pre></div></div>
+
+<h1 id="3-배열의-요소를-추가하거나-제거하는-메서드-push-pop-shift-unshift">3. 배열의 요소를 추가하거나 제거하는 메서드 push(), pop(), shift(), unshift()</h1>
+
+<p>javascript의 요소를 다루는데에 여러 메서드들이 있지만 우선 주로 사용하는 4가지를 살펴보자.</p>
+
+<p><strong>Array.prototype.push()</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">push()</code>메서드는 배열의 <strong>끝</strong>에 하나 이상의 요소를 추가하고 배열의 새로운 길이를 반환하는 메서드이다.</p>
+
+<p>예제코드 참조
+<a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/push">MDN-Array.prototype.push()</a></p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">animals</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">pigs</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">goats</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">sheep</span><span class="dl">'</span><span class="p">];</span>
+
+<span class="kd">const</span> <span class="nx">count</span> <span class="o">=</span> <span class="nx">animals</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">cows</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>
+<span class="c1">// expected output: 4</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">animals</span><span class="p">);</span>
+<span class="c1">// expected output: Array ["pigs", "goats", "sheep", "cows"]</span>
+
+<span class="nx">animals</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="dl">'</span><span class="s1">chickens</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">cats</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">dogs</span><span class="dl">'</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">animals</span><span class="p">);</span>
+<span class="c1">// expected output: Array ["pigs", "goats", "sheep", "cows", "chickens", "cats", "dogs</span>
+</code></pre></div></div>
+<p>https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/concat</p>
+
+<p><code class="language-plaintext highlighter-rouge">push()</code>메서드를 이용하여 두 배열을 하나로 만드는 경우 아래의 예제를 참고해보자
+<a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/push">MDN-Array.prototype.push()</a></p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">var</span> <span class="nx">vegetables</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">설탕당근</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">감자</span><span class="dl">'</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">moreVegs</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">셀러리</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">홍당무</span><span class="dl">'</span><span class="p">];</span>
+
+<span class="c1">// 첫번째 배열에 두번째 배열을 합친다. </span>
+<span class="c1">// vegetables.push('셀러리', '홍당무'); 하는 것과 동일하다.</span>
+<span class="nb">Array</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">push</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nx">vegetables</span><span class="p">,</span> <span class="nx">moreVegs</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">vegetables</span><span class="p">);</span> <span class="c1">// ['설탕당근', '감자', '셀러리', '홍당무']</span>
+
+</code></pre></div></div>
+<p>위 예제에 쓰인 <code class="language-plaintext highlighter-rouge">apply()</code> 메서드를 사용하지 않고 전개 연산자를 사용할 수 있다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">vegetables</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">설탕당근</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">감자</span><span class="dl">'</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">moreVegs</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">셀러리</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">홍당무</span><span class="dl">'</span><span class="p">];</span>
+
+<span class="c1">// 첫번째 배열에 두번째 배열을 합친다. </span>
+<span class="c1">// vegetables.push('셀러리', '홍당무'); 하는 것과 동일하다.</span>
+<span class="nx">vegetables</span><span class="p">.</span><span class="nx">push</span><span class="p">(...</span><span class="nx">moreVegs</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">vegetables</span><span class="p">);</span> <span class="c1">// ['설탕당근', '감자', '셀러리', '홍당무']</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">concat()</code>과 무슨 차이가 있느냐고 할수 있는데 concat()는 두 배열을 이어 붙혀 <strong>새로운 배열</strong>을 반환환다. 반면 <code class="language-plaintext highlighter-rouge">push()</code>는 기존 배열을 수정한다.</p>
+
+<p><strong>Array.prototype.pop()</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">pop</code> 메서드는 배열의 마지막 요소를 제거하고 그 요소를 반환한다.</p>
+
+<p>예제코드 참조
+<a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/pop">MDN-Array.prototype.pop()</a></p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">plants</span> <span class="o">=</span> <span class="p">[</span><span class="dl">'</span><span class="s1">broccoli</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">cauliflower</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">cabbage</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">kale</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">tomato</span><span class="dl">'</span><span class="p">];</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">plants</span><span class="p">.</span><span class="nx">pop</span><span class="p">());</span>
+<span class="c1">// expected output: "tomato"</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">plants</span><span class="p">);</span>
+<span class="c1">// expected output: Array ["broccoli", "cauliflower", "cabbage", "kale"]</span>
+
+<span class="nx">plants</span><span class="p">.</span><span class="nx">pop</span><span class="p">();</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">plants</span><span class="p">);</span>
+<span class="c1">// expected output: Array ["broccoli", "cauliflower", "cabbage"]</span>
+
+
+</code></pre></div></div>
+
+<p>만약 요소가 없는 빈 배열일때는 <code class="language-plaintext highlighter-rouge">undefined</code>를 리턴한다.</p>
+
+<p><strong>push &amp; pop</strong></p>
+
+<p>push와 pop을 활용하면 array를 자료구조 <code class="language-plaintext highlighter-rouge">stack</code> 처럼 사용하는것이 가능하다. <code class="language-plaintext highlighter-rouge">stack</code>의 특징인 먼저 들어온 요소가 나중에 빠져나간다는 특성을 이용한것이다.</p>
+
+<p><strong>Array.prototype.shift()</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">shift()</code> 메서드는 배열에서 첫 번째 요소를 제거하고, 제거된 요소를 반환한다. 이 메서드 또한 원본 배열을 수정한다.</p>
+
+<p>예제코드 참조
+<a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/shift">MDN-Array.prototype.shift()</a></p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+
+<span class="kd">const</span> <span class="nx">firstElement</span> <span class="o">=</span> <span class="nx">array1</span><span class="p">.</span><span class="nx">shift</span><span class="p">();</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array1</span><span class="p">);</span>
+<span class="c1">// expected output: Array [2, 3]</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">firstElement</span><span class="p">);</span>
+<span class="c1">// expected output: 1</span>
+</code></pre></div></div>
+
+<p>만약 요소가 없는 빈 배열일때는 <code class="language-plaintext highlighter-rouge">undefined</code>를 리턴한다.</p>
+
+<p><strong>Array.prototype.unshift()</strong></p>
+
+<p><code class="language-plaintext highlighter-rouge">unshift()</code> 메서드는 새로운 요소를 배열의 맨 앞쪽에 추가하고, 새로운 길이를 반환한다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">const</span> <span class="nx">array1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array1</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">));</span>
+<span class="c1">// expected output: 5</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">array1</span><span class="p">);</span>
+<span class="c1">// expected output: Array [4, 5, 1, 2, 3]</span>
+
+
+</code></pre></div></div>
+
+<p><strong>unshift &amp; pop</strong>
+unshift와 pop을 활용하면 array를 자료구조 <code class="language-plaintext highlighter-rouge">Queue</code> 처럼 사용하는것이 가능하다.
+<code class="language-plaintext highlighter-rouge">Queue</code>의 특징인 먼저 들어온 요소가 먼저 빠져나간다는 특성을 이용한것이다.</p>
+
+<h1 id="마무리">마무리</h1>
+
+<p>정적 언어와 비교하여 javascript의 array는 형식이 자유로울 뿐만아니라 크기도 원하는만큼 변경이 가능하다. 어떤 측면에서는 자유로움을 더해주지만 반대로 생각하면 그만큼 형식에 대해 깐깐하게 검사해야하고 자칫 잘못하면 성능이 안나오는 문제가 있다. 그만큼 프로그래머에게 신중함을 요구한다고 보인다.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/array" class="page__taxonomy-item" rel="tag">Array</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/javascript" class="page__taxonomy-item" rel="tag">Javascript</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-02-26T00:00:00+00:00">February 26, 2020</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Javascript+Array+%EA%B0%80%EB%B3%8D%EA%B2%8C+%EC%A0%95%EB%A6%AC%20https%3A%2F%2Fmomoci99.github.io%2F%2FJavascript_Array%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmomoci99.github.io%2F%2FJavascript_Array%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fmomoci99.github.io%2F%2FJavascript_Array%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/Hackerrank-Array-Manipulation/" class="pagination--pager" title="Hackerrank Array Manipulation
+">Previous</a>
+    
+    
+      <a href="/Hackerrank-Minimum-Swaps-2/" class="pagination--pager" title="Hackerrank Minimum Swaps 2
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ProjectFinishedRetrospect/" rel="permalink">프로젝트 마무리 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">3개월 전 즈음, 진행하던 webrtc 관련 프로젝트가 다른 부서로 넘어가고 저는 신규 서비스를 개발하는 프로젝트에 참여하게 되었습니다. threejs와 react를 활용한 웹 기반 3d 컨텐츠 제작 및 증강 서비스 개발 업무에 참여하면서 팀, 기술 스택, 업무 방식이 바뀌었고, ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ThreejsDailyLog/" rel="permalink">React에서 threejs 사용 및 삽질
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">React + Typescript 환경에서 Threejs 사용시 활용했던 라이브러리 및 삽질했던 내용들을 간단하게 정리하였습니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/2021YearRetrospect/" rel="permalink">2021년 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">순식간에 지나간 2021년이 끝나갑니다. 한해를 돌아보는 회고를 써 봅니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/BookReviewSystemDesignChapter2/" rel="permalink">Book review - 가상 면접 사례로 배우는 대규모 시스템 기초  (2장 개략적인 규모 추정)
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">2장 개략적인 규모 추정
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 MO YEONG-KWON. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154155002-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-154155002-1', { 'anonymize_ip': false});
+</script>
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://momoci99.github.io//Javascript_Array/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/Javascript_Array"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://momoci99.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

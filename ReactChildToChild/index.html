@@ -1,0 +1,833 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.17.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[React][ContextAPI] Child -&gt; Child 로 데이터 전달하는방법 - YKMO 기술 메모</title>
+<meta name="description" content="들어가며">
+
+
+  <meta name="author" content="MO YEONG-KWON">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="YKMO 기술 메모">
+<meta property="og:title" content="[React][ContextAPI] Child -&gt; Child 로 데이터 전달하는방법">
+<meta property="og:url" content="https://momoci99.github.io//ReactChildToChild/">
+
+
+  <meta property="og:description" content="들어가며">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-01-20T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://momoci99.github.io//ReactChildToChild/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "MO YEONG-KWON",
+      "url": "https://momoci99.github.io//"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="YKMO 기술 메모 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          YKMO 기술 메모
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://github.com/momoci99" >About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">MO YEONG-KWON</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>나를 쥐어짜는 즐거움</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seoul, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/momoci99" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:momoci99@gmail.com">
+            <meta itemprop="email" content="momoci99@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[React][ContextAPI] Child -&gt; Child 로 데이터 전달하는방법">
+    <meta itemprop="description" content="들어가며">
+    <meta itemprop="datePublished" content="January 20, 2020">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[React][ContextAPI] Child -&gt; Child 로 데이터 전달하는방법
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="들어가며">들어가며</h2>
+
+<p>송이공판현황 웹 페이지의 raw data 조회 기능을 개발하는 와중에 겪은 문제와 이를 해결하기 위한 방법을 고민하는 과정, 실제로 적용한 방법에 대해 정리한다.</p>
+
+<h2 id="문제-형제관계sibling인-컴포넌트에서-데이터-전달방법에-대한-고민">문제-형제관계(sibling)인 컴포넌트에서 데이터 전달방법에 대한 고민</h2>
+
+<p><img src="https://github.com/momoci99/momoci99.github.io/blob/master/assets/img/dev_review_songi_stock/problem_20200120_1.PNG?raw=true" alt="problem_20200120_1" /></p>
+
+<blockquote>
+  <p>결론은 Context API를 사용.</p>
+</blockquote>
+
+<p>raw data를 조회하기 위한 기능 구현중 유저가 지정한 필터 옵션을 전달하여 화면에 출력하는 부분에서 문제가 생겼다. 컴포넌트 구조는 위 그림과 같은데, Child1 컴포넌트의 state 데이터를 child2로 전달하는 방법에 대한것이다. 일반적인 Parent -&gt; Child 혹은 Child -&gt; Parent 이라면 이야기가 쉬운데 형제 관계에 있는 컴포넌트는 어떻게 하면 좋을지 쉽게 감이 오지 않았다.
+그래서 현재 문제를 해결할 수 있는 방법들에 대해 몇시간동안 구글링한 결과 아래의 방법을 찾을 수 있었다.</p>
+
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">Redux</code>를 사용한다.</li>
+  <li><code class="language-plaintext highlighter-rouge">Context API</code> 를 사용한다.</li>
+</ol>
+
+<h3 id="1-redux를-사용한다">1. <code class="language-plaintext highlighter-rouge">Redux</code>를 사용한다.</h3>
+
+<p>본래 <a href="https://redux.js.org/">Redux</a>는 React를 위해 나온것은 아니고 자바스크립트 오픈소스 기반 상태관리 라이브러리였으나 지금은 React의 상태관리하면 떠오르는 라이브러리중 하나가 되었다. 현재 직면한 문제를 해결하는데에 도움이 될 것 같았다.</p>
+
+<p><strong>예상되는 장단점</strong></p>
+
+<ul>
+  <li>장점
+    <ul>
+      <li>상태관리가 편리해지고 현재 당면한 문제를 확실히 해결할 수 있다.</li>
+    </ul>
+  </li>
+  <li>단점
+    <ul>
+      <li>Redux를 새로 익혀야한다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>문제를 해결할 수는 있지만 그에따른 단점이 극명하게 드러난다. 지금 상태에서 Redux를 새로 배우고 적용하기위해 소스코드를 다 뜯어고치는건 빈대 잡으려고 초가삼간 다 태우는격이다. 따라서 Redux를 도입하는건 불필요하다고 판단하였다.</p>
+
+<h3 id="2-context-api를-사용한다">2. ‘Context API’를 사용한다.</h3>
+
+<p>Context API는 React에서 제공하는 API로 <code class="language-plaintext highlighter-rouge">Context</code>를 통해 여러 컴포넌트가 Context를 통해 전역(Global)수준의 데이터를 공유할 수 있다.</p>
+
+<p><strong>예상되는 장단점</strong></p>
+
+<ul>
+  <li>장점
+    <ul>
+      <li>React 내장 API이기 때문에 별도 라이브러리 설치없이 사용이 가능하다.</li>
+      <li>내장 API를 사용하는데 큰 어려움이 없다.</li>
+    </ul>
+  </li>
+  <li>단점
+    <ul>
+      <li>코드 재사용성이 떨어진다.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Context API는 Redux에 비해서 쉽게 사용이 가능하다. 지금 코드에서 큰 수정이 필요하지 않아 적용이 쉽다. 하지만 코드 재사용성이 떨어지게 된다.</p>
+
+<p>Redux 와 Context API 둘다 문제를 해결할 수 있기때문에 각각 타당성이 존재한다. 고민이 되던 찰나 결정을 내리는데 도움이 된 좋은 글을 찾을 수 있었다.</p>
+
+<p><a href="https://medium.com/lunit-engineering/context-api%EA%B0%80-redux%EB%A5%BC-%EB%8C%80%EC%B2%B4%ED%95%A0-%EC%88%98-%EC%9E%88%EC%9D%84%EA%B9%8C%EC%9A%94-76a6209b369b">Context API가 Redux를 대체할 수 있을까요?</a></p>
+
+<p>Context API와 Redux를 닭잡는 칼과 소잡는 칼로 비유하여 설명한 글인데 지금 개발하고있는 어플리케이션은 Redux를 사용할만큼 복잡하지 않고 Context API면 충분하다는 결론을 얻었다. 결국 <code class="language-plaintext highlighter-rouge">Context API</code>를 사용하였다.</p>
+
+<p>다만 Context API를 바로 사용한것은 아니다. 문제가 되는 컴포넌트가 Hook API를 사용하고 있어서 Hook API에서 Context API를 사용하기 위해 <code class="language-plaintext highlighter-rouge">useContext</code>를 사용했고 Hook의 변경이 일어나는것에 대한 대응을 위해 <code class="language-plaintext highlighter-rouge">useReducer</code>를 사용하였다</p>
+
+<h2 id="코드-적용">코드 적용</h2>
+
+<p>ReactDataSearchPanel.js(Parent)에 Context를 생성한다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//ReactDataSearchPanel.js(Parent)</span>
+
+<span class="c1">// context object 생성</span>
+<span class="k">export</span> <span class="kd">const</span> <span class="nx">AppContext</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">createContext</span><span class="p">();</span>
+
+<span class="c1">// 초기상태 설정</span>
+<span class="kd">const</span> <span class="nx">initialState</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">saleDate</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="na">area</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="na">union</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="na">condition1</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="na">condition2</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="na">searchValue</span><span class="p">:</span> <span class="dl">""</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="c1">//reducer 정의</span>
+<span class="kd">function</span> <span class="nx">reducer</span><span class="p">(</span><span class="nx">state</span><span class="p">,</span> <span class="nx">action</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">action</span><span class="p">.</span><span class="nx">type</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="dl">"</span><span class="s2">UPDATE_FILTER_OPT</span><span class="dl">"</span><span class="p">:</span>
+      <span class="k">return</span> <span class="nx">action</span><span class="p">.</span><span class="nx">data</span><span class="p">;</span>
+    <span class="nl">default</span><span class="p">:</span>
+      <span class="k">return</span> <span class="nx">initialState</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>useReducer를 사용하기 위해 import 한다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//ReactDataSearchPanel.js(Parent)</span>
+<span class="k">import</span> <span class="nx">React</span><span class="p">,</span> <span class="p">{</span> <span class="nx">useReducer</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">react</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>state를 처리할 hook을 useReducer통해 생성한다. useState를 대체하는 함수이며 child2의 state가 child1의 state 변경에 의존적이기 때문에 useState대신 useReducer를 사용하였다.</p>
+
+<p>그리고 AppContext.Provider 로 자식 컴포넌트를 감싼다. 이렇게 해야 해당 context를 구독하는 컴포넌트에게 context의 변화를 알릴 수 있다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//ReactDataSearchPanel.js(Parent)</span>
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">RawDataSearchPanel</span><span class="p">()</span> <span class="p">{</span>
+
+  <span class="kd">const</span> <span class="nx">classes</span> <span class="o">=</span> <span class="nx">useStyles</span><span class="p">();</span>
+
+  <span class="c1">//state에 대한 hook 생성</span>
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">state</span><span class="p">,</span> <span class="nx">dispatch</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useReducer</span><span class="p">(</span><span class="nx">reducer</span><span class="p">,</span> <span class="nx">initialState</span><span class="p">);</span>
+
+  <span class="kd">const</span> <span class="p">[</span><span class="nx">open</span><span class="p">,</span> <span class="nx">setOpen</span><span class="p">]</span> <span class="o">=</span> <span class="nx">React</span><span class="p">.</span><span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+
+ <span class="k">return</span> <span class="p">(</span>
+
+      <span class="o">&lt;</span><span class="nx">AppContext</span><span class="p">.</span><span class="nx">Provider</span> <span class="nx">value</span><span class="o">=&gt;</span>
+        <span class="o">&lt;</span><span class="nx">RawDataFilterPanel</span><span class="o">&gt;&lt;</span><span class="sr">/RawDataFilterPanel</span><span class="err">&gt;
+</span>        <span class="o">&lt;</span><span class="nx">RawDataTable</span><span class="o">&gt;&lt;</span><span class="sr">/RawDataTable</span><span class="err">&gt;
+</span>      <span class="o">&lt;</span><span class="sr">/AppContext.Provider</span><span class="err">&gt;
+</span>
+    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>  <span class="p">);</span>
+
+</code></pre></div></div>
+
+<p>Context가 정의된 부모의 컴포넌트를 자식 컴포넌트에서 import한다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//RawDataFilterPanel.js(Child1)</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">AppContext</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./RawDataSearchPanel</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>useContext를 통해 Parent에서 생성한 Contetxt를 구독한다. 그리고 dispatch될 객체와 액션 타입을 넣는다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//RawDataFilterPanel.js(Child1)</span>
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">RawDataFilterPanel</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="nx">classes</span> <span class="o">=</span> <span class="nx">useStyles</span><span class="p">();</span>
+
+    <span class="kd">const</span> <span class="p">{</span><span class="nx">state</span><span class="p">,</span> <span class="nx">dispatch</span><span class="p">}</span> <span class="o">=</span> <span class="nx">useContext</span><span class="p">(</span><span class="nx">AppContext</span><span class="p">);</span>
+
+    <span class="c1">//...</span>
+
+
+
+    <span class="kd">const</span> <span class="nx">handleSearchButton</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span><span class="p">{</span>
+        <span class="nx">dispatch</span><span class="p">({</span>
+            <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">UPDATE_FILTER_OPT</span><span class="dl">'</span><span class="p">,</span>
+            <span class="na">data</span><span class="p">:</span> <span class="p">{</span>
+                <span class="na">saleDate</span><span class="p">:</span> <span class="nx">saleDate</span><span class="p">,</span>
+                <span class="na">area</span><span class="p">:</span> <span class="nx">area</span><span class="p">,</span>
+                <span class="na">union</span><span class="p">:</span> <span class="nx">union</span><span class="p">,</span>
+                <span class="na">condition1</span><span class="p">:</span> <span class="nx">condition1</span><span class="p">,</span>
+                <span class="na">condition2</span><span class="p">:</span> <span class="nx">condition2</span><span class="p">,</span>
+                <span class="na">searchValue</span><span class="p">:</span> <span class="nx">searchValue</span>
+            <span class="p">}</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+
+</code></pre></div></div>
+
+<p>Child1에서 변경된 state를 구독할 RawDataTable.js(Child2)에도 Context를 import한다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//RawDataTable.js (Child2)</span>
+<span class="k">import</span> <span class="p">{</span> <span class="nx">AppContext</span> <span class="p">}</span> <span class="k">from</span> <span class="dl">"</span><span class="s2">./RawDataSearchPanel</span><span class="dl">"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>마찬가지로 useContext로 context를 구독한다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//RawDataTable.js (Child2)</span>
+<span class="k">export</span> <span class="k">default</span> <span class="kd">function</span> <span class="nx">RawDataTable</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">const</span> <span class="nx">classes</span> <span class="o">=</span> <span class="nx">useStyles</span><span class="p">();</span>
+  <span class="kd">const</span> <span class="p">{</span><span class="nx">state</span><span class="p">,</span> <span class="nx">dispatch</span><span class="p">}</span> <span class="o">=</span> <span class="nx">useContext</span><span class="p">(</span><span class="nx">AppContext</span><span class="p">);</span>
+
+
+</code></pre></div></div>
+
+<p>전달받은 state를 처리하는 코드를 작성한다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//RawDataTable.js (Child2)</span>
+<span class="nx">React</span><span class="p">.</span><span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="p">{</span> <span class="nx">saleDate</span><span class="p">,</span> <span class="nx">area</span><span class="p">,</span> <span class="nx">union</span><span class="p">,</span> <span class="nx">condition1</span><span class="p">,</span> <span class="nx">condition2</span><span class="p">,</span> <span class="nx">searchValue</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">state</span><span class="p">;</span>
+
+  <span class="c1">//...</span>
+
+  <span class="kd">let</span> <span class="nx">requestURL</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">/GetAllData</span><span class="dl">"</span> <span class="o">+</span> <span class="nx">parms</span><span class="p">;</span>
+
+  <span class="nx">fetch</span><span class="p">(</span><span class="nx">requestURL</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">response</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="c1">//response.json()이 이미 Promise 객체를 리턴함</span>
+      <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">().</span><span class="nx">then</span><span class="p">((</span><span class="nx">data</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="nx">setDataSet</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">totalData</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">totalCount</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">setTotalCount</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">totalCount</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">count</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="nx">setTotalCount</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">});</span>
+    <span class="p">})</span>
+    <span class="p">.</span><span class="k">catch</span><span class="p">((</span><span class="nx">error</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">},</span> <span class="p">[</span><span class="nx">page</span><span class="p">,</span> <span class="nx">rowsPerPage</span><span class="p">,</span> <span class="nx">state</span><span class="p">]);</span>
+</code></pre></div></div>
+
+<p>이렇게 Context API와 Hook API를 사용하여 문제를 해결하였다.</p>
+
+<h2 id="마무리">마무리</h2>
+
+<p>문제 해결 방법을 찾는 도중에 Redux와 Context API 말고도 다른 방법들을 찾았다. React.createRef() 라던지.. 이렇게 찾는것은 비교적 쉬운일이다.</p>
+
+<p>다만 여러 방법중 어떤 방법이 가장 적절한지 찾는것은 어려운 일이라고 생각한다. 이런 일련의 과정을 잘 해낼수 있는 개발자가 실력있는 개발자가 아닐까 생각해본다.</p>
+
+<h3 id="참고한-링크">참고한 링크</h3>
+
+<ul>
+  <li>
+    <p><a href="https://itnext.io/passing-data-between-sibling-components-in-react-using-context-api-and-react-hooks-fce60f12629a">https://itnext.io/passing-data-between-sibling-components-in-react-using-context-api-and-react-hooks-fce60f12629a</a></p>
+  </li>
+  <li>
+    <p><a href="https://ko.reactjs.org/docs/context.html">Context API</a></p>
+  </li>
+  <li>
+    <p><a href="https://ko.reactjs.org/docs/context.html#before-you-use-context">Context를 사용하기전 참고사항</a></p>
+  </li>
+  <li>
+    <p><a href="https://velopert.com/3606">리액트 16.3 에 소개된 새로워진 Context API 파헤치기(VELOPERT.LOG)</a></p>
+  </li>
+  <li>
+    <p><a href="https://ko.reactjs.org/docs/hooks-reference.html#usereducer">Hooks API Reference #useReducer</a></p>
+  </li>
+  <li>
+    <p><a href="https://reactjs-kr.firebaseapp.com/docs/lifting-state-up.html">State 끌어올리기</a></p>
+  </li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/context" class="page__taxonomy-item" rel="tag">Context</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/react-hook-api" class="page__taxonomy-item" rel="tag">React Hook API</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/react" class="page__taxonomy-item" rel="tag">React</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-01-20T00:00:00+00:00">January 20, 2020</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BReact%5D%5BContextAPI%5D+Child+-%3E+Child+%EB%A1%9C+%EB%8D%B0%EC%9D%B4%ED%84%B0+%EC%A0%84%EB%8B%AC%ED%95%98%EB%8A%94%EB%B0%A9%EB%B2%95%20https%3A%2F%2Fmomoci99.github.io%2F%2FReactChildToChild%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmomoci99.github.io%2F%2FReactChildToChild%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fmomoci99.github.io%2F%2FReactChildToChild%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/TypeScriptIn5Min/" class="pagination--pager" title="TypeScript 5분만에 살펴보기
+">Previous</a>
+    
+    
+      <a href="/npm-solve-vulnerabilities/" class="pagination--pager" title="[npm] npm package 취약점(vulnerabilities) 해결
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ProjectFinishedRetrospect/" rel="permalink">프로젝트 마무리 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">3개월 전 즈음, 진행하던 webrtc 관련 프로젝트가 다른 부서로 넘어가고 저는 신규 서비스를 개발하는 프로젝트에 참여하게 되었습니다. threejs와 react를 활용한 웹 기반 3d 컨텐츠 제작 및 증강 서비스 개발 업무에 참여하면서 팀, 기술 스택, 업무 방식이 바뀌었고, ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ThreejsDailyLog/" rel="permalink">React에서 threejs 사용 및 삽질
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">React + Typescript 환경에서 Threejs 사용시 활용했던 라이브러리 및 삽질했던 내용들을 간단하게 정리하였습니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/2021YearRetrospect/" rel="permalink">2021년 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">순식간에 지나간 2021년이 끝나갑니다. 한해를 돌아보는 회고를 써 봅니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/BookReviewSystemDesignChapter2/" rel="permalink">Book review - 가상 면접 사례로 배우는 대규모 시스템 기초  (2장 개략적인 규모 추정)
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">2장 개략적인 규모 추정
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 MO YEONG-KWON. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154155002-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-154155002-1', { 'anonymize_ip': false});
+</script>
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://momoci99.github.io//ReactChildToChild/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/ReactChildToChild"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://momoci99.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

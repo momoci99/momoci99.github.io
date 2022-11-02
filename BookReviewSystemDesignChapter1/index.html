@@ -1,0 +1,920 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.17.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Book review - 가상 면접 사례로 배우는 대규모 시스템 기초  (1장 사용자 수에 따른 규모확장성) - YKMO 기술 메모</title>
+<meta name="description" content="">
+
+
+  <meta name="author" content="MO YEONG-KWON">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="YKMO 기술 메모">
+<meta property="og:title" content="Book review - 가상 면접 사례로 배우는 대규모 시스템 기초  (1장 사용자 수에 따른 규모확장성)">
+<meta property="og:url" content="https://momoci99.github.io//BookReviewSystemDesignChapter1/">
+
+
+  <meta property="og:description" content="">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-12-04T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://momoci99.github.io//BookReviewSystemDesignChapter1/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "MO YEONG-KWON",
+      "url": "https://momoci99.github.io//"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="YKMO 기술 메모 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          YKMO 기술 메모
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://github.com/momoci99" >About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">MO YEONG-KWON</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>나를 쥐어짜는 즐거움</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seoul, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/momoci99" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:momoci99@gmail.com">
+            <meta itemprop="email" content="momoci99@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Book review - 가상 면접 사례로 배우는 대규모 시스템 기초  (1장 사용자 수에 따른 규모확장성)">
+    <meta itemprop="description" content="">
+    <meta itemprop="datePublished" content="December 04, 2021">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Book review - 가상 면접 사례로 배우는 대규모 시스템 기초  (1장 사용자 수에 따른 규모확장성)
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p><img src="https://insightbookblog.files.wordpress.com/2021/07/ed919ceca780ec9e85ecb2b4.jpg?w=816" alt="Untitled" /></p>
+
+<h3 id="개요">개요</h3>
+
+<p>사내 백엔드 개발자분이 몇달전 저에게 내용이 괜찮다고 추천해주신 책입니다. (감사합니다 ㅎ.ㅎ) 평소같았으면 그냥 지나갔을텐데 최근 대규모 확장에 대해 관심이 커진탓에 덥석 구매했습니다. front-end 엔지니어가 이해하기 어려운 내용도 있었고, 아직 완전히 다 이해한건 아니지만 주말마다 틈나는대로 머리 쥐어뜯으면서 열심히 읽었습니다. 결국 몇일 전에 완독하여 이렇게 챕터별로 글을 남겨봅니다.</p>
+
+<h1 id="각-chapter별-공통-내용-요약">각 Chapter별 공통 내용 요약</h1>
+
+<h2 id="공통적이었던-부분">공통적이었던 부분</h2>
+
+<ul>
+  <li>문제를 정확하게 이해하기</li>
+  <li>이해한 문제를 바탕으로 개략적인 설계안 제시하기</li>
+  <li>제시한 설계안을 면접관에게 동의구하기</li>
+</ul>
+
+<p>모든 챕터가 가상면접을 보는 방식으로 풀어나가고 있습니다. 문제를 풀기 위해서는 주어진 문제를 정확하게 파악하고, 면접관에게 개략적인 설계안을 제시해야하는데 이를 위해서 문제를 올바르게 파악하는 이해력이 필요하며, 설계를 제시하기 위해서는 타당성 있는 추론이 필요합니다.</p>
+
+<p>각 Chapter 도입부마다 문제를 이해하는 과정을 제시하고 이해한 문제를 바탕으로 개략적인 추론을 면접관에게 제시하여 동의를 구합니다. 면접관에게 계속 질문과 동의를 구하면서 설계시 고려해야하는 부분, 고려하지 않아도 되는부분을 파악하는 부분도 있습니다. 이런 흐름 덕분에 내용을 이해하기가 좀 더 쉬웠던 것 같습니다.</p>
+
+<h2 id="1장-사용자-수에-따른-규모-확장성">1장. 사용자 수에 따른 규모 확장성</h2>
+
+<blockquote>
+  <p>규모 확장성을 고려한 시스템 설계시 고려할 부분</p>
+</blockquote>
+
+<h3 id="수직적인-확장scale-up-vs-수평적인-확장scale-out">수직적인 확장(scale-up) vs 수평적인 확장(scale-out)</h3>
+
+<p><strong>수직적인 확장</strong></p>
+
+<ul>
+  <li>단일서버에 고사양자원을 추가(CPU, RAM 추가)</li>
+  <li>사양을 무제한으로 증설 할 수 없음.</li>
+  <li>장애 발생 대비를 위한 자동복구/다중화 불가</li>
+  <li>단순함에서 오는 관리의 장점이 있음.</li>
+</ul>
+
+<h3 id="수평적인-확장">수평적인 확장</h3>
+
+<ul>
+  <li>더 많은 서버를 증설하여 성능을 개선</li>
+</ul>
+
+<h3 id="로드밸런서">로드밸런서</h3>
+
+<ul>
+  <li>여러 서버에 트래픽을 고루 분산</li>
+</ul>
+
+<h3 id="데이터베이스-다중화">데이터베이스 다중화</h3>
+
+<p>성능, 안정성, 가용성을 얻을 수 있음.</p>
+
+<p>성능</p>
+
+<ul>
+  <li>쓰기 연산만 수행하는 Master / 읽기 연산만 수행하는 여러대의 Slave 로 분할</li>
+  <li>쓰기와 읽기가 분할되어 성능에서 이득</li>
+</ul>
+
+<p>안정성</p>
+
+<ul>
+  <li>자연 재해, 장비 고장으로 데이터베이스가 파괴되어도 다른 데이터 베이스가 존재하므로 데이터 보존가능</li>
+  <li>여러 지역에 데이터 베이스가 물리적으로 분산되어 있기 때문</li>
+</ul>
+
+<p>가용성</p>
+
+<ul>
+  <li>특정 데이터베이스에 장애가 발생시, 다른 데이터베이스에 접근하여 계속 서비스 가능</li>
+</ul>
+
+<h3 id="캐시">캐시</h3>
+
+<ul>
+  <li>별도의 캐시서버를 사용하여 데이터베이스 부하 경감 / 성능 개선을 얻음.</li>
+  <li>캐시 사용시 고려해야할 점이 많음.
+    <ul>
+      <li>어떤 상황에 유용한가?
+        <ul>
+          <li>데이터 갱신은 자주 일어나지 않으나 참조는 빈번하게 발생하는 경우.</li>
+        </ul>
+      </li>
+      <li>어떤 데이터를 캐시에 두어야하는가?
+        <ul>
+          <li>캐시는 휘발성 메모리를 사용하므로 영속적으로 저장해야되는 데이터는 바람직 하지 않음</li>
+        </ul>
+      </li>
+      <li>캐시 데이터의 만료 주기는?
+        <ul>
+          <li>만료기한이 너무 긴 경우 → 캐시에 데이터가 계속 남아 있어 원본과 차이가 발생</li>
+          <li>만료기한이 너무 짧은 경우 → 데이터 베이스를 자주 읽게 됨</li>
+        </ul>
+      </li>
+      <li>데이터의 일관성 유지 방법?
+        <ul>
+          <li>원본 데이터와 캐시데이터를 갱신하는 연산은 단일 트랜잭션으로 묶여야함 → 그렇지 않으면 일관성이 깨짐</li>
+        </ul>
+      </li>
+      <li>장애에 대처하는 방법?
+        <ul>
+          <li>캐시 서버가 한대인 경우 SPOF(Single Point of Failure, SOF)가 됨.</li>
+          <li>여러지역에 걸쳐 캐시 서버를 분산해야 SPOF문제를 피할 수 있음.</li>
+        </ul>
+      </li>
+      <li>캐시 메모리 크기?
+        <ul>
+          <li>캐시메모리가 너무 작은 경우 데이터가 자주 방출되어 캐시 성능이 저하된다.</li>
+          <li>캐시 메모리를 과할당하</li>
+        </ul>
+      </li>
+      <li>데이터 방출 정책?
+        <ul>
+          <li>캐시가 가득 찼을 때, 기존 데이터를 내보내는 정책. 경우에 맞게 사용</li>
+          <li>LRU - Least Recently Used - 마지막으로 사용된 시점이 가장 오래된 데이터를 방출</li>
+          <li>LFU - Least Frequently Used - 사용빈도가 가장 낮은 데이터를 내보내는 방출</li>
+          <li>FIFO - First In First Out - 가장 먼저 캐시에 들어온 데이터를 가장 먼저 방출</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="cdn">CDN</h3>
+
+<p>정적 콘텐츠를 캐시하여 전송하는데 사용(ex : 이미지, 비디오, CSS, js)</p>
+
+<p><strong>동작 과정</strong></p>
+
+<ol>
+  <li>웹사이트 방문시 유저와 가장 가까운 CDN 서버 방문</li>
+  <li>CDN 서버는 정적 콘텐츠 전송</li>
+</ol>
+
+<ul>
+  <li>물리적인 거리를 줄일 수 있어 사이트 로딩 시간 단축 가능.</li>
+</ul>
+
+<p><strong>고려해야할 사항</strong></p>
+
+<ul>
+  <li>비용
+    <ul>
+      <li>CDN은 보통 제 3사업자에 운영되며 데이터 송수신양에 따라 요금을 지불</li>
+      <li>자주 사용하지 않는 데이터를 캐싱하는것은 이득이 크지 않으므로 CDN에서 제외</li>
+    </ul>
+  </li>
+  <li>적절한 만료 시한 설정
+    <ul>
+      <li>너무 짧아도, 길지도 않아야함.</li>
+      <li>너무 길면 컨텐츠의 신선도 감소</li>
+      <li>너무 짧으면 원본 서버에 자주 접근하게되어 효율 감소</li>
+    </ul>
+  </li>
+  <li>CDN 장애에 대한 대처 방안
+    <ul>
+      <li>CDN에 장애 발생시 웹사이트, 어플리케이션이 어떻게 동작해야하는지 고려</li>
+      <li>CDN의 응답이 없다면 원본서버로부터 직접 컨텐츠를 가져오도록 구성하는것을 고려</li>
+    </ul>
+  </li>
+  <li>컨텐츠 무효화
+    <ul>
+      <li>아직 만료기한이 도래하지 않은 컨텐츠라도 CDN에서 제거가능</li>
+      <li>CDN 사업자가 제공하는 API사용</li>
+      <li>오브젝트 버저닝 이용(ex : image.png?v=2)</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="stateless-웹-계층">stateless 웹 계층</h3>
+
+<p>웹 계층을 수평적으로 확장하기위해서 상태 정보(ex:사용자 세션 데이터)를 웹 계층에서 제거</p>
+
+<p>상태정보는 RDBMS, NOSQL 같은 지속성 저장소에 보관 및 필요시 가져오도록 구성</p>
+
+<p><strong>상태 의존적인 아키텍쳐</strong></p>
+
+<p>각각의 사용자가 각각의 서버에 저장되어 있는 구조</p>
+
+<ul>
+  <li>클라이언트는 항상 같은 서버로 전송되어야 함.(A사용자 → 1서버, B사용자 → 2서버)</li>
+  <li>만약 A사용자가 2서버에 연결되면 에러</li>
+  <li>이를 해결하기 위해 로드밸런서는 고정 세션(sticky session)기능을 제공</li>
+  <li>이런 구조는 로드 밸런서 뒷단에 서버 추가/수정이 어려움.</li>
+  <li>장애 처리 난이도 증가</li>
+</ul>
+
+<p><strong>무상태 아키텍쳐</strong></p>
+
+<p>사용자 ↔ 서버 ↔ 공유 저장소 구조</p>
+
+<ul>
+  <li>사용자는 어떤 웹 서버로도 전달 가능</li>
+  <li>상태 정보가 필요한 경우 웹 서버는 공유 저장소에서 데이터 로드</li>
+  <li>단순하며, 안정적이며, 규모확장이 쉬움</li>
+</ul>
+
+<h3 id="데이터센터">데이터센터</h3>
+
+<p>다중 데이터 아키텍쳐 구성시 기술적 난제 해결 필요</p>
+
+<ul>
+  <li>트래픽 우회
+    <ul>
+      <li>요청자와 지리적으로 가까운 데이터센터와 연결 필요(GeoDNS)사용</li>
+    </ul>
+  </li>
+  <li>데이터 동기화
+    <ul>
+      <li>데이터센터마다 별도의 데이터를 사용하고 있는 상황 가정</li>
+      <li>장애 발생시 자동으로 복구, 데이터가 다른 데이터 센터로 우회되어도 원하는 데이턱 없는 경우가 발생</li>
+      <li>데이터를 여러 데이터 센터에 걸쳐 다중화.</li>
+    </ul>
+  </li>
+  <li>테스트와 배포
+    <ul>
+      <li>웹사이트와 어플리케이션을 여러 위치에서 테스트 필요</li>
+      <li>자동화된 배포 도구를 활용하여 모든 데이터 센터에 동일한 서비스가 설치되도록 수행</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="메시지-큐">메시지 큐</h3>
+
+<p>메시지의 무손실을 보장하는 비동기 통신 컴포넌트</p>
+
+<ul>
+  <li>생산자/발행자 (producer/publisher)가 메시지를 만들고 메시지 큐에 발행(publish)</li>
+  <li>메시지 큐에는 소비자/구독자(consumer/subscriber)가 서버에 연결되어 메시지를 받아 처리</li>
+  <li>메시지 큐 사용시 서비스 혹은 서버간 결합이 느슨해짐</li>
+  <li>따라서 규모확장성이 보장되어야하는 안정적인 어플리케이션 구성에 좋음</li>
+  <li>생산자는 소비자의 상태를 알 필요가 없고 소비자 또한 생산자의 상태를 알 필요가 없음.</li>
+  <li>시간이 오래 걸리는 프로세스는 비동기로 처리하면 편리함(ex:이미지 보정)</li>
+</ul>
+
+<h3 id="로그-메트릭-및-자동화">로그, 메트릭 및 자동화</h3>
+
+<p>웹 사이트와 함께 큰 규모의 사업에는 필수적으로 로그, 메트릭, 자동화에 투자할 것.</p>
+
+<p>로그</p>
+
+<ul>
+  <li>에러 로그를 모니터링하는 것은 중요함</li>
+  <li>에러 로그는 서버 단위로 모니터링하거나, 로그를 단일 서비스로 모아주는 도구를 활용시 더욱 편리</li>
+</ul>
+
+<p>메트릭</p>
+
+<p>사업 현황이나 시스템의 현재 상태를 손쉽게 파악 할 수 있음.</p>
+
+<ul>
+  <li>호스트 단위 메트릭 : CPU, 메모리, 디스크 I/O에 관한 메트릭</li>
+  <li>종합(aggregated) 메트릭 : 데이터베이스, 캐시 성능</li>
+  <li>핵심 비즈니스 메트릭 : 일별 능동 사용자(Daily Active User), 수익(Revenue), 재방문(Retention)등이 이에 해당.</li>
+</ul>
+
+<p>자동화</p>
+
+<ul>
+  <li>시스템이 크고 복잡해지면 생산성을 높히기 위해 자동화 도구 사용</li>
+  <li>지속적 통합(CI) 도구 활용시 개발자가 코드의 문제를 쉽게 감지 가능</li>
+  <li>CI를 사용하여 빌드, 테스트, 배포 절차 자동화 가능 및 개발 생산성 향상</li>
+</ul>
+
+<h3 id="데이터베이스의-규모-확장수평-수직">데이터베이스의 규모 확장(수평, 수직)</h3>
+
+<p>데이터가 많아지면 데이터베이스에 대한 부하도 증가. 이때 두가지 방법으로 데이터 베이스를 증설</p>
+
+<p><strong>수직적 확장</strong></p>
+
+<p>수직적 규모 확장법 - 고성능의 자원(CPU, RAM, 디스크)를 증설, 쉬운 접근법이나 단점 존재</p>
+
+<ul>
+  <li>데이터베이스 서버 하드웨어에는 한계가 있으므로 CPU, RAM을 무한정 증설 할 수 없음.</li>
+  <li>SPOF(Single Point of Failure)로 인한 위험성이 큼</li>
+  <li>비용이 많이들며 고성능 서버로 갈 수록 가격이 올라가게 마련</li>
+</ul>
+
+<p><strong>수평적 확장</strong></p>
+
+<p>데이터베이스의 수평적 확장은 샤딩(sharding)이라고 표현.</p>
+
+<ul>
+  <li>샤딩은 대규모 데이터베이스를 샤드(shard)라고 부르는 작은 단위로 분할</li>
+  <li>모든 샤드는 같은 스키마를 사용하지만, 데이터는 중복되지 않음.</li>
+</ul>
+
+<h3 id="샤딩-전략">샤딩 전략</h3>
+
+<p><strong>샤딩 전략을 구현시 고려해야할 점은 샤딩 키 지정 방식</strong></p>
+
+<ul>
+  <li>샤딩키는 데이터를 고르게 분할 할 수 있도록 하는게 가장 중요.</li>
+  <li>샤딩은 데이터베이스 규모 확장을 실현하는 훌륭한 기술이나, 완벽하지 않음</li>
+  <li>시스템이 복잡해지고, 해결해야하는 새로운 문제 발생</li>
+</ul>
+
+<p><strong>데이터의 재 샤딩</strong></p>
+
+<ul>
+  <li>데이터가 너무 많아져서 하나의 샤드로는 더 이상 감당하기 어려울 때,</li>
+  <li>샤드간 데이터 분포가 균등하지 않아, 특정 샤드의 공간이 먼저 소진 될 때(샤드 소진)</li>
+  <li>샤드 소진이 발생하면 샤드 키를 계산하는 함수를 변경, 데이터 재배치 필요.</li>
+</ul>
+
+<p><strong>유명인사 문제</strong></p>
+
+<ul>
+  <li>특정 샤드에만 질의가 집중되어 서버에 과부하가 걸리는 문제(ex:sns)</li>
+  <li>특정 샤드에 자주 찾는 유명인이 집중되면 잦은 read연산으로 과부하 발생.</li>
+  <li>데이터를 쪼개어 각각 특정 유명인사에 샤드를 할당 혹은 더 쪼개야 할 수 있음.</li>
+</ul>
+
+<p><strong>조인과 비정규화(join and de-normalization)</strong></p>
+
+<ul>
+  <li>샤드끼리는 데이터를조인하기 어려움.</li>
+  <li>이를 해결하기 위한 방법중 하나는 데이터베이스를 비정규화하여 하나의 테이블에서 질의를 수행</li>
+</ul>
+
+<p><strong>백만 사용자, 그리고 그 이상</strong></p>
+
+<p>시스템의 규모를 확장하는 것은 지속적이고 반복적(iterative)인 과정.</p>
+
+<p>규모가 커질수록 시스템을 지속적으로 다듬어야함.</p>
+
+<ul>
+  <li>웹 계층은 무상태 계층으로</li>
+  <li>모든 계층에 다중화 도입</li>
+  <li>가능한한 많은 데이터를 캐시할 것.</li>
+  <li>여러 데이터 센터를 지원할 것.</li>
+  <li>정적 콘텐츠는 CDN을 통해 서비스</li>
+  <li>데이터 계층은 샤딩을 통해 그 규모를 확장</li>
+  <li>각 계층은 독립적 서비스로 분할</li>
+  <li>시스템을 지속적으로 모니터링, 자동화 도구 활용.</li>
+</ul>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/review" class="page__taxonomy-item" rel="tag">Review</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-12-04T00:00:00+00:00">December 04, 2021</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Book+review+-+%EA%B0%80%EC%83%81+%EB%A9%B4%EC%A0%91+%EC%82%AC%EB%A1%80%EB%A1%9C+%EB%B0%B0%EC%9A%B0%EB%8A%94+%EB%8C%80%EA%B7%9C%EB%AA%A8+%EC%8B%9C%EC%8A%A4%ED%85%9C+%EA%B8%B0%EC%B4%88++%281%EC%9E%A5+%EC%82%AC%EC%9A%A9%EC%9E%90+%EC%88%98%EC%97%90+%EB%94%B0%EB%A5%B8+%EA%B7%9C%EB%AA%A8%ED%99%95%EC%9E%A5%EC%84%B1%29%20https%3A%2F%2Fmomoci99.github.io%2F%2FBookReviewSystemDesignChapter1%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmomoci99.github.io%2F%2FBookReviewSystemDesignChapter1%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fmomoci99.github.io%2F%2FBookReviewSystemDesignChapter1%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/SimpleJest/" class="pagination--pager" title="vue에서 jest 써보기
+">Previous</a>
+    
+    
+      <a href="/BookReviewSystemDesignChapter2/" class="pagination--pager" title="Book review - 가상 면접 사례로 배우는 대규모 시스템 기초  (2장 개략적인 규모 추정)
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ProjectFinishedRetrospect/" rel="permalink">프로젝트 마무리 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">3개월 전 즈음, 진행하던 webrtc 관련 프로젝트가 다른 부서로 넘어가고 저는 신규 서비스를 개발하는 프로젝트에 참여하게 되었습니다. threejs와 react를 활용한 웹 기반 3d 컨텐츠 제작 및 증강 서비스 개발 업무에 참여하면서 팀, 기술 스택, 업무 방식이 바뀌었고, ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ThreejsDailyLog/" rel="permalink">React에서 threejs 사용 및 삽질
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">React + Typescript 환경에서 Threejs 사용시 활용했던 라이브러리 및 삽질했던 내용들을 간단하게 정리하였습니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/2021YearRetrospect/" rel="permalink">2021년 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">순식간에 지나간 2021년이 끝나갑니다. 한해를 돌아보는 회고를 써 봅니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/BookReviewSystemDesignChapter2/" rel="permalink">Book review - 가상 면접 사례로 배우는 대규모 시스템 기초  (2장 개략적인 규모 추정)
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">2장 개략적인 규모 추정
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 MO YEONG-KWON. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154155002-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-154155002-1', { 'anonymize_ip': false});
+</script>
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://momoci99.github.io//BookReviewSystemDesignChapter1/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/BookReviewSystemDesignChapter1"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://momoci99.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

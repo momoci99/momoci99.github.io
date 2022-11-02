@@ -1,0 +1,776 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.17.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>[React] HOC 정리 - YKMO 기술 메모</title>
+<meta name="description" content="들어가며">
+
+
+  <meta name="author" content="MO YEONG-KWON">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="YKMO 기술 메모">
+<meta property="og:title" content="[React] HOC 정리">
+<meta property="og:url" content="https://momoci99.github.io//React-HOC/">
+
+
+  <meta property="og:description" content="들어가며">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-02-18T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://momoci99.github.io//React-HOC/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "MO YEONG-KWON",
+      "url": "https://momoci99.github.io//"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="YKMO 기술 메모 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          YKMO 기술 메모
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://github.com/momoci99" >About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">MO YEONG-KWON</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>나를 쥐어짜는 즐거움</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seoul, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/momoci99" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:momoci99@gmail.com">
+            <meta itemprop="email" content="momoci99@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="[React] HOC 정리">
+    <meta itemprop="description" content="들어가며">
+    <meta itemprop="datePublished" content="February 18, 2020">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">[React] HOC 정리
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="들어가며">들어가며</h2>
+
+<p>최근 React에 대해 알아가면서 Hook과 더불어 Higher-Order Components (이하 HOC)에 대한 말이 자주 보인다. 따라서 이번 기회에 한번 정리를 해보려고 한다.</p>
+
+<h2 id="참고한-글">참고한 글</h2>
+
+<ul>
+  <li>
+    <p><a href="https://meetup.toast.com/posts/137">Toast 리액트 HOC 집중 탐구 (1)</a></p>
+  </li>
+  <li>
+    <p><a href="https://meetup.toast.com/posts/144">Toast 리액트 HOC 집중 탐구 (2)</a></p>
+  </li>
+  <li>
+    <p><a href="https://velopert.com/3537">컴포넌트에 날개를 달아줘, 리액트 Higher-order Component (HoC)</a></p>
+  </li>
+  <li>
+    <p><a href="https://reactjs-kr.firebaseapp.com/docs/higher-order-components.html">React Docs 고차 컴포넌트 (Higher-Order Components)</a></p>
+  </li>
+</ul>
+
+<h2 id="api가-아님">API가 아님</h2>
+
+<p>HOC는 API가 아니다. API처럼 보이지만 일종의 패턴으로 볼수있다. 함수형 프로그래밍의 Higher Order Function (HOF) 개념에서 유래된것이다.</p>
+
+<p>HOF 개념 자체는 React뿐만 아니라 여타 다른 언어나 라이브러리에서 사용되고 있고 React의 경우 컴포넌트의 성격이 함수의 성격을 띄고 있기 때문에(특히 hooks가 react로 들어오면서 더욱) HOF와 거의 똑같은 패턴이 존재한다고 볼 수있다.</p>
+
+<h2 id="컴포넌트를-다른-컴포넌트로-변환">컴포넌트를 다른 컴포넌트로 변환</h2>
+
+<p>HOC는 입력받은 컴포넌트를 기반으로 이를 감싸 새로운 컴포넌트로 변환한다. 이때 입력된 원본 컴포넌트를 수정하지 않는것을 API문서에서 권고하고 있다.</p>
+
+<h2 id="hoc는-왜-필요한가">HOC는 왜 필요한가.</h2>
+
+<p>아래 컴포넌트는 외부로부터 데이터를 구독하여 덧글 목록을 렌더링한다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">CommentList</span> <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="c1">// DataSource는 글로벌 데이터 소스이다.</span>
+      <span class="na">comments</span><span class="p">:</span> <span class="nx">DataSource</span><span class="p">.</span><span class="nx">getComments</span><span class="p">(),</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+
+  <span class="nx">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 변화를 구독(Subscribe)한다.</span>
+    <span class="nx">DataSource</span><span class="p">.</span><span class="nx">addChangeListener</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">componentWillUnmount</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 리스널르 제거한다.</span>
+    <span class="nx">DataSource</span><span class="p">.</span><span class="nx">removeChangeListener</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">handleChange</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">//데이터 소스가 변경되면 컴포넌트를 업데이트 한다.</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
+      <span class="na">comments</span><span class="p">:</span> <span class="nx">DataSource</span><span class="p">.</span><span class="nx">getComments</span><span class="p">(),</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(</span>
+      <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+        <span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">comments</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">comment</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">(</span>
+          <span class="o">&lt;</span><span class="nx">Comment</span> <span class="nx">comment</span><span class="o">=</span><span class="p">{</span><span class="nx">comment</span><span class="p">}</span> <span class="nx">key</span><span class="o">=</span><span class="p">{</span><span class="nx">comment</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span> <span class="sr">/</span><span class="err">&gt;
+</span>        <span class="p">))}</span>
+      <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>    <span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>나중에 블로그 포스트를 구독하기 위해 비슷한 패턴으로 컴포넌트를 작성한다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">BlogPost</span> <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">blogPost</span><span class="p">:</span> <span class="nx">DataSource</span><span class="p">.</span><span class="nx">getBlogPost</span><span class="p">(</span><span class="nx">props</span><span class="p">.</span><span class="nx">id</span><span class="p">),</span>
+    <span class="p">};</span>
+  <span class="p">}</span>
+
+  <span class="nx">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">DataSource</span><span class="p">.</span><span class="nx">addChangeListener</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">componentWillUnmount</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">DataSource</span><span class="p">.</span><span class="nx">removeChangeListener</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span><span class="p">);</span>
+  <span class="p">}</span>
+
+  <span class="nx">handleChange</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
+      <span class="na">blogPost</span><span class="p">:</span> <span class="nx">DataSource</span><span class="p">.</span><span class="nx">getBlogPost</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">.</span><span class="nx">id</span><span class="p">),</span>
+    <span class="p">});</span>
+  <span class="p">}</span>
+
+  <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="o">&lt;</span><span class="nx">TextBlock</span> <span class="nx">text</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">blogPost</span><span class="p">}</span> <span class="sr">/&gt;</span><span class="err">;
+</span>  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">CommentList</code> 와 <code class="language-plaintext highlighter-rouge">BlogPost</code>는 다른 컴포넌트이다. <code class="language-plaintext highlighter-rouge">DataSource</code>의 변화에 따라 서로 다른 메서드를 호출하며 렌더링도 다르게 한다. 하지만 구현체 관점에서 본다면 거의 동일하다.</p>
+
+<ul>
+  <li>마운트되면(componentDidMount) change 리스너를 <code class="language-plaintext highlighter-rouge">DataSource</code>에 추가한다.</li>
+  <li>리스너 내에서 데이터 소스가 변경되면 <code class="language-plaintext highlighter-rouge">setState</code>를 호출한다.</li>
+  <li>마운트가 해제되면(componentWillUnmount) change 리스너를 제거한다.</li>
+</ul>
+
+<p>상상의 나래를 펼쳐서 규모가 큰 어플리케이션이라면 이런 패턴이 많이 존재할것이라고 추측할 수 있다. 그럼 동일한 코드가 곳곳에 존재할것이고 유지보수성은 선형적으로 떨어질것이다. 이 문제를 해결하기 위해 추상화가 필요한것이며 이때 HOC가 적절한것이다.</p>
+
+<h2 id="hoc-작성">HOC 작성</h2>
+
+<p><code class="language-plaintext highlighter-rouge">DataSource </code>를 DataSource 를 구독하는 <code class="language-plaintext highlighter-rouge">CommentList</code> 나 <code class="language-plaintext highlighter-rouge">BlogPost</code> 같은 컴포넌트를 생성하는 함수를 작성할 수 있다. 데이터를 prop으로 구독하여 전달받는 자식컴포넌트를 파라미터 중하나로 받는 함수를 만든다. 이 함수의 이름을 <code class="language-plaintext highlighter-rouge">withSubscription</code>로 지정한다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 이 함수는 컴포넌트를 가지고 온다.</span>
+<span class="kd">function</span> <span class="nx">withSubscription</span><span class="p">(</span><span class="nx">WrappedComponent</span><span class="p">,</span> <span class="nx">selectData</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// ...그리고 다른 컴포넌트를 리턴한다.</span>
+  <span class="k">return</span> <span class="kd">class</span> <span class="kd">extends</span> <span class="nx">React</span><span class="p">.</span><span class="nx">Component</span> <span class="p">{</span>
+    <span class="kd">constructor</span><span class="p">(</span><span class="nx">props</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">super</span><span class="p">(</span><span class="nx">props</span><span class="p">);</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span><span class="p">.</span><span class="nx">bind</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">state</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">data</span><span class="p">:</span> <span class="nx">selectData</span><span class="p">(</span><span class="nx">DataSource</span><span class="p">,</span> <span class="nx">props</span><span class="p">),</span>
+      <span class="p">};</span>
+    <span class="p">}</span>
+
+    <span class="nx">componentDidMount</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// ... subscription을 담당...</span>
+      <span class="nx">DataSource</span><span class="p">.</span><span class="nx">addChangeListener</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nx">componentWillUnmount</span><span class="p">()</span> <span class="p">{</span>
+      <span class="nx">DataSource</span><span class="p">.</span><span class="nx">removeChangeListener</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">handleChange</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="nx">handleChange</span><span class="p">()</span> <span class="p">{</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">setState</span><span class="p">({</span>
+        <span class="na">data</span><span class="p">:</span> <span class="nx">selectData</span><span class="p">(</span><span class="nx">DataSource</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">),</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+
+    <span class="nx">render</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// ...그리고 새로운 데이터를 가지고 랩핑된 컴포넌트를 반환한다.</span>
+      <span class="c1">// 이때 추가적인 props를 전달한다.</span>
+      <span class="k">return</span> <span class="o">&lt;</span><span class="nx">WrappedComponent</span> <span class="nx">data</span><span class="o">=</span><span class="p">{</span><span class="k">this</span><span class="p">.</span><span class="nx">state</span><span class="p">.</span><span class="nx">data</span><span class="p">}</span> <span class="p">{...</span><span class="k">this</span><span class="p">.</span><span class="nx">props</span><span class="p">}</span> <span class="sr">/&gt;</span><span class="err">;
+</span>    <span class="p">}</span>
+  <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>아래는 위에서 작성한 withSubscription HOC를 사용하는 예이다.</p>
+
+<p>첫번째 파라미터는 래핑된 컴포넌트이다. 두번째 컴포넌트의 파라미터는 관심을 가지는 데이터를 검색한다. 여기서는 <code class="language-plaintext highlighter-rouge">DataSource</code> 와 현재 prosp를 전달한다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">CommentListWithSubscription</code> 과 <code class="language-plaintext highlighter-rouge">BlogPostWithSubscription</code> 가 렌더링될 때 <code class="language-plaintext highlighter-rouge">CommentList</code> 와 <code class="language-plaintext highlighter-rouge">BlogPost</code> 는 <code class="language-plaintext highlighter-rouge">DataSource</code> 에서 가장 최근에 검색된 데이터를 <code class="language-plaintext highlighter-rouge">data</code> prop으로 전달한다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">CommentListWithSubscription</span> <span class="o">=</span> <span class="nx">withSubscription</span><span class="p">(</span>
+  <span class="nx">CommentList</span><span class="p">,</span>
+  <span class="p">(</span><span class="nx">DataSource</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">DataSource</span><span class="p">.</span><span class="nx">getComments</span><span class="p">()</span>
+<span class="p">);</span>
+
+<span class="kd">const</span> <span class="nx">BlogPostWithSubscription</span> <span class="o">=</span> <span class="nx">withSubscription</span><span class="p">(</span>
+  <span class="nx">BlogPost</span><span class="p">,</span>
+  <span class="p">(</span><span class="nx">DataSource</span><span class="p">,</span> <span class="nx">props</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">DataSource</span><span class="p">.</span><span class="nx">getBlogPost</span><span class="p">(</span><span class="nx">props</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div></div>
+
+<p>HOC는 입력 컴포넌트를 수정하지 않으며 상속을 사용하여 동작을 복사하지도 않는다. HOC는 오로지 원래 컴포넌트를 컨테이너 컴포넌트에 래핑하여 조정한다. HOC는 사이드 이펙트가 없는 순수 함수이다.</p>
+
+<h2 id="주의사항">주의사항</h2>
+
+<ul>
+  <li>render 메서드 안에서 고차 컴포넌트를 사용하지 말것.</li>
+  <li>정적 메서드는 복사할것.</li>
+  <li><code class="language-plaintext highlighter-rouge">Refs</code>는 전달 불가.</li>
+</ul>
+
+<h2 id="hoc의-접두사는-with">HOC의 접두사는 with</h2>
+
+<p>HOC의 접두사는 <strong>with</strong> 이다. 특별한 의미가 있는것은 아니다. 다만 lint가 HOC인지를 확인하는데 쓰이기 때문에 hooks의 접두사 use 처럼 쓰이는것이다.</p>
+
+<h2 id="정리">정리</h2>
+
+<p>HOC를 통해 반복되는 패턴, 코드를 제거하고 추상화 시킬수 있다. 이외에도 생명주기 함수를 붙혀준다던지, HOC내에 처리 로직을 추가시킨다던지 여러가지 일들이 가능하다.</p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/hoc" class="page__taxonomy-item" rel="tag">HOC</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/react" class="page__taxonomy-item" rel="tag">React</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-02-18T00:00:00+00:00">February 18, 2020</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%5BReact%5D+HOC+%EC%A0%95%EB%A6%AC%20https%3A%2F%2Fmomoci99.github.io%2F%2FReact-HOC%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmomoci99.github.io%2F%2FReact-HOC%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fmomoci99.github.io%2F%2FReact-HOC%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/js-imort/" class="pagination--pager" title="간단한 require vs import에 대한 정리
+">Previous</a>
+    
+    
+      <a href="/Permutations-in-js/" class="pagination--pager" title="순열에 대하여
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ProjectFinishedRetrospect/" rel="permalink">프로젝트 마무리 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">3개월 전 즈음, 진행하던 webrtc 관련 프로젝트가 다른 부서로 넘어가고 저는 신규 서비스를 개발하는 프로젝트에 참여하게 되었습니다. threejs와 react를 활용한 웹 기반 3d 컨텐츠 제작 및 증강 서비스 개발 업무에 참여하면서 팀, 기술 스택, 업무 방식이 바뀌었고, ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ThreejsDailyLog/" rel="permalink">React에서 threejs 사용 및 삽질
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">React + Typescript 환경에서 Threejs 사용시 활용했던 라이브러리 및 삽질했던 내용들을 간단하게 정리하였습니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/2021YearRetrospect/" rel="permalink">2021년 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">순식간에 지나간 2021년이 끝나갑니다. 한해를 돌아보는 회고를 써 봅니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/BookReviewSystemDesignChapter2/" rel="permalink">Book review - 가상 면접 사례로 배우는 대규모 시스템 기초  (2장 개략적인 규모 추정)
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">2장 개략적인 규모 추정
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 MO YEONG-KWON. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154155002-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-154155002-1', { 'anonymize_ip': false});
+</script>
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://momoci99.github.io//React-HOC/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/React-HOC"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://momoci99.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

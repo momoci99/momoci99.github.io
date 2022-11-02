@@ -1,0 +1,905 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.17.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Nuxt 찍먹하기 - YKMO 기술 메모</title>
+<meta name="description" content="Nuxt.js.. 살짝만 찍어먹어봅시다.">
+
+
+  <meta name="author" content="MO YEONG-KWON">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="YKMO 기술 메모">
+<meta property="og:title" content="Nuxt 찍먹하기">
+<meta property="og:url" content="https://momoci99.github.io//NuxtScratchTheSurface/">
+
+
+  <meta property="og:description" content="Nuxt.js.. 살짝만 찍어먹어봅시다.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-07-10T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://momoci99.github.io//NuxtScratchTheSurface/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "MO YEONG-KWON",
+      "url": "https://momoci99.github.io//"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="YKMO 기술 메모 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          YKMO 기술 메모
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://github.com/momoci99" >About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">MO YEONG-KWON</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>나를 쥐어짜는 즐거움</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seoul, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/momoci99" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:momoci99@gmail.com">
+            <meta itemprop="email" content="momoci99@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Nuxt 찍먹하기">
+    <meta itemprop="description" content="Nuxt.js.. 살짝만 찍어먹어봅시다.">
+    <meta itemprop="datePublished" content="July 10, 2021">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Nuxt 찍먹하기
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>Nuxt.js.. 살짝만 찍어먹어봅시다.</p>
+
+<h1 id="개요">개요</h1>
+
+<p>React.js의 프레임 워크인 Next.js에서 영감을 받아 Vue.js에서 보다 쉽게 Vue.js를 사용할 수 있게 만든 프레임 워크입니다. SSR/SSG or SPA 방식으로 Vue 어플리케이션을 만들 수 있게 해줍니다.</p>
+
+<h1 id="어플리케이션-생성">어플리케이션 생성</h1>
+
+<p>Nuxt는 3가지 방법으로 설치 할 수 있습니다.</p>
+
+<p>Yarn을 사용하는 방법</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>yarn create nuxt-app &lt;project-name&gt;
+</code></pre></div></div>
+
+<p>npx를 사용하는 방법</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npx create-nuxt-app &lt;project-name&gt;
+</code></pre></div></div>
+
+<p>npm을 사용하는 방법</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm init nuxt-app &lt;project-name&gt;
+</code></pre></div></div>
+
+<h2 id="설치과정">설치과정</h2>
+
+<ol>
+  <li>프로젝트 명 설정</li>
+</ol>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">?</span><span class="w"> </span><span class="nx">Project</span><span class="w"> </span><span class="nx">name:</span><span class="w">
+</span></code></pre></div></div>
+
+<ol>
+  <li>언어 설정</li>
+</ol>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">?</span><span class="w"> </span><span class="nx">Programming</span><span class="w"> </span><span class="nx">language:</span><span class="w"> </span><span class="p">(</span><span class="nf">Use</span><span class="w"> </span><span class="nx">arrow</span><span class="w"> </span><span class="nx">keys</span><span class="p">)</span><span class="w">
+</span><span class="err">❯</span><span class="w"> </span><span class="nf">JavaScript</span><span class="w">
+  </span><span class="nx">TypeScript</span><span class="w">
+</span></code></pre></div></div>
+
+<ol>
+  <li>package manager 설정</li>
+</ol>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">?</span><span class="w"> </span><span class="nx">Package</span><span class="w"> </span><span class="nx">manager:</span><span class="w"> </span><span class="p">(</span><span class="nf">Use</span><span class="w"> </span><span class="nx">arrow</span><span class="w"> </span><span class="nx">keys</span><span class="p">)</span><span class="w">
+</span><span class="err">❯</span><span class="w"> </span><span class="nf">Yarn</span><span class="w">
+  </span><span class="nx">Npm</span><span class="w">
+</span></code></pre></div></div>
+
+<ol>
+  <li>UI Framework 설정</li>
+</ol>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">?</span><span class="w"> </span><span class="nx">UI</span><span class="w"> </span><span class="nx">framework:</span><span class="w">
+</span><span class="err">❯</span><span class="w"> </span><span class="nf">None</span><span class="w">
+  </span><span class="nx">Ant</span><span class="w"> </span><span class="nx">Design</span><span class="w"> </span><span class="nx">Vue</span><span class="w">
+  </span><span class="nf">BalmUI</span><span class="w">
+  </span><span class="nx">Bootstrap</span><span class="w"> </span><span class="nx">Vue</span><span class="w">
+  </span><span class="nf">Buefy</span><span class="w">
+  </span><span class="nx">Chakra</span><span class="w"> </span><span class="nx">UI</span><span class="w">
+  </span><span class="nf">Element</span><span class="w">
+  </span><span class="nx">Framevuerk</span><span class="w">
+  </span><span class="nf">Oruga</span><span class="w">
+  </span><span class="nx">Tachyons</span><span class="w">
+  </span><span class="nf">Tailwind</span><span class="w"> </span><span class="nx">CSS</span><span class="w">
+  </span><span class="nf">Windi</span><span class="w"> </span><span class="nx">CSS</span><span class="w">
+  </span><span class="nf">Vant</span><span class="w">
+  </span><span class="nx">View</span><span class="w"> </span><span class="nx">UI</span><span class="w">
+  </span><span class="nf">Vuetify.js</span><span class="w">
+</span></code></pre></div></div>
+
+<ol>
+  <li>Nuxt.js 모듈 설정</li>
+</ol>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">Nuxt.js</span><span class="w"> </span><span class="nx">modules:</span><span class="w"> </span><span class="p">(</span><span class="nf">Press</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">space</span><span class="err">&gt;</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">select</span><span class="p">,</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">a</span><span class="err">&gt;</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">toggle</span><span class="w"> </span><span class="nx">all</span><span class="p">,</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">i</span><span class="err">&gt;</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">invert</span><span class="w"> </span><span class="nx">selection</span><span class="p">)</span><span class="w">
+</span><span class="err">❯◯</span><span class="w"> </span><span class="nf">Axios</span><span class="w"> </span><span class="nf">-</span><span class="w"> </span><span class="nx">Promise</span><span class="w"> </span><span class="nx">based</span><span class="w"> </span><span class="nx">HTTP</span><span class="w"> </span><span class="nx">client</span><span class="w">
+ </span><span class="err">◯</span><span class="w"> </span><span class="nf">Progressive</span><span class="w"> </span><span class="nx">Web</span><span class="w"> </span><span class="nx">App</span><span class="w"> </span><span class="p">(</span><span class="nf">PWA</span><span class="p">)</span><span class="w">
+ </span><span class="err">◯</span><span class="w"> </span><span class="nf">Content</span><span class="w"> </span><span class="nf">-</span><span class="w"> </span><span class="nx">Git-based</span><span class="w"> </span><span class="nx">headless</span><span class="w"> </span><span class="nx">CMS</span><span class="w">
+</span></code></pre></div></div>
+
+<ol>
+  <li>Linting Tools 설정</li>
+</ol>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">?</span><span class="w"> </span><span class="nx">Linting</span><span class="w"> </span><span class="nx">tools:</span><span class="w"> </span><span class="p">(</span><span class="nf">Press</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">space</span><span class="err">&gt;</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">select</span><span class="p">,</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">a</span><span class="err">&gt;</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">toggle</span><span class="w"> </span><span class="nx">all</span><span class="p">,</span><span class="w"> </span><span class="err">&lt;</span><span class="nx">i</span><span class="err">&gt;</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="nx">invert</span><span class="w"> </span><span class="nx">selection</span><span class="p">)</span><span class="w">
+</span><span class="err">❯◯</span><span class="w"> </span><span class="nf">ESLint</span><span class="w">
+ </span><span class="err">◯</span><span class="w"> </span><span class="nx">Prettier</span><span class="w">
+ </span><span class="err">◯</span><span class="w"> </span><span class="nf">Lint</span><span class="w"> </span><span class="nx">staged</span><span class="w"> </span><span class="nx">files</span><span class="w">
+ </span><span class="err">◯</span><span class="w"> </span><span class="nf">StyleLint</span><span class="w">
+ </span><span class="err">◯</span><span class="w"> </span><span class="nx">Commitlint</span><span class="w">
+</span></code></pre></div></div>
+
+<ol>
+  <li>테스트 도구 설정</li>
+</ol>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">?</span><span class="w"> </span><span class="nx">Testing</span><span class="w"> </span><span class="nx">framework:</span><span class="w"> </span><span class="p">(</span><span class="nf">Use</span><span class="w"> </span><span class="nx">arrow</span><span class="w"> </span><span class="nx">keys</span><span class="p">)</span><span class="w">
+</span><span class="err">❯</span><span class="w"> </span><span class="nf">None</span><span class="w">
+  </span><span class="nx">Jest</span><span class="w">
+  </span><span class="nf">AVA</span><span class="w">
+  </span><span class="nx">WebdriverIO</span><span class="w">
+  </span><span class="nf">Nightwatch</span><span class="w">
+</span></code></pre></div></div>
+
+<ol>
+  <li>렌더링 방식 설정</li>
+</ol>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">?</span><span class="w"> </span><span class="nx">Rendering</span><span class="w"> </span><span class="nx">mode:</span><span class="w"> </span><span class="p">(</span><span class="nf">Use</span><span class="w"> </span><span class="nx">arrow</span><span class="w"> </span><span class="nx">keys</span><span class="p">)</span><span class="w">
+</span><span class="err">❯</span><span class="w"> </span><span class="nf">Universal</span><span class="w"> </span><span class="p">(</span><span class="nf">SSR</span><span class="w"> </span><span class="nx">/</span><span class="w"> </span><span class="nx">SSG</span><span class="p">)</span><span class="w">
+  </span><span class="nf">Single</span><span class="w"> </span><span class="nx">Page</span><span class="w"> </span><span class="nx">App</span><span class="w">
+</span></code></pre></div></div>
+
+<ol>
+  <li>배포 방식 설정</li>
+</ol>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">?</span><span class="w"> </span><span class="nx">Deployment</span><span class="w"> </span><span class="nx">target:</span><span class="w"> </span><span class="p">(</span><span class="nf">Use</span><span class="w"> </span><span class="nx">arrow</span><span class="w"> </span><span class="nx">keys</span><span class="p">)</span><span class="w">
+</span><span class="err">❯</span><span class="w"> </span><span class="nf">Server</span><span class="w"> </span><span class="p">(</span><span class="nf">Node.js</span><span class="w"> </span><span class="nx">hosting</span><span class="p">)</span><span class="w">
+  </span><span class="kr">Static</span><span class="w"> </span><span class="p">(</span><span class="kr">Static</span><span class="nf">/Jamstack</span><span class="w"> </span><span class="nx">hosting</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<ol>
+  <li>개발 도구 설정</li>
+</ol>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">❯◯</span><span class="w"> </span><span class="nf">jsconfig.json</span><span class="w"> </span><span class="p">(</span><span class="nf">Recommended</span><span class="w"> </span><span class="nx">for</span><span class="w"> </span><span class="nx">VS</span><span class="w"> </span><span class="nx">Code</span><span class="w"> </span><span class="nx">if</span><span class="w"> </span><span class="nx">you</span><span class="s1">'re not using typescript)
+ ◯ Semantic Pull Requests
+ ◯ Dependabot (For auto-updating dependencies, GitHub only)
+</span></code></pre></div></div>
+
+<ol>
+  <li>CI 설정</li>
+</ol>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">❯</span><span class="w"> </span><span class="nf">None</span><span class="w">
+  </span><span class="nx">GitHub</span><span class="w"> </span><span class="nx">Actions</span><span class="w"> </span><span class="p">(</span><span class="nf">GitHub</span><span class="w"> </span><span class="nx">only</span><span class="p">)</span><span class="w">
+  </span><span class="nf">Travis</span><span class="w"> </span><span class="nx">CI</span><span class="w">
+  </span><span class="nf">CircleCI</span><span class="w">
+</span></code></pre></div></div>
+
+<ol>
+  <li>버전 컨트롤 설정</li>
+</ol>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">?</span><span class="w"> </span><span class="nx">Version</span><span class="w"> </span><span class="nx">control</span><span class="w"> </span><span class="nx">system:</span><span class="w"> </span><span class="p">(</span><span class="nf">Use</span><span class="w"> </span><span class="nx">arrow</span><span class="w"> </span><span class="nx">keys</span><span class="p">)</span><span class="w">
+</span><span class="err">❯</span><span class="w"> </span><span class="nf">Git</span><span class="w">
+  </span><span class="nx">None</span><span class="w">
+</span></code></pre></div></div>
+
+<ol>
+  <li>설정 완료</li>
+</ol>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">🎉</span><span class="w">  </span><span class="nf">Successfully</span><span class="w"> </span><span class="nx">created</span><span class="w"> </span><span class="nx">project</span><span class="w"> </span><span class="nx">test-nuxt</span><span class="w">
+
+  </span><span class="nf">To</span><span class="w"> </span><span class="nx">get</span><span class="w"> </span><span class="nx">started:</span><span class="w">
+
+        </span><span class="nf">cd</span><span class="w"> </span><span class="nx">test-nuxt</span><span class="w">
+        </span><span class="nf">yarn</span><span class="w"> </span><span class="nx">dev</span><span class="w">
+
+  </span><span class="nf">To</span><span class="w"> </span><span class="nx">build</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nx">start</span><span class="w"> </span><span class="nx">for</span><span class="w"> </span><span class="nx">production:</span><span class="w">
+
+        </span><span class="nf">cd</span><span class="w"> </span><span class="nx">test-nuxt</span><span class="w">
+        </span><span class="nf">yarn</span><span class="w"> </span><span class="nx">build</span><span class="w">
+        </span><span class="nf">yarn</span><span class="w"> </span><span class="nx">start</span><span class="w">
+
+  </span><span class="nf">To</span><span class="w"> </span><span class="nx">test:</span><span class="w">
+
+        </span><span class="nf">cd</span><span class="w"> </span><span class="nx">test-nuxt</span><span class="w">
+        </span><span class="nf">yarn</span><span class="w"> </span><span class="nx">test</span><span class="w">
+</span></code></pre></div></div>
+
+<p>위에 설치과정에서 저는 아래의 설정을 사용하였습니다.</p>
+
+<ul>
+  <li>JavaScript</li>
+  <li>Yarn</li>
+  <li>Ant Design Vue</li>
+  <li>Axios - Promise based HTTP client</li>
+  <li>Progressive Web App (PWA)</li>
+  <li>Content - Git-based headless CMS</li>
+  <li>ESLint</li>
+  <li>Jest</li>
+  <li>Universal</li>
+  <li>Server</li>
+  <li>jsconfig.json</li>
+  <li>GitHub Actions (GitHub only)</li>
+  <li>Git</li>
+</ul>
+
+<h2 id="생성된-nuxt-프로젝트-구조">생성된 Nuxt 프로젝트 구조</h2>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">├──</span><span class="w"> </span><span class="nf">README.md</span><span class="w">
+</span><span class="err">├──</span><span class="w"> </span><span class="nx">components</span><span class="w">
+</span><span class="err">├──</span><span class="w"> </span><span class="nf">content</span><span class="w">
+</span><span class="err">├──</span><span class="w"> </span><span class="nx">jest.config.js</span><span class="w">
+</span><span class="err">├──</span><span class="w"> </span><span class="nf">node_modules</span><span class="w">
+</span><span class="err">├──</span><span class="w"> </span><span class="nx">nuxt.config.js</span><span class="w">
+</span><span class="err">├──</span><span class="w"> </span><span class="nf">package.json</span><span class="w">
+</span><span class="err">├──</span><span class="w"> </span><span class="nx">pages</span><span class="w">
+</span><span class="err">├──</span><span class="w"> </span><span class="nf">plugins</span><span class="w">
+</span><span class="err">├──</span><span class="w"> </span><span class="nx">static</span><span class="w">
+</span><span class="err">├──</span><span class="w"> </span><span class="nf">store</span><span class="w">
+</span><span class="err">├──</span><span class="w"> </span><span class="nx">test</span><span class="w">
+</span><span class="err">└──</span><span class="w"> </span><span class="nf">yarn.lock</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="프로젝트-구동">프로젝트 구동</h2>
+
+<p>로컬 구동(개발)</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">yarn</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nx">dev</span><span class="w">
+</span></code></pre></div></div>
+
+<p>프로덕션 배포용</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">yarn</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nx">build</span><span class="w">
+</span><span class="nf">yarn</span><span class="w"> </span><span class="nx">run</span><span class="w"> </span><span class="nx">start</span><span class="w">
+</span></code></pre></div></div>
+
+<h1 id="ssr--spa">SSR &amp; SPA</h1>
+
+<p>Nuxt는 Server Side Rendering 혹은 Single Page Application 두가지 방식으로 앱을 생성할 수 있습니다.</p>
+
+<p>위에서 보았던 프로젝트 생성 과정 중 Rendering mode 선택과정에서 방식을 설정 할 수 있습니다.</p>
+
+<div class="language-powershell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">?</span><span class="w"> </span><span class="nx">Rendering</span><span class="w"> </span><span class="nx">mode:</span><span class="w"> </span><span class="p">(</span><span class="nf">Use</span><span class="w"> </span><span class="nx">arrow</span><span class="w"> </span><span class="nx">keys</span><span class="p">)</span><span class="w">
+</span><span class="err">❯</span><span class="w"> </span><span class="nf">Universal</span><span class="w"> </span><span class="p">(</span><span class="nf">SSR</span><span class="w"> </span><span class="nx">/</span><span class="w"> </span><span class="nx">SSG</span><span class="p">)</span><span class="w">
+  </span><span class="nf">Single</span><span class="w"> </span><span class="nx">Page</span><span class="w"> </span><span class="nx">App</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="ssruniversal방식으로-설정">SSR(Universal)방식으로 설정</h2>
+
+<p>SSR방식은 기본값이므로 큰 특이사항이 없습니다.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="c1">// Global page headers: https://go.nuxtjs.dev/config-head</span>
+  <span class="na">head</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">test-nuxt</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">meta</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span> <span class="na">charset</span><span class="p">:</span> <span class="dl">'</span><span class="s1">utf-8</span><span class="dl">'</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">viewport</span><span class="dl">'</span><span class="p">,</span> <span class="na">content</span><span class="p">:</span> <span class="dl">'</span><span class="s1">width=device-width, initial-scale=1</span><span class="dl">'</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="na">hid</span><span class="p">:</span> <span class="dl">'</span><span class="s1">description</span><span class="dl">'</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">description</span><span class="dl">'</span><span class="p">,</span> <span class="na">content</span><span class="p">:</span> <span class="dl">''</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">format-detection</span><span class="dl">'</span><span class="p">,</span> <span class="na">content</span><span class="p">:</span> <span class="dl">'</span><span class="s1">telephone=no</span><span class="dl">'</span> <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="na">link</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span> <span class="na">rel</span><span class="p">:</span> <span class="dl">'</span><span class="s1">icon</span><span class="dl">'</span><span class="p">,</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">image/x-icon</span><span class="dl">'</span><span class="p">,</span> <span class="na">href</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/favicon.ico</span><span class="dl">'</span> <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+
+  <span class="c1">// Global CSS: https://go.nuxtjs.dev/config-css</span>
+  <span class="na">css</span><span class="p">:</span> <span class="p">[</span>
+    <span class="dl">'</span><span class="s1">ant-design-vue/dist/antd.css</span><span class="dl">'</span>
+  <span class="p">],</span>
+
+  <span class="c1">// Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins</span>
+  <span class="na">plugins</span><span class="p">:</span> <span class="p">[</span>
+    <span class="dl">'</span><span class="s1">@/plugins/antd-ui</span><span class="dl">'</span>
+  <span class="p">],</span>
+</code></pre></div></div>
+
+<h2 id="spasingle-page-application방식으로-설정">SPA(Single Page Application)방식으로 설정</h2>
+
+<p>SPA로 설정시 SSR방식에 비해 다른점이 생깁니다.</p>
+
+<ol>
+  <li>
+    <p>nuxt.config.js에서 <code class="language-plaintext highlighter-rouge">ssr</code> 속성 <code class="language-plaintext highlighter-rouge">false</code></p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">export</span> <span class="k">default</span> <span class="p">{</span>
+  <span class="c1">// Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode</span>
+  <span class="na">ssr</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="c1">//false로 명시적으로 설정</span>
+
+  <span class="c1">// Global page headers: https://go.nuxtjs.dev/config-head</span>
+  <span class="na">head</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">title</span><span class="p">:</span> <span class="dl">'</span><span class="s1">test-nuxt-spa</span><span class="dl">'</span><span class="p">,</span>
+    <span class="na">meta</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span> <span class="na">charset</span><span class="p">:</span> <span class="dl">'</span><span class="s1">utf-8</span><span class="dl">'</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">viewport</span><span class="dl">'</span><span class="p">,</span> <span class="na">content</span><span class="p">:</span> <span class="dl">'</span><span class="s1">width=device-width, initial-scale=1</span><span class="dl">'</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="na">hid</span><span class="p">:</span> <span class="dl">'</span><span class="s1">description</span><span class="dl">'</span><span class="p">,</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">description</span><span class="dl">'</span><span class="p">,</span> <span class="na">content</span><span class="p">:</span> <span class="dl">''</span> <span class="p">},</span>
+      <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="dl">'</span><span class="s1">format-detection</span><span class="dl">'</span><span class="p">,</span> <span class="na">content</span><span class="p">:</span> <span class="dl">'</span><span class="s1">telephone=no</span><span class="dl">'</span> <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="na">link</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span> <span class="na">rel</span><span class="p">:</span> <span class="dl">'</span><span class="s1">icon</span><span class="dl">'</span><span class="p">,</span> <span class="na">type</span><span class="p">:</span> <span class="dl">'</span><span class="s1">image/x-icon</span><span class="dl">'</span><span class="p">,</span> <span class="na">href</span><span class="p">:</span> <span class="dl">'</span><span class="s1">/favicon.ico</span><span class="dl">'</span> <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>build 실행시 /dist 디렉토리에 빌드 결과물이 생성됩니다.</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">.</span>
+<span class="err">├──</span> <span class="nx">README</span><span class="p">.</span><span class="nx">md</span>
+<span class="err">├──</span> <span class="nx">components</span>
+<span class="err">├──</span> <span class="nx">content</span>
+<span class="err">├──</span> <span class="nx">dist</span>
+<span class="err">├──</span> <span class="nx">jest</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">js</span>
+<span class="err">├──</span> <span class="nx">jsconfig</span><span class="p">.</span><span class="nx">json</span>
+<span class="err">├──</span> <span class="nx">node_modules</span>
+<span class="err">├──</span> <span class="nx">nuxt</span><span class="p">.</span><span class="nx">config</span><span class="p">.</span><span class="nx">js</span>
+<span class="err">├──</span> <span class="kr">package</span><span class="p">.</span><span class="nx">json</span>
+<span class="err">├──</span> <span class="nx">pages</span>
+<span class="err">├──</span> <span class="kd">static</span>
+<span class="err">├──</span> <span class="nx">store</span>
+<span class="err">├──</span> <span class="nx">test</span>
+<span class="err">└──</span> <span class="nx">yarn</span><span class="p">.</span><span class="nx">lock</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h3 id="nuxt에-미들-웨어-추가하기">Nuxt에 미들 웨어 추가하기</h3>
+
+<p><a href="https://blog.rhostem.com/posts/2018-10-28-nuxtjs-universal">https://blog.rhostem.com/posts/2018-10-28-nuxtjs-universal</a></p>
+
+<h3 id="nuxt-spa앱-생성">Nuxt SPA앱 생성</h3>
+
+<p><a href="https://khwan.kr/blog/vue/2020-03-02-nuxt-spa-ssr/">https://khwan.kr/blog/vue/2020-03-02-nuxt-spa-ssr/</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/nuxt" class="page__taxonomy-item" rel="tag">Nuxt</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-07-10T00:00:00+00:00">July 10, 2021</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Nuxt+%EC%B0%8D%EB%A8%B9%ED%95%98%EA%B8%B0%20https%3A%2F%2Fmomoci99.github.io%2F%2FNuxtScratchTheSurface%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmomoci99.github.io%2F%2FNuxtScratchTheSurface%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fmomoci99.github.io%2F%2FNuxtScratchTheSurface%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/WebRTC-and-Google-Congestion-Control/" class="pagination--pager" title="WebRTC 혼잡 제어 알고리즘 &amp; GCC
+">Previous</a>
+    
+    
+      <a href="/Refactoring-With-Smell/" class="pagination--pager" title="리팩토링 - 코드에서 나는 악취를 찾아서
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ProjectFinishedRetrospect/" rel="permalink">프로젝트 마무리 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">3개월 전 즈음, 진행하던 webrtc 관련 프로젝트가 다른 부서로 넘어가고 저는 신규 서비스를 개발하는 프로젝트에 참여하게 되었습니다. threejs와 react를 활용한 웹 기반 3d 컨텐츠 제작 및 증강 서비스 개발 업무에 참여하면서 팀, 기술 스택, 업무 방식이 바뀌었고, ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ThreejsDailyLog/" rel="permalink">React에서 threejs 사용 및 삽질
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">React + Typescript 환경에서 Threejs 사용시 활용했던 라이브러리 및 삽질했던 내용들을 간단하게 정리하였습니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/2021YearRetrospect/" rel="permalink">2021년 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">순식간에 지나간 2021년이 끝나갑니다. 한해를 돌아보는 회고를 써 봅니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/BookReviewSystemDesignChapter2/" rel="permalink">Book review - 가상 면접 사례로 배우는 대규모 시스템 기초  (2장 개략적인 규모 추정)
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">2장 개략적인 규모 추정
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 MO YEONG-KWON. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154155002-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-154155002-1', { 'anonymize_ip': false});
+</script>
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://momoci99.github.io//NuxtScratchTheSurface/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/NuxtScratchTheSurface"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://momoci99.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

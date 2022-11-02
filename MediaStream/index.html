@@ -1,0 +1,694 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.17.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>MediaSteram API - YKMO 기술 메모</title>
+<meta name="description" content="개요">
+
+
+  <meta name="author" content="MO YEONG-KWON">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="YKMO 기술 메모">
+<meta property="og:title" content="MediaSteram API">
+<meta property="og:url" content="https://momoci99.github.io//MediaStream/">
+
+
+  <meta property="og:description" content="개요">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2020-08-16T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://momoci99.github.io//MediaStream/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "MO YEONG-KWON",
+      "url": "https://momoci99.github.io//"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="YKMO 기술 메모 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          YKMO 기술 메모
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://github.com/momoci99" >About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">MO YEONG-KWON</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>나를 쥐어짜는 즐거움</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seoul, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/momoci99" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:momoci99@gmail.com">
+            <meta itemprop="email" content="momoci99@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="MediaSteram API">
+    <meta itemprop="description" content="개요">
+    <meta itemprop="datePublished" content="August 16, 2020">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">MediaSteram API
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h1 id="개요">개요</h1>
+
+<p>최근 프로젝트에서 <code class="language-plaintext highlighter-rouge">WebAPI</code>중 하나인 <code class="language-plaintext highlighter-rouge">MediaSteram API</code>를 다루게 되면서 알게된 특이사항을 정리한 글이다.</p>
+
+<h2 id="mediastream-api">MediaStream API</h2>
+
+<p><code class="language-plaintext highlighter-rouge">MediaSteram API</code>는 오디오와 비디오 데이터 스트리밍을 지원하는 WebRTC 관련 API이다. 이 API를 적절하게 활용하여 웹 브라우저상에서 영상 및 오디오를 처리할 수 있게 된다.</p>
+
+<h2 id="mediastream의-몇가지-특징">MediaStream의 몇가지 특징</h2>
+
+<ul>
+  <li>하나의 <code class="language-plaintext highlighter-rouge">입력</code>과 하나의 <code class="language-plaintext highlighter-rouge">출력</code> 을 가진다.</li>
+  <li>Internet Explorer는 지원이 불가능하다</li>
+  <li>
+    <p>로컬 스트림과 비 로컬 스트림으로 나누어진다. (아래에서 좀더 다루겠다.)</p>
+
+    <ul>
+      <li>
+        <p>로컬 스트림</p>
+
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">MediaDevices.getUserMedia()</code>로 생성한 스트림</li>
+          <li><code class="language-plaintext highlighter-rouge">MediaDevices.getDisplayMedia()</code> 로 생성한 스트림</li>
+        </ul>
+      </li>
+      <li>
+        <p>비 로컬 스트림</p>
+        <ul>
+          <li><code class="language-plaintext highlighter-rouge">&lt;video&gt;</code>,<code class="language-plaintext highlighter-rouge">&lt;audio&gt;</code> 와 같은 미디어 요소로 생성된 스트림</li>
+          <li><code class="language-plaintext highlighter-rouge">Web RTC RTCPeerConnection</code>으로 획득한 스트림</li>
+          <li><code class="language-plaintext highlighter-rouge">Web Audio API</code>의 <code class="language-plaintext highlighter-rouge">MediaStreamAudioSourceNode</code>로 생성된 스트림</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="스트림-받아오기">스트림 받아오기</h2>
+
+<p>웹 브라우저상에서 스트림을 얻을 수 있는 방법은 여러가지이지만, 역시 주로 사용하는 방법은 <code class="language-plaintext highlighter-rouge">MediaDevices.getUserMedia()</code>를 통해 로컬 MediaStream을 가지고 오는것이다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">async</span> <span class="kd">function</span> <span class="nx">getMedia</span><span class="p">(</span><span class="nx">constraints</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">stream</span> <span class="o">=</span> <span class="kc">null</span>
+
+  <span class="k">try</span> <span class="p">{</span>
+    <span class="nx">stream</span> <span class="o">=</span> <span class="k">await</span> <span class="nb">navigator</span><span class="p">.</span><span class="nx">mediaDevices</span><span class="p">.</span><span class="nx">getUserMedia</span><span class="p">(</span><span class="nx">constraints</span><span class="p">)</span>
+    <span class="cm">/* 스트림 사용 */</span>
+  <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* 오류 처리 */</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>물론 아래와 같이 <code class="language-plaintext highlighter-rouge">RTCPeerConnection</code>을 통해 리모트 MediaStream을 받아올 수 있다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//RTCPeerConnection을 통해 리모트 스트림을 화면에 출력하는 코드 샘플</span>
+<span class="kd">const</span> <span class="nx">remoteStream</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MediaStream</span><span class="p">()</span>
+<span class="kd">const</span> <span class="nx">remoteVideo</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="dl">'</span><span class="s1">#remoteVideo</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">remoteVideo</span><span class="p">.</span><span class="nx">srcObject</span> <span class="o">=</span> <span class="nx">remoteStream</span>
+
+<span class="nx">peerConnection</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="dl">'</span><span class="s1">track</span><span class="dl">'</span><span class="p">,</span> <span class="k">async</span> <span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">remoteStream</span><span class="p">.</span><span class="nx">addTrack</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">track</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<h2 id="스트림에-트랙을-추가하여-직접-생성하기">스트림에 트랙을 추가하여 직접 생성하기</h2>
+
+<p>스트림에 video, audio 트랙을 추가하여 직접 스트림을 만들 수도 있다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">customStream</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MediaStream</span><span class="p">()</span>
+<span class="nx">customStream</span><span class="p">.</span><span class="nx">addTrack</span><span class="p">(</span><span class="nx">audioStream</span><span class="p">.</span><span class="nx">track</span><span class="p">)</span>
+<span class="nx">customStream</span><span class="p">.</span><span class="nx">addTrack</span><span class="p">(</span><span class="nx">videoStream</span><span class="p">.</span><span class="nx">track</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="autoplay와-로컬-스트림-비-로컬-스트림">autoplay와 로컬 스트림, 비 로컬 스트림</h2>
+
+<p>위에서 로컬 스트림, 비 로컬 스트림이라고 구분 지은 이유는 스트림을 video tag를 통해 출력시킬때 관련이 있기 때문이다. 크롬은 로컬 스트림 이외에는 기본적으로 autoplay를 막는다.</p>
+
+<p>조건이 조금 복잡하지만 정리하면 아래와 같다.(크롬 한정)</p>
+
+<ul>
+  <li>Muted 속성이 있으면 항상 허용</li>
+  <li>아래 상황에서는 Muted가 아니더라도 autoplay 허용
+    <ul>
+      <li>사용자의 조작이 있을때(클릭, 탭 등)</li>
+      <li>데스크탑에서는 MEI 값이 특정 수치를 넘었을 때(이전에 재생을 했을때)</li>
+      <li>홈 화면에 사이트를 추가했거나 데스크탑에 PWA를 설치했을 때</li>
+    </ul>
+  </li>
+  <li>최상위 프레임은 자동 재생 권한을 iframe에게 위임하여 사운드와 함께 자동재생을 허용할 수 있다.</li>
+</ul>
+
+<p>아래 링크에 좀더 상세히 설명되어 있다. <a href="https://developers.google.com/web/updates/2017/09/autoplay-policy-changes">Autoplay Policy Changes</a></p>
+
+<h2 id="mediastreamtrack">MediaStreamTrack</h2>
+
+<p><code class="language-plaintext highlighter-rouge">MediaStreamTrack</code>은 스트림내의 하나의 트랙을 나타내는 인터페이스이다. 명시적으로 audio, video 트랙이 존재하지만 다른 종류의 트랙도 존재할 수 있다.</p>
+
+<h3 id="참고하면-좋은글">참고하면 좋은글</h3>
+
+<p><a href="https://www.html5rocks.com/ko/tutorials/getusermedia/intro/">Capturing Audio &amp; Video in HTML5</a></p>
+
+<p><a href="https://developer.mozilla.org/ko/docs/Web/API/MediaDevices/getUserMedia">MDN-MediaDevices.getUserMedia()</a></p>
+
+<p><a href="https://webrtc.org/getting-started/remote-streams">https://webrtc.org/getting-started/remote-streams</a></p>
+
+<p><a href="https://developers.google.com/web/updates/2017/09/autoplay-policy-changes#mei">MEI</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/javascript" class="page__taxonomy-item" rel="tag">javascript</a><span class="sep">, </span>
+    
+      
+      
+      <a href="/tags/mediastream" class="page__taxonomy-item" rel="tag">MediaStream</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2020-08-16T00:00:00+00:00">August 16, 2020</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=MediaSteram+API%20https%3A%2F%2Fmomoci99.github.io%2F%2FMediaStream%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmomoci99.github.io%2F%2FMediaStream%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fmomoci99.github.io%2F%2FMediaStream%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/JsReocrdStreamLib/" class="pagination--pager" title="Front End Stream Record Library
+">Previous</a>
+    
+    
+      <a href="/JS30-Code-Anatomy-For-loops,-array-reduce-and-method-chaining/" class="pagination--pager" title="[30secondsofcode] loops, array reduce and method chaining
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ProjectFinishedRetrospect/" rel="permalink">프로젝트 마무리 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">3개월 전 즈음, 진행하던 webrtc 관련 프로젝트가 다른 부서로 넘어가고 저는 신규 서비스를 개발하는 프로젝트에 참여하게 되었습니다. threejs와 react를 활용한 웹 기반 3d 컨텐츠 제작 및 증강 서비스 개발 업무에 참여하면서 팀, 기술 스택, 업무 방식이 바뀌었고, ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ThreejsDailyLog/" rel="permalink">React에서 threejs 사용 및 삽질
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">React + Typescript 환경에서 Threejs 사용시 활용했던 라이브러리 및 삽질했던 내용들을 간단하게 정리하였습니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/2021YearRetrospect/" rel="permalink">2021년 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">순식간에 지나간 2021년이 끝나갑니다. 한해를 돌아보는 회고를 써 봅니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/BookReviewSystemDesignChapter2/" rel="permalink">Book review - 가상 면접 사례로 배우는 대규모 시스템 기초  (2장 개략적인 규모 추정)
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">2장 개략적인 규모 추정
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 MO YEONG-KWON. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154155002-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-154155002-1', { 'anonymize_ip': false});
+</script>
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://momoci99.github.io//MediaStream/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/MediaStream"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://momoci99.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

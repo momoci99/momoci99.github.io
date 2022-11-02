@@ -1,0 +1,1133 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.17.2 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>리팩토링 - 코드에서 나는 악취를 찾아서 - YKMO 기술 메모</title>
+<meta name="description" content="저는 일하기 귀찮을때 가끔씩 제가 개발했던 코드를 한번씩 훑어보곤 합니다. 그때마다 악취가 올라오는 코드를 발견하면 지체없이 리팩터링 2판을 끼고 이 부분을 어떻게 개선하면 좋을 지 즐거운(?) 고민을 하곤 합니다.">
+
+
+  <meta name="author" content="MO YEONG-KWON">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="YKMO 기술 메모">
+<meta property="og:title" content="리팩토링 - 코드에서 나는 악취를 찾아서">
+<meta property="og:url" content="https://momoci99.github.io//Refactoring-With-Smell/">
+
+
+  <meta property="og:description" content="저는 일하기 귀찮을때 가끔씩 제가 개발했던 코드를 한번씩 훑어보곤 합니다. 그때마다 악취가 올라오는 코드를 발견하면 지체없이 리팩터링 2판을 끼고 이 부분을 어떻게 개선하면 좋을 지 즐거운(?) 고민을 하곤 합니다.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2021-08-30T00:00:00+00:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://momoci99.github.io//Refactoring-With-Smell/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "MO YEONG-KWON",
+      "url": "https://momoci99.github.io//"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="YKMO 기술 메모 Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+        <a class="site-title" href="/">
+          YKMO 기술 메모
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="https://github.com/momoci99" >About</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">MO YEONG-KWON</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>나를 쥐어짜는 즐거움</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Seoul, South Korea</span>
+        </li>
+      
+
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+            <li><a href="https://github.com/momoci99" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+        
+      
+
+      
+
+      
+        <li>
+          <a href="mailto:momoci99@gmail.com">
+            <meta itemprop="email" content="momoci99@gmail.com" />
+            <i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email
+          </a>
+        </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="리팩토링 - 코드에서 나는 악취를 찾아서">
+    <meta itemprop="description" content="저는 일하기 귀찮을때 가끔씩 제가 개발했던 코드를 한번씩 훑어보곤 합니다. 그때마다 악취가 올라오는 코드를 발견하면 지체없이 리팩터링 2판을 끼고 이 부분을 어떻게 개선하면 좋을 지 즐거운(?) 고민을 하곤 합니다.">
+    <meta itemprop="datePublished" content="August 30, 2021">
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">리팩토링 - 코드에서 나는 악취를 찾아서
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <p>저는 일하기 귀찮을때 가끔씩 제가 개발했던 코드를 한번씩 훑어보곤 합니다. 그때마다 악취가 올라오는 코드를 발견하면 지체없이 리팩터링 2판을 끼고 이 부분을 어떻게 개선하면 좋을 지 즐거운(?) 고민을 하곤 합니다.</p>
+
+<p>이번 글에는 리팩터링2판 내용중 냄새나는 코드의 특징 및 연관된 내용을 담았습니다.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">냄새나면</span> <span class="nx">갈아라</span> <span class="o">-</span> <span class="nx">켄트</span> <span class="nx">백</span> <span class="nx">할머니의</span> <span class="nx">육아</span> <span class="nx">원칙</span>
+</code></pre></div></div>
+
+<h1 id="기이한-이름-mysterious-name">기이한 이름 (Mysterious Name)</h1>
+
+<ul>
+  <li>코드는 항상 단순하고 명료해야합니다.</li>
+  <li>함수, 모듈, 변수, 클래스등 이름만 보고도 용도를 파악할 수 있어야 합니다.</li>
+  <li>물론, 이름 짓기는 프로그래밍에서 가장 어려운 일 중 하나입니다.</li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/momoci99/momoci99.github.io/master/assets/img/Refactoring-With-Smell/meme.png" alt="meme.png" /></p>
+
+<p>정말.. 어렵습니다😩</p>
+
+<p><strong>Example - meme</strong></p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">zoneBer</span> <span class="o">=</span> <span class="p">(</span><span class="nx">time</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">//time만큼 실행을 대기하는 함수</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>‘존버’ 라는 밈을 모르면 알 수 없습니다. 재미는 있겠네요.</p>
+
+<p><strong>Example - 너무 추상적</strong></p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">processPermission</span> <span class="o">=</span> <span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">//user의 권한을 확인</span>
+  <span class="c1">//user의 권한이 없으면 권한을 요청함.</span>
+  <span class="c1">//user의 권한이 있으면 true 반환.</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p>process라는 말로는 어떤 행위를 하는지 명확하지 않습니다.</p>
+
+<p><strong>Example - 모호함</strong></p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">zoneIn</span> <span class="o">=</span> <span class="p">(</span><span class="nx">user</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">//user를 특정 구역에 진입처리 로직</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">zoomIn</code> 으로 착각할 수 있습니다.</p>
+
+<h3 id="어떻게-고치나요">어떻게 고치나요?</h3>
+
+<ul>
+  <li>함수 선언 바꾸기</li>
+  <li>필드 선언 바꾸기</li>
+  <li>변수 선언 바꾸기</li>
+</ul>
+
+<h1 id="중복-코드-duplicated-code">중복 코드 (Duplicated Code)</h1>
+
+<ul>
+  <li>똑같은 코드 구조가 반복되면 통합 할 수 있습니다.</li>
+  <li>중복이 많은 코드는 수정하기가 어렵습니다. 각각 비교 해야하니까요.</li>
+</ul>
+
+<p><strong>Example - 비슷한 패턴이 반복</strong></p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">findManager</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">employees</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">person</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">type</span> <span class="o">==</span> <span class="dl">"</span><span class="s2">Manager</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">};</span>
+<span class="kd">var</span> <span class="nx">findCleaner</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">employees</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">person</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">type</span> <span class="o">==</span> <span class="dl">"</span><span class="s2">Cleaner</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">};</span>
+<span class="kd">var</span> <span class="nx">findDeveloper</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+  <span class="nx">employees</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">person</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">type</span> <span class="o">==</span> <span class="dl">"</span><span class="s2">Developer</span><span class="dl">"</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+    <span class="p">}</span>
+  <span class="p">});</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<p><strong>Example - 동일한 코드가 반복</strong></p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">array_a</span> <span class="o">=</span> <span class="p">[];</span>
+<span class="kd">const</span> <span class="nx">array_b</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="kd">let</span> <span class="nx">sum_a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="nx">sum_a</span> <span class="o">+=</span> <span class="nx">array_a</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+
+<span class="kd">let</span> <span class="nx">average_a</span> <span class="o">=</span> <span class="nx">sum_a</span> <span class="o">/</span> <span class="mi">4</span><span class="p">;</span>
+
+<span class="kd">let</span> <span class="nx">sum_b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">j</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="nx">sum_b</span> <span class="o">+=</span> <span class="nx">array_b</span><span class="p">[</span><span class="nx">j</span><span class="p">];</span>
+
+<span class="kd">let</span> <span class="nx">average_b</span> <span class="o">=</span> <span class="nx">sum_b</span> <span class="o">/</span> <span class="mi">4</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="어떻게-고치나요-1">어떻게 고치나요?</h3>
+
+<ul>
+  <li>함수 추출하기</li>
+  <li>문장 슬라이드하기</li>
+  <li>메서드 올리기</li>
+</ul>
+
+<h1 id="긴-함수-long-function">긴 함수 (Long Function)</h1>
+
+<ul>
+  <li>긴 함수는 한번에 이해하기 어렵습니다.</li>
+  <li>
+    <p>Example - 정신이 혼미해질 정도로 긴 함수(JAVA)</p>
+
+    <p><img src="https://raw.githubusercontent.com/momoci99/momoci99.github.io/master/assets/img/Refactoring-With-Smell/long_java_1.png" alt="long_java_1.png" /></p>
+
+    <p><img src="https://raw.githubusercontent.com/momoci99/momoci99.github.io/master/assets/img/Refactoring-With-Smell/long_java_2.png" alt="long_java_2.png" /></p>
+  </li>
+</ul>
+
+<h3 id="어떻게-고치나요-2">어떻게 고치나요?</h3>
+
+<ul>
+  <li>함수 추출하기</li>
+  <li>임시변수를 질의 함수로 바꾸기</li>
+  <li>매개변수 객체 만들기</li>
+  <li>객체 통째로 넘기기</li>
+  <li>함수를 명령으로 바꾸기</li>
+  <li>조건문 분해하기</li>
+  <li>조건문 다형성으로 바꾸기</li>
+  <li>반복문 쪼개기</li>
+</ul>
+
+<h1 id="긴-매개변수-목록-long-parameter-list">긴 매개변수 목록 (Long Parameter List)</h1>
+
+<ul>
+  <li>매개변수가 길어지면 그 자체로 이해하기 어렵습니다.</li>
+</ul>
+
+<p><strong>Example - 긴 매개 변수</strong></p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">createUser</span> <span class="o">=</span> <span class="p">(</span>
+  <span class="nx">name</span><span class="p">,</span>
+  <span class="nx">address</span><span class="p">,</span>
+  <span class="nx">hobby</span><span class="p">,</span>
+  <span class="nx">income</span><span class="p">,</span>
+  <span class="nx">car</span><span class="p">,</span>
+  <span class="nx">length</span><span class="p">,</span>
+  <span class="nx">mailAddress</span><span class="p">,</span>
+  <span class="nx">weight</span><span class="p">,</span>
+  <span class="nx">friendLength</span><span class="p">,</span>
+  <span class="nx">job</span><span class="p">,</span>
+  <span class="nx">assets</span>
+<span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="c1">//User 객체를 생성하는 함수</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<h3 id="어떻게-고치나요-3">어떻게 고치나요?</h3>
+
+<ul>
+  <li>매개변수를 질의 함수로 바꾸기</li>
+  <li>객체 통째로 넘기기</li>
+  <li>매개변수 객체로 만들기</li>
+  <li>플래그 인수 제거하기</li>
+  <li>여러 함수를 클래스로 묶기</li>
+</ul>
+
+<h1 id="전역-데이터-global-data">전역 데이터 (Global Data)</h1>
+
+<ul>
+  <li>쓰지마세요</li>
+  <li>쓰면 벌받습니다. 특히 javascript에서는요!</li>
+  <li>전역 변수가 많아지면 감당할 수 없습니다.</li>
+</ul>
+
+<p><strong>Example - const, let, var 없는 전역 변수 사용 😡</strong></p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">globalFlag</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span> <span class="c1">//const, let 심지어 var도 없는 끔찍한 전역 변수</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">globalFlag</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">//do bad thing</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="c1">//do hell thing</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="어떻게-고치나요-4">어떻게 고치나요?</h3>
+
+<ul>
+  <li>변수 캡슐화하기</li>
+</ul>
+
+<h1 id="가변-데이터-mutable-data">가변 데이터 (Mutable Data)</h1>
+
+<ul>
+  <li>데이터가 변경되면 예상치 못한 결과나 버그로 이어질 수 있습니다.</li>
+</ul>
+
+<p><strong>Example - 변수가 계속 갱신되어 의미가 바뀌는 경우</strong></p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">temp</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="nx">height</span> <span class="o">+</span> <span class="nx">width</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">temp</span><span class="p">);</span>
+
+<span class="nx">temp</span> <span class="o">=</span> <span class="nx">height</span> <span class="o">*</span> <span class="nx">width</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">temp</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h3 id="어떻게-고치나요-5">어떻게 고치나요?</h3>
+
+<ul>
+  <li>변수 캡슐화하기</li>
+  <li>변수 쪼개기</li>
+  <li>문장 슬라이드하기</li>
+  <li>함수 추출하기</li>
+  <li>질의 함수와 변경 함수 분리하기</li>
+  <li>setter 제거하기</li>
+  <li>패상 변수를 질의 함수로 바꾸기</li>
+  <li>여러 함수를 클래스로 묶기</li>
+  <li>여러 함수를 변환 함수로 묶기</li>
+  <li>참조를 값으로 바꾸기</li>
+</ul>
+
+<h1 id="뒤엉킨-변경-divergent-change">뒤엉킨 변경 (Divergent Change)</h1>
+
+<ul>
+  <li>여러 기능을 추가 할때 하나의 모듈이 계속 변경되는경우를 말합니다.</li>
+  <li>단일 책임 원칙이 지켜지지 않고, 각각 독립된 코드로 분리되어야하나 그렇지 못한경우 발생합니다.</li>
+</ul>
+
+<h3 id="어떻게-고치나요-6">어떻게 고치나요?</h3>
+
+<ul>
+  <li>단계 쪼개기</li>
+  <li>함수 옮기기</li>
+  <li>함수 추출하기</li>
+  <li>클래스 추출하기</li>
+</ul>
+
+<h1 id="산탄총-수술-shotgun-surgery">산탄총 수술 (Shotgun Surgery)</h1>
+
+<ul>
+  <li>뒤엉킨 변경과 비슷하지만 정 반대의 개념입니다.</li>
+  <li>하나의 기능을 변경하기 위해 소스코드의 여러 부분을 수정해야하는 경우를 말합니다.</li>
+</ul>
+
+<h3 id="어떻게-고치나요-7">어떻게 고치나요?</h3>
+
+<ul>
+  <li>함수 옮기기</li>
+  <li>필드 옮기기</li>
+  <li>여러 함수를 클래스로 묶기</li>
+  <li>여러 함수를 변환 함수로 묶기</li>
+  <li>단계 쪼개기</li>
+  <li>함수 인라인하기</li>
+  <li>클래스 인라인하기</li>
+</ul>
+
+<h1 id="기능-편애-feature-envy">기능 편애 (Feature Envy)</h1>
+
+<ul>
+  <li>메소드가 자신이 속한 클래스보다 다른 클래스에 더 깊게 관여되어 있는 경우입니다.</li>
+  <li>이로 인해 두 클래스의 의존성이 발생합니다.</li>
+</ul>
+
+<h3 id="어떻게-고치나요-8">어떻게 고치나요?</h3>
+
+<ul>
+  <li>함수 옮기기</li>
+  <li>함수 추출하기</li>
+</ul>
+
+<h1 id="데이터-뭉치-data-clumps">데이터 뭉치 (Data Clumps)</h1>
+
+<ul>
+  <li>하나의 클래스에 너무 많은 필드가 존재하는 경우입니다.</li>
+  <li>
+    <p>Example - 너무 많은 필드</p>
+
+    <div class="language-tsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">Animal</span> <span class="p">{</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">addresss</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">food</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">sleeepingTime</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">age</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+  <span class="nl">roomNumber</span><span class="p">:</span> <span class="kr">number</span><span class="p">;</span>
+  <span class="nl">manager</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="nl">zoo</span><span class="p">:</span> <span class="kr">string</span><span class="p">;</span>
+  <span class="c1">//그외 동물을 나타내는 간접적인 클래스 필드들..</span>
+  <span class="c1">//</span>
+  <span class="c1">//</span>
+  <span class="c1">//</span>
+  <span class="c1">//</span>
+  <span class="c1">//</span>
+  <span class="c1">//</span>
+  <span class="c1">//</span>
+  <span class="c1">//</span>
+  <span class="c1">//..</span>
+
+  <span class="kd">constructor</span><span class="p">(</span><span class="nx">theName</span><span class="p">:</span> <span class="kr">string</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">theName</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nx">move</span><span class="p">(</span><span class="nx">distanceInMeters</span><span class="p">:</span> <span class="kr">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`</span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2"> moved </span><span class="p">${</span><span class="nx">distanceInMeters</span><span class="p">}</span><span class="s2">m.`</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="어떻게-고치나요-9">어떻게 고치나요?</h3>
+
+<ul>
+  <li>클래스 추출하기</li>
+  <li>매개변수 객체 만들기</li>
+  <li>객체 통째로 넘기기</li>
+</ul>
+
+<h1 id="기본형-집착-primitive-obsession">기본형 집착 (Primitive Obsession)</h1>
+
+<ul>
+  <li>기본형에만 너무 집착하는 경우를 말합니다.</li>
+  <li>화폐단위, 물리단위, 시간 단위를 오직 string, number로만 처리하려는게 그 예입니다.</li>
+  <li>객체지향을 활용하여 세련된 코드로 작성 할 수 있습니다.</li>
+</ul>
+
+<h3 id="어떻게-고치나요-10">어떻게 고치나요?</h3>
+
+<ul>
+  <li>기본형을 객체로 바꾸기</li>
+  <li>타입 코드를 서브 클래스로 바꾸기</li>
+  <li>조건부 로직을 다형성으로 바꾸기</li>
+  <li>클래스 추출하기</li>
+  <li>매개변수 객체 만들기</li>
+</ul>
+
+<h1 id="반복되는-switch문-repeated-switches">반복되는 switch문 (Repeated Switches)</h1>
+
+<ul>
+  <li>모든 switch - case 문이 나쁜건 아닙니다.</li>
+  <li>계속 반복되는 switch - case 문은 변경을 어렵게 합니다.</li>
+  <li>
+    <p>객체지향의 다형성 or Key-Value 방식으로 개선 할 수 있습니다.</p>
+  </li>
+  <li>
+    <p>Example - 긴 switch - case 문</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">getFoodCategory</span> <span class="o">=</span> <span class="p">(</span><span class="nx">food</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">category</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+  <span class="k">switch</span> <span class="p">(</span><span class="nx">food</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="dl">"</span><span class="s2">coke</span><span class="dl">"</span><span class="p">:</span>
+      <span class="nx">category</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">drink</span><span class="dl">"</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="dl">"</span><span class="s2">pizza</span><span class="dl">"</span><span class="p">:</span>
+      <span class="nx">category</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">food</span><span class="dl">"</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="dl">"</span><span class="s2">orange</span><span class="dl">"</span><span class="p">:</span>
+    <span class="k">case</span> <span class="dl">"</span><span class="s2">strawberry</span><span class="dl">"</span><span class="p">:</span>
+    <span class="k">case</span> <span class="dl">"</span><span class="s2">apple</span><span class="dl">"</span><span class="p">:</span>
+      <span class="nx">category</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">fruit</span><span class="dl">"</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="dl">"</span><span class="s2">icecreame</span><span class="dl">"</span><span class="p">:</span>
+      <span class="nx">category</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">indulgence</span><span class="dl">"</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="dl">"</span><span class="s2">vegetable</span><span class="dl">"</span><span class="p">:</span>
+      <span class="nx">category</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">bean</span><span class="dl">"</span><span class="p">;</span>
+      <span class="nx">category</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">tomato</span><span class="dl">"</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="dl">"</span><span class="s2">bread</span><span class="dl">"</span><span class="p">:</span>
+      <span class="nx">category</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">bread</span><span class="dl">"</span><span class="p">;</span>
+      <span class="k">break</span><span class="p">;</span>
+    <span class="nl">default</span><span class="p">:</span>
+      <span class="nx">category</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Unknown food!</span><span class="dl">"</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">getFoodCategory</span><span class="p">(</span><span class="dl">"</span><span class="s2">pizza</span><span class="dl">"</span><span class="p">));</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="어떻게-고치나요-11">어떻게 고치나요?</h3>
+
+<ul>
+  <li>조건부 로직을 다형성으로 바꾸기</li>
+</ul>
+
+<h1 id="반복문-loops">반복문 (Loops)</h1>
+
+<ul>
+  <li>단순 for, while loop는 파이프라인으로 처리 할 수 있습니다.</li>
+  <li>reduce, map, filter 등등..</li>
+</ul>
+
+<h3 id="어떻게-고치나요-12">어떻게 고치나요?</h3>
+
+<ul>
+  <li>반복문을 파이프라인으로 바꾸기</li>
+</ul>
+
+<h1 id="성의-없는-요소-lazy-element">성의 없는 요소 (Lazy Element)</h1>
+
+<ul>
+  <li>불필요한 클래스, 인터페이스, 메서드 사용을 한 경우입니다.</li>
+</ul>
+
+<h3 id="어떻게-고치나요-13">어떻게 고치나요?</h3>
+
+<ul>
+  <li>함수 인라인하기</li>
+  <li>클래스 인라인하기</li>
+  <li>계층 합치기</li>
+</ul>
+
+<h1 id="추측성-일반화-speculative-generality">추측성 일반화 (Speculative Generality)</h1>
+
+<ul>
+  <li>언젠가 사용될 것이라고 추측하여 작성하였지만, 단 한번도 쓰이지 않는 경우를 말합니다.</li>
+</ul>
+
+<h3 id="어떻게-고치나요-14">어떻게 고치나요?</h3>
+
+<ul>
+  <li>계층 합치기</li>
+  <li>함수 인라인하기</li>
+  <li>클래스 인라인하기</li>
+  <li>함수 선언 바꾸기</li>
+  <li>죽은 코드 제거하기</li>
+</ul>
+
+<h1 id="임시-필드-temporary-field">임시 필드 (Temporary Field)</h1>
+
+<ul>
+  <li>코드 내에 특정한 상황에서만 의미가 부여되는 임시 필드가 존재하는 경우입니다.</li>
+</ul>
+
+<h3 id="어떻게-고치나요-15">어떻게 고치나요?</h3>
+
+<ul>
+  <li>클래스 추출하기</li>
+  <li>함수 옮기기</li>
+  <li>특이 케이스 추가하기</li>
+</ul>
+
+<h1 id="메시지-체인-message-chains">메시지 체인 (Message Chains)</h1>
+
+<ul>
+  <li>객체가 연쇄적으로 나열되는 경우를 말합니다.</li>
+  <li>
+    <p>메시지 체인의 중간 단계가 수정되면 이후 모든 단계에 영향을 미칩니다.</p>
+  </li>
+  <li>
+    <p>Example</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//memberName을 얻기 위해 총 3개의 객체에 접근하는 경우</span>
+<span class="kd">const</span> <span class="nx">memberName</span> <span class="o">=</span> <span class="nx">aPerson</span><span class="p">.</span><span class="nx">department</span><span class="p">.</span><span class="nx">manager</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="어떻게-고치나요-16">어떻게 고치나요?</h3>
+
+<ul>
+  <li>위임 숨기기</li>
+  <li>함수 추출하기</li>
+  <li>함수 옮기기</li>
+</ul>
+
+<h1 id="중개자-middle-man">중개자 (Middle Man)</h1>
+
+<ul>
+  <li>현재 클래스가 가지고 있는 메서드 절반 이상이 다른 클래스의 메서드를 호출하는 경우를 말합니다.</li>
+  <li>즉, 지나치게 위임을 하는 경우를 말합니다.</li>
+</ul>
+
+<h3 id="어떻게-고치나요-17">어떻게 고치나요?</h3>
+
+<ul>
+  <li>중개자 제거하기</li>
+</ul>
+
+<h1 id="내부자-거래-insider-trading">내부자 거래 (Insider Trading)</h1>
+
+<ul>
+  <li>자식클래스가 부모클래스에 대해 필요 이상으로 접근하려는 경우를 말합니다.</li>
+</ul>
+
+<h3 id="어떻게-고치나요-18">어떻게 고치나요?</h3>
+
+<ul>
+  <li>함수 옮기기</li>
+  <li>필드 옮기기</li>
+  <li>위임 숨기기</li>
+  <li>서브클래스를 위임으로 바꾸기</li>
+  <li>슈퍼클래스를 위임으로 바꾸기</li>
+</ul>
+
+<h1 id="거대한-클래스-large-class">거대한 클래스 (Large Class)</h1>
+
+<ul>
+  <li>클래스 하나가 너무 거대한 경우를 말합니다.</li>
+</ul>
+
+<h3 id="어떻게-고치나요-19">어떻게 고치나요?</h3>
+
+<ul>
+  <li>클래스 추출하기</li>
+  <li>슈퍼클래스 추출하기</li>
+  <li>타입 코드를 서브클래스로 바꾸기</li>
+</ul>
+
+<h1 id="주석-comments">주석 (Comments)</h1>
+
+<ul>
+  <li>주석은 나쁜게 아닙니다.</li>
+  <li>다만, 주석이 필요 없을 수준으로 코드를 작성하는게 더 좋습니다.</li>
+</ul>
+
+<h3 id="어떻게-고치나요-20">어떻게 고치나요?</h3>
+
+<ul>
+  <li>함수 추출하기</li>
+  <li>함수 선언 바꾸기</li>
+  <li>어서션 추가하기</li>
+</ul>
+
+<h3 id="언급은-되었지만-좀더-생각해-봐야하는-냄새들">언급은 되었지만 좀더 생각해 봐야하는 냄새들</h3>
+
+<ul>
+  <li>서로 다른 인터페이스의 대안 클래스들 (Alternative Classes with Different Interfaces)</li>
+  <li>데이터 클래스(Data Class)</li>
+  <li>상속 포기(Refused Badquest)</li>
+</ul>
+
+<h1 id="참고했던-글">참고했던 글</h1>
+
+<p>좋은 이름, 나쁜 이름, 이상한 이름, NDC2018 - 전현규</p>
+
+<p><a href="https://www.slideshare.net/devcatpublications/ndc2018">https://www.slideshare.net/devcatpublications/ndc2018</a></p>
+
+<p>Replacing switch statements with Object literals - by Todd Motto</p>
+
+<p><a href="https://ultimatecourses.com/blog/deprecating-the-switch-statement-for-object-literals">https://ultimatecourses.com/blog/deprecating-the-switch-statement-for-object-literals</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/refactoring" class="page__taxonomy-item" rel="tag">Refactoring</a>
+    
+    </span>
+  </p>
+
+
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2021-08-30T00:00:00+00:00">August 30, 2021</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%EB%A6%AC%ED%8C%A9%ED%86%A0%EB%A7%81+-+%EC%BD%94%EB%93%9C%EC%97%90%EC%84%9C+%EB%82%98%EB%8A%94+%EC%95%85%EC%B7%A8%EB%A5%BC+%EC%B0%BE%EC%95%84%EC%84%9C%20https%3A%2F%2Fmomoci99.github.io%2F%2FRefactoring-With-Smell%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fmomoci99.github.io%2F%2FRefactoring-With-Smell%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Fmomoci99.github.io%2F%2FRefactoring-With-Smell%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/NuxtScratchTheSurface/" class="pagination--pager" title="Nuxt 찍먹하기
+">Previous</a>
+    
+    
+      <a href="/TeamLeaderAsNewbie/" class="pagination--pager" title="개발 3년차의 Team Lead 이야기
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Leave a comment</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ProjectFinishedRetrospect/" rel="permalink">프로젝트 마무리 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">3개월 전 즈음, 진행하던 webrtc 관련 프로젝트가 다른 부서로 넘어가고 저는 신규 서비스를 개발하는 프로젝트에 참여하게 되었습니다. threejs와 react를 활용한 웹 기반 3d 컨텐츠 제작 및 증강 서비스 개발 업무에 참여하면서 팀, 기술 스택, 업무 방식이 바뀌었고, ...</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/ThreejsDailyLog/" rel="permalink">React에서 threejs 사용 및 삽질
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">React + Typescript 환경에서 Threejs 사용시 활용했던 라이브러리 및 삽질했던 내용들을 간단하게 정리하였습니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/2021YearRetrospect/" rel="permalink">2021년 회고
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  2 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">순식간에 지나간 2021년이 끝나갑니다. 한해를 돌아보는 회고를 써 봅니다.
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/BookReviewSystemDesignChapter2/" rel="permalink">Book review - 가상 면접 사례로 배우는 대규모 시스템 기초  (2장 개략적인 규모 추정)
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  3 minute read
+
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">2장 개략적인 규모 추정
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2022 MO YEONG-KWON. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-154155002-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-154155002-1', { 'anonymize_ip': false});
+</script>
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://momoci99.github.io//Refactoring-With-Smell/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/Refactoring-With-Smell"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://momoci99.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>
