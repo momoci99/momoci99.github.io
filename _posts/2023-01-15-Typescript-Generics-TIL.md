@@ -158,3 +158,5 @@ refer
 [https://www.typescriptlang.org/ko/docs/handbook/2/generics.html](https://www.typescriptlang.org/ko/docs/handbook/2/generics.html)
 
 [https://poiemaweb.com/typescript-generic](https://poiemaweb.com/typescript-generic)
+
+-
