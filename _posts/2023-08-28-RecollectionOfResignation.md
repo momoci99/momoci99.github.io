@@ -57,7 +57,7 @@ title: "퇴사 회고"
 
 Remote 프로젝트에서 손을 떼고(이것도 여러사정이 😅) 새로 합류하신 리더 2분과 함께 WebAR 프로젝트에 참여하게 되었습니다. WebAR 플랫폼 서비스를 단기간내에 시장에 출시해야하는 상황속에서 빠른 피드백의 중요성을 깨닫고 애자일 방법론을 실제로 해볼 수 있었던 경험이였습니다.
 
-![Untitled](%E1%84%90%E1%85%AC%E1%84%89%E1%85%A1%E1%84%92%E1%85%AC%E1%84%80%E1%85%A9%20bc43aff0a6124ed2bfd7464e091dd041/Untitled%202.png)
+![Untitled](https://github.com/momoci99/momoci99.github.io/blob/master/assets/img/RecollectionOfResignation/Untitled%202.png?raw=true)
 
 스프린트 단위를 2주로 잡고, 이에 맞춰서 디자인, 개발, 테스트 과정이 이뤄졌습니다. 도입이 결코 쉽지는 않았습니다. 익숙하지 않던 방법이였던 터라 계획했던 내용보다 일정이 늘어나거나 예상하지 못한 부분이 발생하여 종종 어려움을 겪곤 했었습니다.
 
