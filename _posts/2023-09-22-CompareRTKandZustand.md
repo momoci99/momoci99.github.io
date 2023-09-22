@@ -40,7 +40,7 @@ tag:
 
 ## 1. 러닝 커브 관점
 
-Redux Toolkit
+### Redux Toolkit
 
 ![Untitled1](https://github.com/momoci99/momoci99.github.io/blob/master/assets/img/2023-09-22-CompareRTKandZustand/Untitled%201.png?raw=true)
 
@@ -50,7 +50,7 @@ meme 이긴 하지만, 이런 그림이 돌아다닐 정도로 Zustand에 비하
 
 Redux toolkit을 사용하려면 Redux toolkit에서 제공하는 api를 어느정도 알아야하고, redux가 추구하는 상태관리 방식도 이해가 필요합니다. 처음 접하는 개발자라면 Reducer, Action, Slice, AsyncThunk 개념이 잘 와닿지 않을꺼라고 생각되네요. 물론 이미 상태관리에 익숙하고 react사용에도 익숙하다면 큰 어려움은 아닙니다.
 
-Zustand
+### Zustand
 
 공식 문서를 다 합쳐도 https://github.com/pmndrs/zustand 이게 다일정도로 Redux Toolkit에 비하면 간단한 러닝 커브를 가지고 있습니다. Redux Toolkit의 store기본 설정 방법과 zustand의 설정 방법을 본다면 더 확실하게 드러납니다.
 
@@ -113,7 +113,7 @@ const useBearStore = create((set) => ({
 
 ## 2. 가이드 라인 관점
 
-Redux Toolkit
+### Redux Toolkit
 
 redux toolkit은 공식 문서에서 각 API를 어떻게 쓰면 좋을지부터, 디렉터리 구조, 데이터 fetching 관련 가이드 라인을 제공하고있습니다.
 
@@ -124,27 +124,27 @@ redux toolkit은 공식 문서에서 각 API를 어떻게 쓰면 좋을지부터
 
 파일 구조의 가이드라인을 제시해서 어플리케이션 내의 구조를 일관성 있게 유지하려는 부분으로 보입니다. 프로젝트 규모가 커질 수록 일관성 있는 구조가 중요한데, React Toolkit이 이 부분을 잘 잡아주고 있습니다.
 
-Zustand
+### Zustand
 
 일정 수준의 가이드 라인이 존재하는 Redux Toolkit과는 다르게 공식 문서에는 파일이나 디렉터리 가이드라인이 존재하지 않습니다. Zustand가 추구하는 작고 가벼운 방향에 맞게 개발자가 임의로 파일명, 디렉터리 구조를 작성하게 되어있습니다. 혹시나 구글링을 해봐도 프로젝트 상황에 맞게 쓰는걸 권장하고 있습니다.
 
 ## 3. 데이터 Fetching 관점
 
-Redux Toolkit
+### Redux Toolkit
 
 - 이미 잘 알려진 Redux Toolkit Query(RTK Query)를 사용하여 서버에서 데이터를 가지고 오고, 상태관리와 직접 연결하여 사용할 수 있습니다.
 
-Zustand
+### Zustand
 
 - 따로 데이터 Fetching을 위한 도구를 내장하고 있지 않기 때문에, 개발자가 원하는 아무 fetching 툴을 사용해도 됩니다. 심지어 React-Query와 연결해서 사용할 수도 있습니다.
 
 ## 4. 불변성
 
-Redux Toolkit
+### Redux Toolkit
 
 Redux Toolkit은 자체적으로 immer를 사용하고 있어 상태 변경시 불변성을 보장하고 있습니다. (링크 : https://redux-toolkit.js.org/usage/immer-reducers) 따라서 상태를 업데이트할 때 불변성 유지를 위한 코드를 따로 작성하지 않아도 내부에서 알아서 처리해줍니다.
 
-Zustand
+### Zustand
 
 Redux Toolkit이 내부적으로 immer을 사용하고 있는것과 달리 zustand는 immer를 별도의 미들웨어 형태로 추가하여 사용할 수 있습니다. 물론 상태를 업데이트할 때는 불변성을 유지한 상태로 업데이트 하는것을 권고하고 있습니다.
 
@@ -159,7 +159,7 @@ const useBearStore = create((set) => ({
 }));
 ```
 
-Immer 사용
+immer 사용
 
 ```tsx
 import { produce } from "immer";
@@ -180,7 +180,7 @@ clearForest();
 
 ## 5. 디버깅
 
-Redux Toolkit
+### Redux Toolkit
 
 크롬 확장 도구인 react-developer-tool을 설치하여 쉽게 디버깅을 지원하고 있습니다.
 
@@ -188,7 +188,7 @@ https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopl
 
 ![Untitled4](https://github.com/momoci99/momoci99.github.io/blob/master/assets/img/2023-09-22-CompareRTKandZustand/Untitled%204.png?raw=true)
 
-Zustand
+### Zustand
 
 Redux Toolkit과 마찬가지로 reactr-developer-tool을 설치하면 디버깅을 보다 쉽게 할 수 있으나 store에 middleware를 별도로 추가해야합니다. 그렇지 않으면 개발자 도구에서 추적이 불가능합니다.
 
