@@ -120,7 +120,7 @@ redux toolkit은 공식 문서에서 각 API를 어떻게 쓰면 좋을지부터
 
 ![Untitled3](https://github.com/momoci99/momoci99.github.io/blob/master/assets/img/2023-09-22-CompareRTKandZustand/Untitled%203.png?raw=true)
 
-파일 구조의 가이드라인을 제시해서 어플리케이션 내의 구조를 일관성 있게 유지하려는 부분으로 보입니다. 프로젝트 규모가 커질 수록 일관성 있는 구조가 중요한데, React Toolkit이 이 부분을 잘 잡아주고 있습니다.
+파일 구조의 가이드라인을 제시해서 어플리케이션 내의 구조를 일관성 있게 유지하려는 부분으로 보입니다. 프로젝트 규모가 커질 수록 일관성 있는 구조가 중요한데, Redux Toolkit이 이 부분을 잘 잡아주고 있습니다.
 
 ### Zustand
 
