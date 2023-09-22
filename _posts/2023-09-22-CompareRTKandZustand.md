@@ -7,8 +7,6 @@ tag:
   - Redux Toolkit
 ---
 
-# 개요
-
 - React의 상태관리 도구인 Redux Toolkit을 써보면서 느낀점 및 Zustand 사용경험을 비교 및 정리하였습니다.
 
 ## 0. Redux Toolkit과 Zustand의 간략 소개
