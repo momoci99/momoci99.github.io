@@ -360,6 +360,11 @@ npm install @momoci99/test-common-ui@1.0.0
 - Github Packages를 사용하여 react ui 컴포넌트를 패키징하고 github action을 통해 publish 하였습니다.
 - 다른 프로젝트에서 이를 참조하여 실제로 사용해 보았습니다.
 
+사용한 repo
+
+- [https://github.com/momoci99/test-import-project](https://github.com/momoci99/test-import-project)
+- [https://github.com/momoci99/test-common-ui](https://github.com/momoci99/test-common-ui)
+
 # Etc
 
 - 사내 Design System구현시 github package을 활용한다면 매우 유용하게 쓰일 것 같습니다.
