@@ -200,7 +200,15 @@ const Modal = ({ title, content, onClose, onConfirm }: ModalProps) => {
 
 바로 이렇게요
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/6a9964a5-a4b3-478c-a26c-202e04bf6b13/78d8eeda-5819-4366-868b-ba32c16d4bf6/Untitled.png)
+```
+13:06:17.276 Modal.tsx:65 key press in modal
+13:06:17.276 Base.tsx:6 key press in Base
+13:06:17.277 Modal.tsx:65 key press in modal
+13:06:17.867 Base.tsx:6 key press in Base
+13:06:17.867 Modal.tsx:65 key press in modal
+13:06:17.868 Base.tsx:6 key press in Base
+13:06:17.868 Modal.tsx:65
+```
 
 이때 **react-hotkeys-hook** 에서 제공하는 Scoping hotkeys to components 를 사용하여 해당 컴포넌트가 포커스되었을 때만 등록한 키가 동작하도록 할 수 있습니다.
 
