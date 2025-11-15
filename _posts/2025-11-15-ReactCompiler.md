@@ -149,8 +149,8 @@ export default function NoCompilerSlowComponentWrapper() {
 
 # 컴파일모드
 
-- react-compiler는 여러 모드를 지원합니다.
-- 문서 : https://react.dev/reference/react-compiler/compilationMode#compilationmode
+- react-compiler는 여러 모드를 지원.
+- 문서 : [compilationmode](https://react.dev/reference/react-compiler/compilationMode#compilationmode)
 
 ### 타입
 
@@ -185,7 +185,7 @@ export default function NoCompilerSlowComponentWrapper() {
         babel: {
           plugins: [
             [
-              "babel-plugin-react-compiler", // 다른 플러그인보다 먼저 와야합니다.
+              "babel-plugin-react-compiler", // 다른 플러그인보다 먼저 와야함.
               {
                 compilationMode: "infer",
               },
@@ -223,7 +223,7 @@ export default function NoCompilerSlowComponentWrapper() {
 
 참고한문서
 
-- (번역) 리액트 컴파일러 v1.0 **:** https://ykss.netlify.app/translation/react_compiler/?utm_source=substack&utm_medium=email
-- 리액트 컴파일러 : https://ko.react.dev/learn/react-compiler
+- (번역) 리액트 컴파일러 v1.0 **:** [링크](https://ykss.netlify.app/translation/react_compiler/?utm_source=substack&utm_medium=email)
+- 리액트 컴파일러 : [링크](https://ko.react.dev/learn/react-compiler)
 
 ---
