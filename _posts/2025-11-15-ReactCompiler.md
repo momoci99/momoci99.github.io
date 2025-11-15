@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "[React] React Compiler 간단 용후기"
+title: "[React] React Compiler 가볍게 살펴보기"
 tag:
   - React
   - React Compiler
