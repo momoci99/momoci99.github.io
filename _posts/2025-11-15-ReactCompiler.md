@@ -10,7 +10,8 @@ tag:
 
 - 컴포넌트와 훅을 자동으로 최적화(메모이제이션 Memoization)
 - `useMemo`, `useCallback`, `memo` 사용에 대해 더이상 신경쓰지 않아도 됨.
-- 선택적으로 컴파일이 가능합니다.
+- 선택적으로 컴파일이 가능.
+  참조 : react compiler의 코드 변환 결과물을 보고싶다면 [playground](https://playground.react.dev/) 에서 테스트 가능.
 
 # 준비
 
@@ -87,7 +88,7 @@ export default function SlowComponentWrapperWithCompiler() {
 `SlowComponent` 를 렌더링 하지만, `"use no memo"` 지시자를 사용하여 컴파일에서 제외된 부모 컴포넌트
 
 ```tsx
-"use no memo"; // 컴포넌트가 React 컴파일러에 의해 컴파일되지 않도록 제외합니다.
+"use no memo"; // 컴포넌트가 React 컴파일러에 의해 컴파일되지 않도록 제외.
 
 import { useState } from "react";
 import SlowComponent from "./SlowComponent";
