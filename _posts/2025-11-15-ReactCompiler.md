@@ -29,8 +29,8 @@ react compiler를 사용하기 위해 react 버전 확인, eslint 플러그인, 
 ### eslint-plugin-react-compiler
 
 - react-compiler 기준으로 rule 위반사항을 체크하는 lint (기본 react rule보다 더 강하게 체크)
-- 마찬가지로 react compiler는 규칙을 위반한 컴포넌트는 컴파일 대상에서 제외합니다.
-- `eslint-disable` 구문이 있는 컴포넌트도 제외합니다.
+- 마찬가지로 react compiler는 규칙을 위반한 컴포넌트는 컴파일 대상에서 제외.
+- `eslint-disable` 구문이 있는 컴포넌트도 제외.
 - npm [링크](https://www.npmjs.com/package/eslint-plugin-react-compiler/v/19.1.0-rc.2)
 
 ![image.png](https://raw.githubusercontent.com/momoci99/momoci99.github.io/refs/heads/master/assets/img/2025-11-15-ReactCompiler/image.png)
