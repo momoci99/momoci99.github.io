@@ -75,6 +75,8 @@ const BarChartReact = ({ data }: { data: DataItem[] }) => {
 
 재사용 가능한 UI 요소 (위에서 예시로 든 grid, axis)는 독립 컴포넌트로 분리하는 방식입니다.
 
+예시 코드
+
 ```tsx
 const Grid = ({ scale, width }: GridProps) => (
   <g>{scale.ticks().map((tick) => <line key={tick} ... />)}</g>
