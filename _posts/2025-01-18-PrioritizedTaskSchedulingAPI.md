@@ -31,7 +31,7 @@ tag:
 
 - [**`scheduler.yield()`**](https://developer.mozilla.org/en-US/docs/Web/API/Prioritized_Task_Scheduling_API#scheduler.yield)
 - [**`scheduler.postTask()`**](https://developer.mozilla.org/en-US/docs/Web/API/Prioritized_Task_Scheduling_API#scheduler.posttask)
-- [\*\*`TaskController`](https://developer.mozilla.org/en-US/docs/Web/API/TaskController)\*\*
+- [**`TaskController`**](https://developer.mozilla.org/en-US/docs/Web/API/TaskController)
 - [**`TaskSignal`**](https://developer.mozilla.org/en-US/docs/Web/API/TaskSignal)
 
 위 api는 아래의 세가지 우선순위중 하나를 설정할 수 있습니다.
@@ -163,7 +163,7 @@ scheduler.postTask(
 
 scheduler.postTask(
   () => {
-    console.log("Background 작업 실");
+    console.log("Background 작업 실행");
   },
   {
     priority: "background",
@@ -172,7 +172,7 @@ scheduler.postTask(
 );
 ```
 
-## [\*\*`TaskController`](https://developer.mozilla.org/en-US/docs/Web/API/TaskController)\*\*
+## [**`TaskController`**](https://developer.mozilla.org/en-US/docs/Web/API/TaskController)
 
 - 태스크의 우선순위를 동적으로 변경하거나, 태스크를 취소하는 기능을 제공합니다.
 - `scheduler.postTask()`와 함께 사용되어 실행 중이거나 대기 중인 태스크를 제어할 수 있습니다
@@ -237,7 +237,7 @@ const controller = new TaskController({ priority: "user-visible" });
 
 scheduler.postTask(
   () => {
-    console.log("취소되면 이 코드는실행되지 않습니다.");
+    console.log("취소되면 이 코드는 실행되지 않습니다.");
   },
   { signal: controller.signal }
 );

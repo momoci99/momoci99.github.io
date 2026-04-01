@@ -19,8 +19,8 @@ tag:
 ## roots api 변경
 
 - root render 모듈이 react-dom → react-dom/client로 변경
-- react 18에서 제공하는 creeatRoot에서 렌더링 성능이 개선되었음.
-- creactRoot는 batch 렌더링을 지원.
+- react 18에서 제공하는 createRoot에서 렌더링 성능이 개선되었음.
+- createRoot는 batch 렌더링을 지원.
 
 ```jsx
 // Before
@@ -92,7 +92,7 @@ root.render(<AppWithCallbackAfterRender />);
 
 변경 발생시
 
-- 컴포넌트 mounte
+- 컴포넌트 mount
 - 컴포넌트 unmount 시뮬레이트
 - 이전 상태와 함께 컴포넌트 마운팅
 
@@ -110,7 +110,7 @@ root.render(<AppWithCallbackAfterRender />);
 
 ## 타입스크립트 정의 업데이트
 
-- @types/reac, @types/react-dom 라이브러리에 대한 최신 버전 업데이트가 필요함.
+- @types/react, @types/react-dom 라이브러리에 대한 최신 버전 업데이트가 필요함.
 - (그런데 병원 웹은 사용하지 않고 있고, 파트너에는 이미 최신 메이저 버전(18)을 사용중임)
 - props 정의시 children에 대한 props를 명시적으로 지정해주어야함.
 
@@ -140,7 +140,7 @@ function handleClick() {
 setTimeout(() => {
   setCount((c) => c + 1);
   setFlag((f) => !f);
-  // re-redenr를 두번 수행(일괄처리 안됨)
+  // re-render를 두번 수행(일괄처리 안됨)
 }, 1000);
 ```
 
@@ -169,11 +169,11 @@ setTimeout(() => {
 
 **useSyncExternalStore**
 
-- 외부 스토어를 연동하기 위함 hook. 그러나 대부분의 상태 관리 라이브러리에서는 이미 사용중
+- 외부 스토어를 연동하기 위한 hook. 그러나 대부분의 상태 관리 라이브러리에서는 이미 사용중
 
 **useInsertionEffect**
 
-- css-in-js에서 렌더링 도중에 스타일이 업데이트 되는 경우 리엑트에서 렌더링을 멈추고 브라우저가 레이아웃을 다시 계산할 수 있도록 함.
+- css-in-js에서 렌더링 도중에 스타일이 업데이트 되는 경우 리액트에서 렌더링을 멈추고 브라우저가 레이아웃을 다시 계산할 수 있도록 함.
 - styled-component를 위한 전용 hook
 
 **IE 를 더이상 지원하지 않음**
