@@ -1,8 +1,7 @@
 ---
-layout: single
 title: 'reducedFilter'
-tag:
-  - javascript
+tags:
+  - JavaScript
   - 30secondsofcode
 ---
 

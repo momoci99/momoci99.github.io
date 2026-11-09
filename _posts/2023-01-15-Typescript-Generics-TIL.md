@@ -1,8 +1,7 @@
 ---
-layout: single
 title: "[TIL] Typescript - Generics"
-tag:
-  - Typescript
+tags:
+  - TypeScript
   - TIL
   - Generics
 ---

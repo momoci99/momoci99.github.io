@@ -1,7 +1,6 @@
 ---
-layout: single
 title:  "TypeScript 5분만에 살펴보기"
-tag : 
+tags: 
     - TypeScript
 ---
 

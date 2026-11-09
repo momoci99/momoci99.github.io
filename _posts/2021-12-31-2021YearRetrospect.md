@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "2021년 회고"
-tag:
+tags:
   - restrospect
 ---
 

@@ -1,7 +1,6 @@
 ---
-layout: single
 title:  "Hackerrank Jesse and Cookies"
-tag : 
+tags: 
     - Heap
     - Hackerrank
 ---

@@ -1,8 +1,7 @@
 ---
-layout: single
 title: "Front End Stream Record Library"
-tag:
-  - javascript
+tags:
+  - JavaScript
   - RecordRTC.js
   - MediaStreamRecord.js
 ---

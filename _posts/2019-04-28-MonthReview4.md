@@ -1,5 +1,4 @@
 ---
-layout: single
 title:  "4월 회고"
 ---
 

@@ -1,8 +1,8 @@
 ---
-layout: single
+render_with_liquid: false
 title: "vue에서 jest 써보기"
-tag:
-  - vue
+tags:
+  - Vue
 ---
 
 이번 글은 아주 아주 간단한 증감 연산을 수행하는 웹 앱을 vue를 통해 만들고 jest 를 활용하여 unit-test를 해보는 글입니다.

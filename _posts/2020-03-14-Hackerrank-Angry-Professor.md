@@ -1,7 +1,6 @@
 ---
-layout: single
 title:  "Hackerrank Angry Professor"
-tag : 
+tags: 
     - Algorithms
     - Hackerrank
 ---

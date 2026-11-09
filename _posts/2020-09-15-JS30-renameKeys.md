@@ -1,8 +1,7 @@
 ---
-layout: single
 title: 'renameKeys'
-tag:
-  - javascript
+tags:
+  - JavaScript
   - 30secondsofcode
 ---
 

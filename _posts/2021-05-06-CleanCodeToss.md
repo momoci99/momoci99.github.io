@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "Toss - 실무에서 바로 쓰는 Frontend Clean Code"
-tag:
+tags:
   - CleanCode
 ---
 

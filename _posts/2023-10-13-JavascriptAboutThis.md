@@ -1,8 +1,7 @@
 ---
-layout: single
 title: "[Javascript] Javascript this에 대하여"
-tag:
-  - Javascript
+tags:
+  - JavaScript
   - this
 ---
 

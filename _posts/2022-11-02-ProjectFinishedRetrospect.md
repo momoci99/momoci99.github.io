@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "프로젝트 마무리 회고"
-tag:
+tags:
   - Retrospect
 ---
 

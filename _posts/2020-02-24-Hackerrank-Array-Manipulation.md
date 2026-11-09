@@ -1,7 +1,6 @@
 ---
-layout: single
 title:  "Hackerrank Array Manipulation"
-tag : 
+tags: 
     - Array
     - Hackerrank
 ---

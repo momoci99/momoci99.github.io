@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "MediaStreamTrack.applyConstraints 써보기"
-tag:
+tags:
   - MediaTrack
   - ApplyConstraints
   - RTCRtpSender

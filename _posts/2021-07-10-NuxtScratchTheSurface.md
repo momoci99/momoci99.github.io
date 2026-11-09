@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "Nuxt 찍먹하기"
-tag:
+tags:
   - Nuxt
 ---
 

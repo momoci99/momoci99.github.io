@@ -1,7 +1,6 @@
 ---
-layout: single
 title: " contenteditable 간단 사용후기"
-tag:
+tags:
   - HTML
   - DOM
 ---

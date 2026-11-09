@@ -1,7 +1,6 @@
 ---
-layout: single
 title: '스트림에서 캔버스로, 캔버스에서 스트림으로'
-tag:
+tags:
   - js
   - MediaStream
   - getDisplayMedia

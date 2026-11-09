@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "eslint-plugin-import"
-tag:
+tags:
   - eslint
 ---
 

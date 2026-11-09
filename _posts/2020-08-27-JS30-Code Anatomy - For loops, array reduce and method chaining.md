@@ -1,8 +1,7 @@
 ---
-layout: single
 title: '[30secondsofcode] loops, array reduce and method chaining'
-tag:
-  - javascript
+tags:
+  - JavaScript
   - 30secondsofcode
 ---
 

@@ -1,8 +1,7 @@
 ---
-layout: single
 title: 'Asynchronous JavaScript Cheat Sheet'
-tag:
-  - javascript
+tags:
+  - JavaScript
   - 30secondsofcode
 ---
 

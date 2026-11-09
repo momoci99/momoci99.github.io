@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "react 및 d3의 렌더링 방법"
-tag:
+tags:
   - React
   - d3
 ---

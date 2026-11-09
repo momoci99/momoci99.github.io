@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "Book review - 가상 면접 사례로 배우는 대규모 시스템 기초  (2장 개략적인 규모 추정)"
-tag:
+tags:
   - Review
 ---
 

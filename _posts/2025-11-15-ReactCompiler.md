@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "[React] React Compiler 가볍게 살펴보기"
-tag:
+tags:
   - React
   - React Compiler
 ---

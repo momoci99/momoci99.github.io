@@ -1,7 +1,6 @@
 ---
-layout: single
 title:  "Hackerrank Queue using Two Stacks"
-tag : 
+tags: 
     - Queue
     - Hackerrank
 ---

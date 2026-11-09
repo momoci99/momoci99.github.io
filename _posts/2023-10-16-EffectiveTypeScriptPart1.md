@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "[Typescript] Effective Typescript 1장 - 타입스크립트 알아보기"
-tag:
+tags:
   - Effective Typescript
 ---
 

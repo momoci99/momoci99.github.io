@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "[npm] npm package 취약점(vulnerabilities) 해결"
-tag:
+tags:
   - npm
   - audit
 ---

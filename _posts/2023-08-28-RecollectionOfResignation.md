@@ -1,5 +1,4 @@
 ---
-layout: single
 title: "퇴사 회고"
 ---
 

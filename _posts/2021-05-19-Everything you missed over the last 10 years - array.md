@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "잊고 지냈던 js array 메서드"
-tag:
+tags:
   - CleanCode
 ---
 

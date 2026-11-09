@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "[React] React Render Phase & Commit Phase"
-tag:
+tags:
   - React
   - Translate
 ---

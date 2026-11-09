@@ -1,7 +1,6 @@
 ---
-layout: single
 title:  "React toy 프로젝트 개발 회고"
-tag : 
+tags: 
     - DevReview
 ---
 
@@ -80,7 +79,7 @@ tag :
 
 - python3.7
 
-데이터를 크롤링 하기 앞서 크롤링할 데이터가 어떤 구조인지 파악하였다. 크롤링 대상 페이지는 위에서 언급한 [산림조합중앙회 송이공판 현황 페이지](http://iforest.nfcf.or.kr/forest/user.tdf?a=user.songi.SongiApp&c=1001&mc=CYB_FIF_DGS_SNI_02&pmsh_item_c=01&sply_date=20191108&x=19&y=3)중 [공판현황 자세히 보기](iforest.nfcf.or.kr/forest/user.tdf?a=user.songi.SongiApp&c=1002&sply_date=20191108&pmsh_item_c=01&mc=CYB_FIF_DGS_SNI_02)항목이였다.
+데이터를 크롤링 하기 앞서 크롤링할 데이터가 어떤 구조인지 파악하였다. 크롤링 대상 페이지는 위에서 언급한 [산림조합중앙회 송이공판 현황 페이지](http://iforest.nfcf.or.kr/forest/user.tdf?a=user.songi.SongiApp&c=1001&mc=CYB_FIF_DGS_SNI_02&pmsh_item_c=01&sply_date=20191108&x=19&y=3)중 [공판현황 자세히 보기](http://iforest.nfcf.or.kr/forest/user.tdf?a=user.songi.SongiApp&c=1002&sply_date=20191108&pmsh_item_c=01&mc=CYB_FIF_DGS_SNI_02)항목이였다.
 
 해당 페이지는 단순한 구조로 공판일자 콤보박스에서 원하는 날짜를 선택하고 `이동` 버튼을 누르면 get 요청이 날아가 데이터를 불러오는 구조였다. 파라미터를 확인 해보니 아래와 같았다.
 
@@ -139,7 +138,7 @@ Nodejs를 사용하면서 [CallBack Hell](http://callbackhell.com/)이란 말을
 
 [Node.js 이벤트루프 제대로 이해하기](https://tk-one.github.io/2019/02/07/nodejs-event-loop/)
 
-[js-async-await](1https://joshua1988.github.io/web-development/javascript/js-async-await/)
+[js-async-await](https://joshua1988.github.io/web-development/javascript/js-async-await/)
 
 [google-async-functions](https://developers.google.com/web/fundamentals/primers/async-functions?hl=ko)
 

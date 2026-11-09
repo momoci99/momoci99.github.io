@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "Hackerrank Arrays DS"
-tag:
+tags:
   - Array
   - Hackerrank
 ---

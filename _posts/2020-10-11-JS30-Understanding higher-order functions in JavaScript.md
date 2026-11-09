@@ -1,8 +1,7 @@
 ---
-layout: single
 title: 'Understanding higher-order functions in JavaScript'
-tag:
-  - javascript
+tags:
+  - JavaScript
   - 30secondsofcode
 ---
 
