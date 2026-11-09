@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "코딩 테스트 연습 중간 점검"
-tag:
+tags:
   - 코딩 테스트
 ---
 

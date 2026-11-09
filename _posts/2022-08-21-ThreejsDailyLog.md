@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "React에서 threejs 사용 및 삽질"
-tag:
+tags:
   - threejs
 ---
 

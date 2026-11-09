@@ -1,7 +1,7 @@
 ---
-layout: single
+render_with_liquid: false
 title: "단축키 관련 라이브러리"
-tag:
+tags:
   - Web
   - React
   - HotKey

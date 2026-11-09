@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "개발 3년차의 Team Lead 이야기"
-tag:
+tags:
   - Review
 ---
 

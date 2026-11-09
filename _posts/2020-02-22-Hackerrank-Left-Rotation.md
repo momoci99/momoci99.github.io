@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "Hackerrank Left Rotation"
-tag:
+tags:
   - Array
   - Hackerrank
 ---

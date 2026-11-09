@@ -1,7 +1,6 @@
 ---
-layout: single
 title:  "AWS Transcribe / Translate / Polly"
-tag : 
+tags: 
     - AWS
 ---
 

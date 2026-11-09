@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "React 17 to 18 migration"
-tag:
+tags:
   - React
 ---
 

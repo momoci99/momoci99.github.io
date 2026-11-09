@@ -1,7 +1,6 @@
 ---
-layout: single
 title: '2020년 11월 회고'
-tag:
+tags:
   - Review
 ---
 

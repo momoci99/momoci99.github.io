@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "1년 회고"
-tag:
+tags:
   - YearReview
 ---
 

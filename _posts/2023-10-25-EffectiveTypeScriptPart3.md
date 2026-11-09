@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "[Typescript] Effective Typescript 3장 - 타입 추론"
-tag:
+tags:
   - Effective Typescript
 ---
 

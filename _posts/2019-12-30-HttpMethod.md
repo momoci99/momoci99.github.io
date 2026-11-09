@@ -1,7 +1,6 @@
 ---
-layout: single
 title:  "HTTP reqeust method 정리"
-tag : 
+tags: 
     - HTTP
 ---
 

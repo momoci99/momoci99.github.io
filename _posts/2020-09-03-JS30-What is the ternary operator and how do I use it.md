@@ -1,8 +1,7 @@
 ---
-layout: single
 title: 'What is the ternary operator and how do I use it?'
-tag:
-  - javascript
+tags:
+  - JavaScript
   - 30secondsofcode
 ---
 

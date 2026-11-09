@@ -1,7 +1,6 @@
 ---
-layout: single
 title:  "GitPage에 구글 애널리틱스 적용"
-tag : 
+tags: 
     - GoogleAnalytics
 ---
 

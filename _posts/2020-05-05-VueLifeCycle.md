@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "Vue Life Cycle"
-tag:
+tags:
   - Vue
   - LifeCycle
 ---

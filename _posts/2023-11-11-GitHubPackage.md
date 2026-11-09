@@ -1,7 +1,7 @@
 ---
-layout: single
+render_with_liquid: false
 title: "Github Package"
-tag:
+tags:
   - github
 ---
 

@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "Book review - 가상 면접 사례로 배우는 대규모 시스템 기초  (1장 사용자 수에 따른 규모확장성)"
-tag:
+tags:
   - Review
 ---
 

@@ -1,8 +1,7 @@
 ---
-layout: single
 title: 'palindrome'
-tag:
-  - javascript
+tags:
+  - JavaScript
   - 30secondsofcode
 ---
 

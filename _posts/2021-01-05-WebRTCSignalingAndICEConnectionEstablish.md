@@ -1,7 +1,6 @@
 ---
-layout: single
 title: 'WebRTC signaling and ICE connection establish'
-tag:
+tags:
   - WebRTC
 ---
 

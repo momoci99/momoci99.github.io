@@ -1,7 +1,6 @@
 ---
-layout: single
 title:  "Hackerrank Minimum Swaps 2"
-tag : 
+tags: 
     - Array
     - Hackerrank
 ---

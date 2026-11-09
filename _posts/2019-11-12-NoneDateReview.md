@@ -1,5 +1,4 @@
 ---
-layout: single
 title:  "비정기 회고"
 ---
 

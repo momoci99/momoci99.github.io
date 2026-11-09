@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "[Typescript] Effective Typescript 2장 - 타입스크립트의 타입시스템"
-tag:
+tags:
   - Effective Typescript
 ---
 

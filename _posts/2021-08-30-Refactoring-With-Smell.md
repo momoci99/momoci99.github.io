@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "리팩토링 - 코드에서 나는 악취를 찾아서"
-tag:
+tags:
   - Refactoring
 ---
 

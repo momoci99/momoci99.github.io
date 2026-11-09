@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "2023년 회고"
-tag:
+tags:
   - 회고
 ---
 

@@ -1,5 +1,5 @@
 ---
-layout: single
+render_with_liquid: false
 title:  "Jest And Vue"
 ---
 

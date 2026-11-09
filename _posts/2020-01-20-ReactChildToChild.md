@@ -1,7 +1,7 @@
 ---
-layout: single
+render_with_liquid: false
 title: "[React][ContextAPI] Child -> Child 로 데이터 전달하는방법"
-tag:
+tags:
   - React
   - Context
   - React Hook API

@@ -1,5 +1,4 @@
 ---
-layout: single
 title:  "GitHub 저장소 정리 1"
 ---
 

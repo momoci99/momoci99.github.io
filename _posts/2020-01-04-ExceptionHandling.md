@@ -1,7 +1,6 @@
 ---
-layout: single
 title:  "예외처리 이야기"
-tag : 
+tags: 
     - Exception
     
 ---

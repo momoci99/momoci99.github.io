@@ -1,7 +1,7 @@
 ---
-layout: single
+permalink: /YearReview-2019/
 title:  "Review"
-tag : 
+tags: 
     - Review
     - YearReview
 ---

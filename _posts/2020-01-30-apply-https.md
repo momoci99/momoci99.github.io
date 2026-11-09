@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "[Nginx][HTTPS] Nginx에 HTTPS 적용하기"
-tag:
+tags:
   - Ngix
   - HTTPS
 ---

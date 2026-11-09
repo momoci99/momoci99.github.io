@@ -1,7 +1,6 @@
 ---
-layout: single
 title:  "Hackerrank Two Strings"
-tag : 
+tags: 
     - Dictionaries and Hashmaps
     - Hackerrank
 ---

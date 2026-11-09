@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "Prioritized Task Scheduling API 훑어보기"
-tag:
+tags:
   - Web API
   - Prioritized Task Scheduling API
 ---

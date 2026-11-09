@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "WebRTC 혼잡 제어 알고리즘 & GCC"
-tag:
+tags:
   - WebRTC
 ---
 

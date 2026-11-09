@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "순열에 대하여"
-tag:
+tags:
   - Algorithm
   - Permutation
 ---

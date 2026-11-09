@@ -1,8 +1,7 @@
 ---
-layout: single
 title: 'MediaSteram API'
-tag:
-  - javascript
+tags:
+  - JavaScript
   - MediaStream
 ---
 

@@ -1,8 +1,7 @@
 ---
-layout: single
 title: 'objectToQueryString'
-tag:
-  - javascript
+tags:
+  - JavaScript
   - 30secondsofcode
 ---
 

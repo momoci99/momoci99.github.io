@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "[Typescript] Effective Typescript 4장 - 타입 설계"
-tag:
+tags:
   - Effective Typescript
 ---
 

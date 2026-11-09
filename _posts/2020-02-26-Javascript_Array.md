@@ -1,9 +1,8 @@
 ---
-layout: single
 title:  "Javascript Array 가볍게 정리"
-tag : 
+tags: 
     - Array
-    - Javascript
+    - JavaScript
 ---
 
 # 들어가며..

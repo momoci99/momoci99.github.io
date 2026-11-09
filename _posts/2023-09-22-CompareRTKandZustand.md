@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "[React] Zustand & Redux Toolkit사용후기"
-tag:
+tags:
   - React
   - Zustand
   - Redux Toolkit

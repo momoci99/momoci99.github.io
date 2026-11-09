@@ -1,7 +1,6 @@
 ---
-layout: single
 title: "Media Recorder mp4"
-tag:
+tags:
   - MediaRecorder
   - WindowMediaPlayer
 ---
